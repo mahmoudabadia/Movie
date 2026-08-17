@@ -1,5 +1,27 @@
 {
-  "homeScreen": "الصفحة الرئيسيه",
-  "welcome": "مرحبا فى الصفحة الرئيسيه"
-
+  "alreadyHaveAccount": "لديك حساب بالفعل ؟ ",
+  "avatar": "الصورة الشخصية",
+  "confirmPassword": "تأكيد كلمة المرور",
+  "createAccount": "إنشاء الحساب",
+  "createOne": "إنشاء حساب جديد",
+  "dontHaveAccount": "ليس لديك حساب ؟ ",
+  "editProfile": "تعديل الملف الشخصي",
+  "email": "البريد الإلكتروني",
+  "exit": "خروج",
+  "forgetPassword": "نسيت كلمة المرور ؟",
+  "forgetPasswordTitle": "نسيان كلمة المرور",
+  "history": "السجل",
+  "homeScreen": "الشاشة الرئيسية",
+  "login": "تسجيل الدخول",
+  "loginWithGoogle": "تسجيل الدخول باستخدام جوجل",
+  "name": "الاسم",
+  "or": "أو",
+  "password": "كلمة المرور",
+  "phoneNumber": "رقم الهاتف",
+  "register": "إنشاء حساب",
+  "search": "بحث",
+  "seeMore": "عرض المزيد",
+  "verifyEmail": "التحقق من البريد الإلكتروني",
+  "watchList": "قائمة المشاهدة",
+  "welcome": "مرحباً بك في الشاشة الرئيسية"
 }
