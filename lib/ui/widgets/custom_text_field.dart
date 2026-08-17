@@ -47,6 +47,8 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
+        filled: fill ?? true,
+        fillColor: fillColor ?? AppColors.grayColor,
         enabledBorder: builtDecorationItem(
           redius: redius ?? 16,
           borderColor: borderColor ?? AppColors.whiteColor,
@@ -67,10 +69,10 @@ class CustomTextField extends StatelessWidget {
         hintStyle: hintStyle,
         labelText: labelText,
         labelStyle: labelStyle,
-        fillColor: fillColor,
 
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
+
       ),
       maxLines: maxLines,
       controller: controller,
@@ -78,6 +80,8 @@ class CustomTextField extends StatelessWidget {
       validator: validator,
       keyboardType: keyboardType,
       obscureText: obscureText,
+      cursorColor: AppColors.whiteColor,
+
 
 
     );

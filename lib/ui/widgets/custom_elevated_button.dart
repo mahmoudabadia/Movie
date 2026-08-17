@@ -10,6 +10,9 @@ class CustomElevatedButton extends StatelessWidget {
   final double? redius;
   final Color? sideColor;
   final double? verticalPadding;
+  final double? horizontalPadding;
+
+
 
   const CustomElevatedButton({
     super.key,
@@ -19,6 +22,8 @@ class CustomElevatedButton extends StatelessWidget {
     this.redius,
     this.verticalPadding,
     this.sideColor,
+    this.horizontalPadding,
+
   });
 
   @override
@@ -26,7 +31,7 @@ class CustomElevatedButton extends StatelessWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: backgroundColor ?? AppColors.whiteColor,
-        padding: EdgeInsets.symmetric(vertical: verticalPadding ?? 0),
+        padding: EdgeInsets.symmetric(vertical: verticalPadding ?? 0, horizontal: horizontalPadding ?? 0),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(redius ?? 16),
           side: BorderSide(

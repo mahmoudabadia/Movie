@@ -1,5 +1,12 @@
 {
   "homeScreen": "Home Screen",
-  "welcome": "Welcome to the Home Screen"
+  "welcome": "Welcome to the Home Screen",
+  "seeMore": "See More",
+  "watchList": "Watch List",
+  "history": "History",
+  "exit": "Exit",
+  "editProfile": "Edit Profile",
+  "search": "Search"
+
 
 }
