@@ -23,7 +23,7 @@ class ProfileTab extends StatelessWidget {
         body: Column(
           children: [
             Expanded(
-              flex: 4,
+              flex: 5,
               child: Container(
                 color: AppColors.grayColor,
                 padding: EdgeInsets.only(
