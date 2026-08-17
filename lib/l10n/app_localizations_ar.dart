@@ -13,4 +13,22 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get welcome => 'مرحبا فى الصفحة الرئيسيه';
+
+  @override
+  String get seeMore => 'See More';
+
+  @override
+  String get watchList => 'Watch List';
+
+  @override
+  String get history => 'History';
+
+  @override
+  String get exit => 'Exit';
+
+  @override
+  String get editProfile => 'Edit Profile';
+
+  @override
+  String get search => 'Search';
 }

@@ -13,4 +13,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get welcome => 'Welcome to the Home Screen';
+
+  @override
+  String get seeMore => 'See More';
+
+  @override
+  String get watchList => 'Watch List';
+
+  @override
+  String get history => 'History';
+
+  @override
+  String get exit => 'Exit';
+
+  @override
+  String get editProfile => 'Edit Profile';
+
+  @override
+  String get search => 'Search';
 }
