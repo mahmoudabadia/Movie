@@ -6,6 +6,7 @@ abstract final class AppColors {
   static const Color whiteColor = Color(0xFFFFFFFF);
   static const Color grayColor = Color(0xFF282A28);
   static const Color redColor = Color(0xFFE82626);
+  static const Color transparent = Color(0x00000000);
   /// color for selected avatar =>
   static final Color lightYelloColor = AppColors.yelloColor.withValues(alpha: 0.56);
 }
