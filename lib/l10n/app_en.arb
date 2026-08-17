@@ -1,12 +1,27 @@
 {
-  "homeScreen": "Home Screen",
-  "welcome": "Welcome to the Home Screen",
-  "seeMore": "See More",
-  "watchList": "Watch List",
-  "history": "History",
-  "exit": "Exit",
+  "alreadyHaveAccount": "Already Have Account ? ",
+  "avatar": "Avatar",
+  "confirmPassword": "Confirm Password",
+  "createAccount": "Create Account",
+  "createOne": "Create One",
+  "dontHaveAccount": "Don't Have Account ? ",
   "editProfile": "Edit Profile",
-  "search": "Search"
-
-
+  "email": "Email",
+  "exit": "Exit",
+  "forgetPassword": "Forget Password ?",
+  "forgetPasswordTitle": "Forget Password",
+  "history": "History",
+  "homeScreen": "Home Screen",
+  "login": "Login",
+  "loginWithGoogle": "Login With Google",
+  "name": "Name",
+  "or": "OR",
+  "password": "Password",
+  "phoneNumber": "Phone Number",
+  "register": "Register",
+  "search": "Search",
+  "seeMore": "See More",
+  "verifyEmail": "Verify Email",
+  "watchList": "Watch List",
+  "welcome": "Welcome to the Home Screen"
 }

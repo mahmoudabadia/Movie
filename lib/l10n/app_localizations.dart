@@ -98,41 +98,41 @@ abstract class AppLocalizations {
     Locale('en'),
   ];
 
-  /// No description provided for @homeScreen.
+  /// No description provided for @alreadyHaveAccount.
   ///
   /// In en, this message translates to:
-  /// **'Home Screen'**
-  String get homeScreen;
+  /// **'Already Have Account ? '**
+  String get alreadyHaveAccount;
 
-  /// No description provided for @welcome.
+  /// No description provided for @avatar.
   ///
   /// In en, this message translates to:
-  /// **'Welcome to the Home Screen'**
-  String get welcome;
+  /// **'Avatar'**
+  String get avatar;
 
-  /// No description provided for @seeMore.
+  /// No description provided for @confirmPassword.
   ///
   /// In en, this message translates to:
-  /// **'See More'**
-  String get seeMore;
+  /// **'Confirm Password'**
+  String get confirmPassword;
 
-  /// No description provided for @watchList.
+  /// No description provided for @createAccount.
   ///
   /// In en, this message translates to:
-  /// **'Watch List'**
-  String get watchList;
+  /// **'Create Account'**
+  String get createAccount;
 
-  /// No description provided for @history.
+  /// No description provided for @createOne.
   ///
   /// In en, this message translates to:
-  /// **'History'**
-  String get history;
+  /// **'Create One'**
+  String get createOne;
 
-  /// No description provided for @exit.
+  /// No description provided for @dontHaveAccount.
   ///
   /// In en, this message translates to:
-  /// **'Exit'**
-  String get exit;
+  /// **'Don\'t Have Account ? '**
+  String get dontHaveAccount;
 
   /// No description provided for @editProfile.
   ///
@@ -140,11 +140,113 @@ abstract class AppLocalizations {
   /// **'Edit Profile'**
   String get editProfile;
 
+  /// No description provided for @email.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get email;
+
+  /// No description provided for @exit.
+  ///
+  /// In en, this message translates to:
+  /// **'Exit'**
+  String get exit;
+
+  /// No description provided for @forgetPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Forget Password ?'**
+  String get forgetPassword;
+
+  /// No description provided for @forgetPasswordTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Forget Password'**
+  String get forgetPasswordTitle;
+
+  /// No description provided for @history.
+  ///
+  /// In en, this message translates to:
+  /// **'History'**
+  String get history;
+
+  /// No description provided for @homeScreen.
+  ///
+  /// In en, this message translates to:
+  /// **'Home Screen'**
+  String get homeScreen;
+
+  /// No description provided for @login.
+  ///
+  /// In en, this message translates to:
+  /// **'Login'**
+  String get login;
+
+  /// No description provided for @loginWithGoogle.
+  ///
+  /// In en, this message translates to:
+  /// **'Login With Google'**
+  String get loginWithGoogle;
+
+  /// No description provided for @name.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get name;
+
+  /// No description provided for @or.
+  ///
+  /// In en, this message translates to:
+  /// **'OR'**
+  String get or;
+
+  /// No description provided for @password.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get password;
+
+  /// No description provided for @phoneNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone Number'**
+  String get phoneNumber;
+
+  /// No description provided for @register.
+  ///
+  /// In en, this message translates to:
+  /// **'Register'**
+  String get register;
+
   /// No description provided for @search.
   ///
   /// In en, this message translates to:
   /// **'Search'**
   String get search;
+
+  /// No description provided for @seeMore.
+  ///
+  /// In en, this message translates to:
+  /// **'See More'**
+  String get seeMore;
+
+  /// No description provided for @verifyEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Verify Email'**
+  String get verifyEmail;
+
+  /// No description provided for @watchList.
+  ///
+  /// In en, this message translates to:
+  /// **'Watch List'**
+  String get watchList;
+
+  /// No description provided for @welcome.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome to the Home Screen'**
+  String get welcome;
 }
 
 class _AppLocalizationsDelegate
