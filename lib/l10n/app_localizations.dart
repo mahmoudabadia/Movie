@@ -251,7 +251,7 @@ abstract class AppLocalizations {
   /// No description provided for @titleMain.
   ///
   /// In en, this message translates to:
-  /// **'Find Your Next\\nFavorite Movie Here'**
+  /// **'Find Your Next\nFavorite Movie Here'**
   String get titleMain;
 
   /// No description provided for @descMain.

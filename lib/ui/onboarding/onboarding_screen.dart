@@ -16,7 +16,7 @@ class OnboardingScreen extends StatefulWidget {
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
   final PageController _pageController = PageController();
-  int _currentIndex = 0;
+  int currentIndex = 0;
 
   late final List<OnboardingModel> onboardingList = [
     OnboardingModel(
@@ -28,7 +28,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         end: Alignment.bottomCenter,
         colors: [
           AppColors.blackColor.withValues(alpha: 0.2),
-          AppColors.blackColor.withValues(alpha: 0.8),
+          AppColors.blackColor.withValues(alpha: 0.9),
           AppColors.blackColor,
         ],
         stops: const [0.0, 0.6, 1.0],
@@ -128,7 +128,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             itemCount: onboardingList.length,
             onPageChanged: (index) {
               setState(() {
-                _currentIndex = index;
+                currentIndex = index;
               });
             },
             itemBuilder: (context, index) {
@@ -158,9 +158,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 horizontal: 20.0,
                 vertical: 24.0,
               ),
-              decoration: const BoxDecoration(
-                color: AppColors.blackColor,
-                borderRadius: BorderRadius.only(
+              decoration: BoxDecoration(
+                color: currentIndex == 0
+                    ? AppColors.transparent
+                    : AppColors.blackColor,
+                borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(30),
                   topRight: Radius.circular(30),
                 ),
@@ -170,14 +172,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Text(
-                    onboardingList[_currentIndex].title,
+                    onboardingList[currentIndex].title,
                     textAlign: TextAlign.center,
                     style: AppTextStyles.bold24White,
                   ),
-                  if (onboardingList[_currentIndex].description != null) ...[
+                  if (onboardingList[currentIndex].description != null) ...[
                     const SizedBox(height: 12),
                     Text(
-                      onboardingList[_currentIndex].description!,
+                      onboardingList[currentIndex].description!,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: AppColors.whiteColor.withValues(alpha: 0.7),
@@ -188,15 +190,16 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   const SizedBox(height: 24),
                   ElevatedButton(
                     onPressed: () {
-                      if (_currentIndex < onboardingList.length - 1) {
+                      if (currentIndex < onboardingList.length - 1) {
                         _pageController.nextPage(
                           duration: const Duration(milliseconds: 300),
                           curve: Curves.easeInOut,
                         );
                       } else {
-                        Navigator.pushReplacementNamed(context, AppRoutes.homeRouteName);
-
-
+                        Navigator.pushReplacementNamed(
+                          context,
+                          AppRoutes.homeRouteName,
+                        );
                       }
                     },
                     style: ElevatedButton.styleFrom(
@@ -207,15 +210,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       ),
                     ),
                     child: Text(
-                      _currentIndex == 0
+                      currentIndex == 0
                           ? AppLocalizations.of(context)!.exploreNow
-                          : _currentIndex == onboardingList.length - 1
+                          : currentIndex == onboardingList.length - 1
                           ? AppLocalizations.of(context)!.finish
                           : AppLocalizations.of(context)!.next,
                       style: AppTextStyles.semiBold20Black,
                     ),
                   ),
-                  if (_currentIndex > 0) ...[
+                  if (currentIndex > 0) ...[
                     const SizedBox(height: 12),
                     OutlinedButton(
                       onPressed: () {
