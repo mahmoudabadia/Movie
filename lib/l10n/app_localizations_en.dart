@@ -84,7 +84,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get welcome => 'Welcome to the Home Screen';
 
   @override
-  String get titleMain => 'Find Your Next\\nFavorite Movie Here';
+  String get titleMain => 'Find Your Next\nFavorite Movie Here';
 
   @override
   String get descMain =>
