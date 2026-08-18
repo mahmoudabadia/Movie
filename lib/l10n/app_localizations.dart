@@ -247,6 +247,96 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Welcome to the Home Screen'**
   String get welcome;
+
+  /// No description provided for @titleMain.
+  ///
+  /// In en, this message translates to:
+  /// **'Find Your Next\\nFavorite Movie Here'**
+  String get titleMain;
+
+  /// No description provided for @descMain.
+  ///
+  /// In en, this message translates to:
+  /// **'Get access to a huge library of movies to suit all tastes. You will surely like it.'**
+  String get descMain;
+
+  /// No description provided for @titleOne.
+  ///
+  /// In en, this message translates to:
+  /// **'Discover Movies'**
+  String get titleOne;
+
+  /// No description provided for @descOne.
+  ///
+  /// In en, this message translates to:
+  /// **'Explore a vast collection of movies in all qualities and genres. Find your next favorite film with ease.'**
+  String get descOne;
+
+  /// No description provided for @titleTwo.
+  ///
+  /// In en, this message translates to:
+  /// **'Explore All Genres'**
+  String get titleTwo;
+
+  /// No description provided for @descTwo.
+  ///
+  /// In en, this message translates to:
+  /// **'Discover movies from every genre, in all available qualities. Find something new and exciting to watch every day.'**
+  String get descTwo;
+
+  /// No description provided for @titleThree.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Watchlists'**
+  String get titleThree;
+
+  /// No description provided for @descThree.
+  ///
+  /// In en, this message translates to:
+  /// **'Save movies to your watchlist to keep track of what you want to watch next. Enjoy films in various qualities and genres.\''**
+  String get descThree;
+
+  /// No description provided for @titleFour.
+  ///
+  /// In en, this message translates to:
+  /// **'Rate, Review, and Learn'**
+  String get titleFour;
+
+  /// No description provided for @descFour.
+  ///
+  /// In en, this message translates to:
+  /// **'Share your thoughts on the movies you\\\'ve watched. Dive deep into film details and help others discover great movies with your reviews.'**
+  String get descFour;
+
+  /// No description provided for @titleFive.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Watching Now'**
+  String get titleFive;
+
+  /// No description provided for @exploreNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Explore Now'**
+  String get exploreNow;
+
+  /// No description provided for @finish.
+  ///
+  /// In en, this message translates to:
+  /// **'Finish'**
+  String get finish;
+
+  /// No description provided for @next.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get next;
+
+  /// No description provided for @back.
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get back;
 }
 
 class _AppLocalizationsDelegate
