@@ -8,9 +8,9 @@ import 'package:movie_app/ui/home/tabs/profile_tab/profile_tab.dart' show Profil
 import 'package:movie_app/ui/home/tabs/prowse_tab/prowse_tab.dart';
 import 'package:movie_app/ui/home/tabs/search_tab/search_tab.dart';
 import 'package:movie_app/ui/onboarding/onboarding_screen.dart';
+import 'package:movie_app/ui/splash/splash_screen.dart';
 import 'package:movie_app/utils/app_routes.dart';
 import 'l10n/app_localizations.dart';
-import 'ui/authentication/riegister_screen/rigester_screen.dart';
 
 
 void main() async {
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: AppRoutes.onboardingRouteName,
+      initialRoute: AppRoutes.splashRouteName,
       routes: {
         AppRoutes.homeRouteName: (context) => HomeScreen(),
         AppRoutes.homeTabRouteName: (context) => HomeTab(),
@@ -37,6 +37,7 @@ class MyApp extends StatelessWidget {
         AppRoutes.forgetPassRouteName: (context) => ForgetPasswordScreen(),
         AppRoutes.registerRouteName: (context) => RegisterScreen(),
         AppRoutes.onboardingRouteName: (context) => OnboardingScreen(),
+        AppRoutes.splashRouteName: (context) => SplashScreen(),
       },
 
       localizationsDelegates: AppLocalizations.localizationsDelegates,

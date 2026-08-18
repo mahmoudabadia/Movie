@@ -82,4 +82,54 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get welcome => 'مرحباً بك في الشاشة الرئيسية';
+
+  @override
+  String get titleMain => 'Find Your Next\\nFavorite Movie Here';
+
+  @override
+  String get descMain =>
+      'Get access to a huge library of movies to suit all tastes. You will surely like it.';
+
+  @override
+  String get titleOne => 'Discover Movies';
+
+  @override
+  String get descOne =>
+      'Explore a vast collection of movies in all qualities and genres. Find your next favorite film with ease.';
+
+  @override
+  String get titleTwo => 'Explore All Genres';
+
+  @override
+  String get descTwo =>
+      'Discover movies from every genre, in all available qualities. Find something new and exciting to watch every day.';
+
+  @override
+  String get titleThree => 'Create Watchlists';
+
+  @override
+  String get descThree =>
+      'Save movies to your watchlist to keep track of what you want to watch next. Enjoy films in various qualities and genres.\'';
+
+  @override
+  String get titleFour => 'Rate, Review, and Learn';
+
+  @override
+  String get descFour =>
+      'Share your thoughts on the movies you\\\'ve watched. Dive deep into film details and help others discover great movies with your reviews.';
+
+  @override
+  String get titleFive => 'Start Watching Now';
+
+  @override
+  String get exploreNow => 'Explore Now';
+
+  @override
+  String get finish => 'Finish';
+
+  @override
+  String get next => 'Next';
+
+  @override
+  String get back => 'Back';
 }
