@@ -81,7 +81,7 @@ class _AvatarSelectorState extends State<AvatarSelector> {
                       radius: 48,
                       backgroundColor: AppColors.transparent,
                       backgroundImage: AssetImage(avatars[index]),
-                      onBackgroundImageError: (_, __) {},
+                      onBackgroundImageError: (_, _) {},
                     ),
                   ),
                 ),
@@ -94,9 +94,7 @@ class _AvatarSelectorState extends State<AvatarSelector> {
         // --- Avatar Label ---
         Text(
           localizations?.avatar ?? '',
-          style: AppTextStyles.regular16White.copyWith(
-            fontSize: 16,
-          ),
+          style: AppTextStyles.regular16White.copyWith(fontSize: 16),
         ),
       ],
     );
