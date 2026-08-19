@@ -38,7 +38,12 @@
   "exploreNow": "Explore Now",
   "finish": "Finish",
   "next": "Next",
-  "back": "Back"
+  "back": "Back",
+  "pick": "pick Avatar",
+  "reset" : "Reset Password",
+  "delete" : "Delete Account",
+  "update" : "Update Data"
+
 
 
 }
