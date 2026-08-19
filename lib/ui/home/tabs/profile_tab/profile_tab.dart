@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/ui/home/tabs/profile_tab/update_profile/create_update_profile.dart';
 import 'package:movie_app/ui/home/tabs/profile_tab/watch_list.dart';
+import 'package:movie_app/utils/app_routes.dart';
 
 import '../../../../l10n/app_localizations.dart';
 import '../../../../utils/app_assets.dart';
@@ -86,13 +86,10 @@ class ProfileTab extends StatelessWidget {
                           flex: 7,
                           child: CustomElevatedButton(
                             onPressed: () {
-                              Navigator.push(
+                              Navigator.pushNamed(
                                 context,
-                                MaterialPageRoute(
-                                  builder: (context) => CreateUpdate(),
-                                ),
+                                AppRoutes.createUpdateRouteName,
                               );
-                              //todo: update profile
                             },
                             backgroundColor: AppColors.yelloColor,
                             sideColor: AppColors.yelloColor,

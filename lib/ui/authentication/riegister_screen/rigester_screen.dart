@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../utils/app_assets.dart';
 import '../../../utils/app_colors.dart';
+import '../../../utils/app_routes.dart';
 import '../../../utils/app_text_styles.dart';
 import '../../../utils/size_utils.dart';
 import '../../widgets/custom_elevated_button.dart';
@@ -70,6 +71,8 @@ class RegisterScreen extends StatelessWidget {
 
               // --- Email Field ---
               CustomTextField(
+                textStyle: AppTextStyles.regular16White,
+
                 hintText: localizations?.email ?? '',
                 hintStyle: AppTextStyles.regular16White,
                 fillColor: AppColors.grayColor,
@@ -84,6 +87,8 @@ class RegisterScreen extends StatelessWidget {
 
               // --- Password Field ---
               CustomTextField(
+                textStyle: AppTextStyles.regular16White,
+
                 hintText: localizations?.password ?? '',
                 hintStyle: AppTextStyles.regular16White,
                 fillColor: AppColors.grayColor,
@@ -102,6 +107,8 @@ class RegisterScreen extends StatelessWidget {
 
               // --- Confirm Password Field ---
               CustomTextField(
+                textStyle: AppTextStyles.regular16White,
+
                 hintText: localizations?.confirmPassword ?? '',
                 hintStyle: AppTextStyles.regular16White,
                 fillColor: AppColors.grayColor,
@@ -120,6 +127,8 @@ class RegisterScreen extends StatelessWidget {
 
               // --- Phone Number Field ---
               CustomTextField(
+                textStyle: AppTextStyles.regular16White,
+
                 hintText: localizations?.phoneNumber ?? '',
                 hintStyle: AppTextStyles.regular16White,
                 fillColor: AppColors.grayColor,
@@ -142,14 +151,16 @@ class RegisterScreen extends StatelessWidget {
                   verticalPadding: 14,
                   onPressed: () {
                     // TODO: Implement registration logic
+                    Navigator.pushReplacementNamed(context, AppRoutes.homeRouteName);
+
                   },
                   child: Text(
                     localizations?.createAccount ?? '',
                     style: AppTextStyles.bold20Black,
                   ),
                 ),
-              )
-              ,SizedBox(height: screenHeight * 0.02),
+              ),
+              SizedBox(height: screenHeight * 0.02),
 
               // --- Already Have Account Row ---
               Row(

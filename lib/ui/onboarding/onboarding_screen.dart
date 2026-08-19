@@ -198,7 +198,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       } else {
                         Navigator.pushReplacementNamed(
                           context,
-                          AppRoutes.homeRouteName,
+                          AppRoutes.loginRouteName
                         );
                       }
                     },
