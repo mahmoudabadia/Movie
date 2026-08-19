@@ -3,7 +3,7 @@ import 'package:movie_app/utils/app_assets.dart';
 import 'package:movie_app/utils/app_colors.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
-  CustomBottomNavigationBar({
+  const CustomBottomNavigationBar({
     super.key,
     required this.currentIndex,
     required this.onTap,
