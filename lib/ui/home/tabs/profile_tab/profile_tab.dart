@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/ui/home/tabs/profile_tab/update_profile/create_update_profile.dart';
 import 'package:movie_app/ui/home/tabs/profile_tab/watch_list.dart';
 
 import '../../../../l10n/app_localizations.dart';
@@ -8,8 +9,6 @@ import '../../../../utils/app_text_styles.dart';
 import '../../../../utils/size_utils.dart';
 import '../../../widgets/custom_elevated_button.dart';
 import 'history.dart';
-
-
 
 class ProfileTab extends StatelessWidget {
   const ProfileTab({super.key});
@@ -87,6 +86,12 @@ class ProfileTab extends StatelessWidget {
                           flex: 7,
                           child: CustomElevatedButton(
                             onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => CreateUpdate(),
+                                ),
+                              );
                               //todo: update profile
                             },
                             backgroundColor: AppColors.yelloColor,
@@ -117,7 +122,10 @@ class ProfileTab extends StatelessWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text(AppLocalizations.of(context)!.exit, style: AppTextStyles.regular20White),
+                                Text(
+                                  AppLocalizations.of(context)!.exit,
+                                  style: AppTextStyles.regular20White,
+                                ),
                                 SizedBox(width: context.width * 0.02),
                                 Icon(
                                   Icons.logout_outlined,
@@ -174,12 +182,7 @@ class ProfileTab extends StatelessWidget {
 
             Expanded(
               flex: 6,
-              child: TabBarView(
-                children: [
-                  WatchList(),
-                  History(),
-                ],
-              ),
+              child: TabBarView(children: [WatchList(), History()]),
             ),
           ],
         ),

@@ -4,14 +4,14 @@ import 'package:movie_app/ui/authentication/login_screen/login.dart';
 import 'package:movie_app/ui/authentication/riegister_screen/rigester_screen.dart';
 import 'package:movie_app/ui/home/home_screen.dart';
 import 'package:movie_app/ui/home/tabs/home_tab/home_tab.dart';
-import 'package:movie_app/ui/home/tabs/profile_tab/profile_tab.dart' show ProfileTab;
+import 'package:movie_app/ui/home/tabs/profile_tab/profile_tab.dart'
+    show ProfileTab;
 import 'package:movie_app/ui/home/tabs/prowse_tab/prowse_tab.dart';
 import 'package:movie_app/ui/home/tabs/search_tab/search_tab.dart';
 import 'package:movie_app/ui/onboarding/onboarding_screen.dart';
 import 'package:movie_app/ui/splash/splash_screen.dart';
 import 'package:movie_app/utils/app_routes.dart';
 import 'l10n/app_localizations.dart';
-
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: AppRoutes.splashRouteName,
+      initialRoute: AppRoutes.profileRouteName,
       routes: {
         AppRoutes.homeRouteName: (context) => HomeScreen(),
         AppRoutes.homeTabRouteName: (context) => HomeTab(),
@@ -46,6 +46,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
-
