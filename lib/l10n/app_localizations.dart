@@ -337,6 +337,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Back'**
   String get back;
+
+  /// No description provided for @pick.
+  ///
+  /// In en, this message translates to:
+  /// **'pick Avatar'**
+  String get pick;
+
+  /// No description provided for @reset.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset Password'**
+  String get reset;
+
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Account'**
+  String get delete;
+
+  /// No description provided for @update.
+  ///
+  /// In en, this message translates to:
+  /// **'Update Data'**
+  String get update;
 }
 
 class _AppLocalizationsDelegate

@@ -44,6 +44,8 @@ class LoginPage extends StatelessWidget {
 
               // --- Email Field ---
               CustomTextField(
+                textStyle: AppTextStyles.regular16White,
+
                 hintText: localizations?.email ?? '',
                 hintStyle: AppTextStyles.regular16White,
                 fillColor: AppColors.grayColor,
@@ -58,6 +60,8 @@ class LoginPage extends StatelessWidget {
 
               // --- Password Field ---
               CustomTextField(
+                textStyle: AppTextStyles.regular16White,
+
                 hintText: localizations?.password ?? '',
                 hintStyle: AppTextStyles.regular16White,
                 fillColor: AppColors.grayColor,
@@ -133,6 +137,7 @@ class LoginPage extends StatelessWidget {
                 verticalPadding: 14,
                 onPressed: () {
                   // TODO: Implement Google Sign-In logic
+                  Navigator.pushReplacementNamed(context, AppRoutes.homeRouteName);
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,

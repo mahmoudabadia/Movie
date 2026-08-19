@@ -76,6 +76,7 @@ class ForgetPasswordScreen extends StatelessWidget {
 
               // --- Email Form Field ---
               CustomTextField(
+                textStyle: AppTextStyles.regular16White,
                 hintText: localizations?.email ?? '',
                 hintStyle: AppTextStyles.regular16White,
                 fillColor: AppColors.grayColor,

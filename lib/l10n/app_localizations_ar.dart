@@ -132,4 +132,16 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get back => 'Back';
+
+  @override
+  String get pick => 'ختيار الصورة الشخصية';
+
+  @override
+  String get reset => 'إعادة تعيين كلمة المرور';
+
+  @override
+  String get delete => 'حذف الحساب';
+
+  @override
+  String get update => 'تحديث البيانات';
 }
