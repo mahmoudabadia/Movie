@@ -41,7 +41,9 @@ dependencies:
   provider: ^6.1.5+1
   flutter_native_splash: ^2.4.8
   palette_generator: ^0.3.3+7
-  firebase_core: ^4.13.0
+  firebase_core: ^4.14.0
+  firebase_auth: ^6.6.0
+  fluttertoast: ^10.0.0
 
 dev_dependencies:
   flutter_test:
