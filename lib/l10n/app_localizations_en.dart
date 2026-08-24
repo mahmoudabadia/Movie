@@ -109,14 +109,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get descThree =>
-      'Save movies to your watchlist to keep track of what you want to watch next. Enjoy films in various qualities and genres.\'';
+      'Save movies to your watchlist to keep track of what you want to watch next. Enjoy films in various qualities and genres.';
 
   @override
   String get titleFour => 'Rate, Review, and Learn';
 
   @override
   String get descFour =>
-      'Share your thoughts on the movies you\\\'ve watched. Dive deep into film details and help others discover great movies with your reviews.';
+      'Share your thoughts on the movies you\'ve watched. Dive deep into film details and help others discover great movies with your reviews.';
 
   @override
   String get titleFive => 'Start Watching Now';
@@ -165,4 +165,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get regSuccess => 'Registration successful';
+
+  @override
+  String get invalidCredentials => 'Invalid email or password.';
+
+  @override
+  String get networkError => 'Network error, please check your connection.';
+
+  @override
+  String get tooManyRequests => 'Too many attempts. Please try again later.';
+
+  @override
+  String get defaultAuthError => 'An error occurred, please try again.';
+
+  @override
+  String get emailAlreadyInUse => 'This email is already registered.';
+
+  @override
+  String get invalidEmail => 'Please enter a valid email address.';
+
+  @override
+  String get weakPassword => 'The password provided is too weak.';
 }

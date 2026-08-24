@@ -10,12 +10,12 @@ import '../../../utils/app_colors.dart';
 import '../../../utils/app_routes.dart';
 import '../../../utils/app_text_styles.dart';
 import '../../../utils/size_utils.dart';
+import '../../../utils/toast_utilis.dart';
 import '../../widgets/custom_elevated_button.dart';
 import '../../widgets/custom_text_field.dart';
 import '../login_screen/language_toggle_switch.dart';
 import 'avatar_selector.dart';
 
-// --- Register Screen Component ---
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
 
@@ -25,24 +25,17 @@ class RegisterScreen extends StatefulWidget {
 
 class _RegisterScreenState extends State<RegisterScreen> {
   var formKey = GlobalKey<FormState>();
-  TextEditingController emailController = TextEditingController(
 
-  );
-
+  TextEditingController emailController = TextEditingController();
   TextEditingController nameController = TextEditingController();
-
   TextEditingController passController = TextEditingController();
+  TextEditingController confirmedController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
 
-  TextEditingController confirmedController = TextEditingController(
-
-  );
-  TextEditingController phoneController = TextEditingController(
-
-  );
+  bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
-    // --- Responsive Dimensions & Localizations ---
     final double screenHeight = context.height;
     final double screenWidth = context.width;
     final localizations = AppLocalizations.of(context);
@@ -51,12 +44,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Scaffold(
       backgroundColor: AppColors.blackColor,
 
-      // --- App Bar ---
       appBar: AppBar(
         backgroundColor: AppColors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: AppColors.yelloColor),
+          icon: const Icon(Icons.arrow_back, color: AppColors.yelloColor),
           onPressed: () => Navigator.pop(context),
         ),
         title: Text(
@@ -68,7 +60,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
         centerTitle: true,
       ),
 
-      // --- Body ---
       body: SafeArea(
         child: SingleChildScrollView(
           padding: EdgeInsets.symmetric(
@@ -79,15 +70,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
             key: formKey,
             child: Column(
               children: [
-                // --- Avatar Selector ---
-                AvatarSelector(),
+                const AvatarSelector(),
                 SizedBox(height: screenHeight * 0.025),
 
-                // --- Name Field ---
                 CustomTextField(
                   controller: nameController,
                   textStyle: AppTextStyles.regular16White,
-
                   hintText: localizations?.name ?? '',
                   hintStyle: AppTextStyles.regular16White,
                   fillColor: AppColors.grayColor,
@@ -99,7 +87,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 SizedBox(height: screenHeight * 0.018),
 
-                // --- Email Field ---
                 CustomTextField(
                   validator: (text) {
                     if (text == null || text.trim().isEmpty) {
@@ -107,15 +94,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     }
                     final bool emailValid = RegExp(
                       r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
-                    ).hasMatch(emailController.text);
+                    ).hasMatch(emailController.text.trim());
                     if (!emailValid) {
-                      return "Please enter a valid email";
+                      return localizations?.invalidEmail ?? "Please enter a valid email";
                     }
                     return null;
                   },
                   controller: emailController,
                   textStyle: AppTextStyles.regular16White,
-
                   hintText: localizations?.email ?? '',
                   hintStyle: AppTextStyles.regular16White,
                   fillColor: AppColors.grayColor,
@@ -128,7 +114,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 SizedBox(height: screenHeight * 0.018),
 
-                // --- Password Field ---
                 CustomTextField(
                   controller: passController,
                   textStyle: AppTextStyles.regular16White,
@@ -137,11 +122,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       return "Please enter your password";
                     }
                     if (text.length < 6) {
-                      return "Password must be at least 6 characters";
+                      return localizations?.weakPassword ?? "Password must be at least 6 characters";
                     }
                     return null;
                   },
-
                   hintText: localizations?.password ?? '',
                   hintStyle: AppTextStyles.regular16White,
                   fillColor: AppColors.grayColor,
@@ -158,20 +142,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 SizedBox(height: screenHeight * 0.018),
 
-                // --- Confirm Password Field ---
                 CustomTextField(
                   controller: confirmedController,
                   textStyle: AppTextStyles.regular16White,
                   validator: (text) {
                     if (text == null || text.trim().isEmpty) {
-                      return "Please enter your password";
+                      return "Please confirm your password";
                     }
-                    if (text.length < 6) {
-                      return "Password must be at least 6 characters";
+                    if (text != passController.text) {
+                      return "Passwords do not match";
                     }
                     return null;
                   },
-
                   hintText: localizations?.confirmPassword ?? '',
                   hintStyle: AppTextStyles.regular16White,
                   fillColor: AppColors.grayColor,
@@ -188,7 +170,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 SizedBox(height: screenHeight * 0.018),
 
-                // --- Phone Number Field ---
                 CustomTextField(
                   controller: phoneController,
                   textStyle: AppTextStyles.regular16White,
@@ -204,7 +185,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 SizedBox(height: screenHeight * 0.03),
 
-                // --- Create Account Action Button ---
                 SizedBox(
                   width: double.infinity,
                   child: CustomElevatedButton(
@@ -212,10 +192,23 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     sideColor: AppColors.transparent,
                     redius: 15,
                     verticalPadding: 14,
-                    onPressed: () {
-                      register();
+                    onPressed: isLoading
+                        ? () {}
+                        : () {
+                      if (formKey.currentState?.validate() ?? true) {
+                        register();
+                      }
                     },
-                    child: Text(
+                    child: isLoading
+                        ? const SizedBox(
+                      height: 24,
+                      width: 24,
+                      child: CircularProgressIndicator(
+                        color: AppColors.blackColor,
+                        strokeWidth: 3.5,
+                      ),
+                    )
+                        : Text(
                       localizations?.createAccount ?? '',
                       style: AppTextStyles.bold20Black,
                     ),
@@ -223,7 +216,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 SizedBox(height: screenHeight * 0.02),
 
-                // --- Already Have Account Row ---
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -247,12 +239,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 SizedBox(height: screenHeight * 0.03),
 
-                // --- Language Toggle Switch ---
                 LanguageToggleSwitch(
                   currentLanguage: currentLang,
                   onLanguageChanged: (newLang) {
                     context.read<LanguageCubit>().toggleLanguage();
-                    // TODO: Implement language state change logic
                   },
                 ),
                 SizedBox(height: screenHeight * 0.02),
@@ -265,44 +255,83 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   Future<void> register() async {
+    setState(() {
+      isLoading = true;
+    });
+
     try {
-      DialogUtils.showLoading(context: context, loadingText: "Loading...");
-      final credential = await FirebaseAuth.instance
+      final registerFuture = FirebaseAuth.instance
           .createUserWithEmailAndPassword(
-            email: emailController.text,
-            password: passController.text,
-          );
-      DialogUtils.hideLoading(context: context);
-      DialogUtils.showMessage(
-        backgroundColor: AppColors.grayColor,
+        email: emailController.text.trim(),
+        password: passController.text,
+      );
+
+      final delayFuture = Future.delayed(const Duration(seconds: 2));
+
+      await Future.wait([registerFuture, delayFuture]);
+
+      if (!mounted) return;
+      ToastUtils.showCustomToast(
         context: context,
         message: AppLocalizations.of(context)!.regSuccess,
-        title: AppLocalizations.of(context)!.success,
-
-        posActionName: AppLocalizations.of(context)!.ok,
-        posAction: () {
-          Navigator.pushReplacementNamed(context, AppRoutes.homeRouteName);
-        },
-        negActionName: AppLocalizations.of(context)!.cancel,
-        negAction: () {
-        },
+        backgroundColor: AppColors.yelloColor,
+        textColor: AppColors.blackColor,
+        icon: Icons.check_circle,
+        iconColor: AppColors.blackColor,
       );
-    }
-    catch (e) {
-      DialogUtils.hideLoading(context: context);
+
+      Navigator.pushReplacementNamed(context, AppRoutes.homeRouteName);
+    } on FirebaseAuthException catch (e) {
+      if (!mounted) return;
+
+      setState(() {
+        isLoading = false;
+      });
+
       DialogUtils.showMessage(
         backgroundColor: AppColors.grayColor,
         context: context,
-        message: e.toString(),
+        message: getRegisterErrorMessage(e.code, context),
         title: AppLocalizations.of(context)!.error,
         posActionName: AppLocalizations.of(context)!.ok,
-        posAction: () {
-          Navigator.pop(context);
-        },
+        posAction: () {},
         negActionName: AppLocalizations.of(context)!.cancel,
-        negAction: () {
-        },
+        negAction: () {},
       );
+    } catch (e) {
+      if (!mounted) return;
+
+      setState(() {
+        isLoading = false;
+      });
+
+      DialogUtils.showMessage(
+        backgroundColor: AppColors.grayColor,
+        context: context,
+        message: AppLocalizations.of(context)!.defaultAuthError,
+        title: AppLocalizations.of(context)!.error,
+        posActionName: AppLocalizations.of(context)!.ok,
+        posAction: () {},
+        negActionName: AppLocalizations.of(context)!.cancel,
+        negAction: () {},
+      );
+    }
+  }
+
+  String getRegisterErrorMessage(String errorCode, BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
+
+    switch (errorCode) {
+      case 'email-already-in-use':
+        return localizations.emailAlreadyInUse;
+      case 'invalid-email':
+        return localizations.invalidEmail;
+      case 'weak-password':
+        return localizations.weakPassword;
+      case 'network-request-failed':
+        return localizations.networkError;
+      default:
+        return localizations.defaultAuthError;
     }
   }
 }

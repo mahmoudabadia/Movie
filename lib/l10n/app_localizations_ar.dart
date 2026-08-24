@@ -21,7 +21,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get createAccount => 'إنشاء حساب';
 
   @override
-  String get createOne => 'إنشاء حساب جديد';
+  String get createOne => 'أنشئ حساباً';
 
   @override
   String get dontHaveAccount => 'ليس لديك حساب؟ ';
@@ -39,13 +39,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get forgetPassword => 'نسيت كلمة المرور؟';
 
   @override
-  String get forgetPasswordTitle => 'نسيت كلمة المرور';
+  String get forgetPasswordTitle => 'نسيان كلمة المرور';
 
   @override
   String get history => 'السجل';
 
   @override
-  String get homeScreen => 'الرئيسية';
+  String get homeScreen => 'الشاشة الرئيسية';
 
   @override
   String get login => 'تسجيل الدخول';
@@ -66,7 +66,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get phoneNumber => 'رقم الهاتف';
 
   @override
-  String get register => 'إنشاء حساب';
+  String get register => 'إنشاء حساب جديد';
 
   @override
   String get search => 'بحث';
@@ -84,39 +84,39 @@ class AppLocalizationsAr extends AppLocalizations {
   String get welcome => 'مرحباً بك في الشاشة الرئيسية';
 
   @override
-  String get titleMain => 'اعثر على فيلمك المفضّل القادم هنا';
+  String get titleMain => 'إعثر على فيلمك\nالمفضل القادم هنا';
 
   @override
   String get descMain =>
-      'احصل على إمكانية الوصول إلى مكتبة ضخمة من الأفلام التي تناسب جميع الأذواق. ستعجبك بكل تأكيد.';
+      'احصل على إمكانية الوصول إلى مكتبة ضخمة من الأفلام لتناسب جميع الأذواق. بالتأكيد ستنال إعجابك.';
 
   @override
   String get titleOne => 'اكتشف الأفلام';
 
   @override
   String get descOne =>
-      'استكشف مجموعة واسعة من الأفلام بجميع الجودات والتصنيفات. اعثر على فيلمك المفضّل القادم بسهولة.';
+      'استكشف مجموعة واسعة من الأفلام بجميع الجودات والأنواع. إعثر على فيلمك المفضل القادم ببالغ السهولة.';
 
   @override
   String get titleTwo => 'استكشف جميع التصنيفات';
 
   @override
   String get descTwo =>
-      'اكتشف أفلاماً من كل تصنيف وبجميع الجودات المتاحة. اعثر على شيء جديد وممتع لمشاهدته كل يوم.';
+      'اكتشف أفلاماً من كل تصنيف، بجميع الجودات المتاحة. إعثر على شيء جديد ومثير لمشاهدته كل يوم.';
 
   @override
   String get titleThree => 'إنشاء قوائم المشاهدة';
 
   @override
   String get descThree =>
-      'احفظ الأفلام في قائمة المشاهدة الخاصة بك لمتابعة ما تريد مشاهدته لاحقاً. استمتع بالأفلام بمختلف الجودات والتصنيفات.';
+      'احفظ الأفلام في قائمة المشاهدة الخاصة بك لمتابعة ما تريد مشاهدته لاحقاً. استمتع بالأفلام بجودات وتصنيفات متعددة.';
 
   @override
-  String get titleFour => 'قيّم، راجع، واكتشف';
+  String get titleFour => 'قيّم، راجع، وتعلّم';
 
   @override
   String get descFour =>
-      'شارك أفكارك حول الأفلام التي شاهدتها. تعمق في تفاصيل الأفلام وساعد الآخرين على اكتشاف أفلام رائعة بمراجعاتك.';
+      'شارك آراءك حول الأفلام التي شاهدتها. تعمق في تفاصيل الأفلام وساعد الآخرين على اكتشاف أفلام رائعة بمراجعاتك.';
 
   @override
   String get titleFive => 'ابدأ المشاهدة الآن';
@@ -131,7 +131,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get next => 'التالي';
 
   @override
-  String get back => 'السابق';
+  String get back => 'رجوع';
 
   @override
   String get pick => 'اختر صورة شخصية';
@@ -164,5 +164,28 @@ class AppLocalizationsAr extends AppLocalizations {
   String get loading => 'جاري التحميل...';
 
   @override
-  String get regSuccess => 'تم التسجيل بنجاح';
+  String get regSuccess => 'تم إنشاء الحساب بنجاح';
+
+  @override
+  String get invalidCredentials =>
+      'البريد الإلكتروني أو كلمة المرور غير صحيحة.';
+
+  @override
+  String get networkError => 'خطأ في الشبكة، يرجى التأكد من الاتصال بالإنترنت.';
+
+  @override
+  String get tooManyRequests =>
+      'تم تجاوز عدد المحاولات المسموح بها، حاول لاحقاً.';
+
+  @override
+  String get defaultAuthError => 'حدث خطأ ما، يرجى المحاولة لاحقاً.';
+
+  @override
+  String get emailAlreadyInUse => 'هذا البريد الإلكتروني مستخدم بالفعل.';
+
+  @override
+  String get invalidEmail => 'يرجى إدخال بريد إلكتروني صالح.';
+
+  @override
+  String get weakPassword => 'كلمة المرور ضعيفة للغاية.';
 }
