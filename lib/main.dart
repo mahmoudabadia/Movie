@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/ui/authentication/forget_password_screen/forget_password_screen.dart';
 import 'package:movie_app/ui/authentication/login_screen/login.dart';
@@ -12,10 +13,12 @@ import 'package:movie_app/ui/home/tabs/search_tab/search_tab.dart';
 import 'package:movie_app/ui/onboarding/onboarding_screen.dart';
 import 'package:movie_app/ui/splash/splash_screen.dart';
 import 'package:movie_app/utils/app_routes.dart';
+import 'firebase_options.dart';
 import 'l10n/app_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   runApp(const MyApp());
 }
@@ -39,7 +42,7 @@ class MyApp extends StatelessWidget {
         AppRoutes.registerRouteName: (context) => RegisterScreen(),
         AppRoutes.onboardingRouteName: (context) => OnboardingScreen(),
         AppRoutes.splashRouteName: (context) => SplashScreen(),
-        AppRoutes.createUpdateRouteName:(context) => CreateUpdate()
+        AppRoutes.createUpdateRouteName: (context) => CreateUpdate(),
       },
 
       localizationsDelegates: AppLocalizations.localizationsDelegates,
