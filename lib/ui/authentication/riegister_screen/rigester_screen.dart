@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:movie_app/utils/dialog_utilis.dart';
 
 import '../../../l10n/app_localizations.dart';
 import '../../../utils/app_assets.dart';
@@ -12,8 +14,29 @@ import '../login_screen/language_toggle_switch.dart';
 import 'avatar_selector.dart';
 
 // --- Register Screen Component ---
-class RegisterScreen extends StatelessWidget {
+class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
+
+  @override
+  State<RegisterScreen> createState() => _RegisterScreenState();
+}
+
+class _RegisterScreenState extends State<RegisterScreen> {
+  var formKey = GlobalKey<FormState>();
+  TextEditingController emailController = TextEditingController(
+    text: "mahmoud@gmail.come",
+  );
+
+  TextEditingController nameController = TextEditingController(text: "Mahmoud");
+
+  TextEditingController passController = TextEditingController(text: "123456");
+
+  TextEditingController confirmedController = TextEditingController(
+    text: "123456",
+  );
+  TextEditingController phoneController = TextEditingController(
+    text: "01009931572",
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -50,156 +73,233 @@ class RegisterScreen extends StatelessWidget {
             horizontal: screenWidth * 0.06,
             vertical: screenHeight * 0.015,
           ),
-          child: Column(
-            children: [
-              // --- Avatar Selector ---
-              AvatarSelector(),
-              SizedBox(height: screenHeight * 0.025),
+          child: Form(
+            key: formKey,
+            child: Column(
+              children: [
+                // --- Avatar Selector ---
+                AvatarSelector(),
+                SizedBox(height: screenHeight * 0.025),
 
-              // --- Name Field ---
-              CustomTextField(
-                textStyle: AppTextStyles.regular16White,
+                // --- Name Field ---
+                CustomTextField(
+                  controller: nameController,
+                  textStyle: AppTextStyles.regular16White,
 
-                hintText: localizations?.name ?? '',
-                hintStyle: AppTextStyles.regular16White,
-                fillColor: AppColors.grayColor,
-                borderColor: AppColors.transparent,
-                prefixIcon: ImageIcon(
-                  AssetImage(AppAssets.iconName),
-                  color: AppColors.whiteColor,
-                ),
-              ),
-              SizedBox(height: screenHeight * 0.018),
-
-              // --- Email Field ---
-              CustomTextField(
-                textStyle: AppTextStyles.regular16White,
-
-                hintText: localizations?.email ?? '',
-                hintStyle: AppTextStyles.regular16White,
-                fillColor: AppColors.grayColor,
-                borderColor: AppColors.transparent,
-                keyboardType: TextInputType.emailAddress,
-                prefixIcon: ImageIcon(
-                  AssetImage(AppAssets.iconMail),
-                  color: AppColors.whiteColor,
-                ),
-              ),
-              SizedBox(height: screenHeight * 0.018),
-
-              // --- Password Field ---
-              CustomTextField(
-                textStyle: AppTextStyles.regular16White,
-
-                hintText: localizations?.password ?? '',
-                hintStyle: AppTextStyles.regular16White,
-                fillColor: AppColors.grayColor,
-                borderColor: AppColors.transparent,
-                obscureText: true,
-                prefixIcon: ImageIcon(
-                  AssetImage(AppAssets.iconPass),
-                  color: AppColors.whiteColor,
-                ),
-                suffixIcon: ImageIcon(
-                  AssetImage(AppAssets.iconEyeOff),
-                  color: AppColors.whiteColor,
-                ),
-              ),
-              SizedBox(height: screenHeight * 0.018),
-
-              // --- Confirm Password Field ---
-              CustomTextField(
-                textStyle: AppTextStyles.regular16White,
-
-                hintText: localizations?.confirmPassword ?? '',
-                hintStyle: AppTextStyles.regular16White,
-                fillColor: AppColors.grayColor,
-                borderColor: AppColors.transparent,
-                obscureText: true,
-                prefixIcon: ImageIcon(
-                  AssetImage(AppAssets.iconPass),
-                  color: AppColors.whiteColor,
-                ),
-                suffixIcon: ImageIcon(
-                  AssetImage(AppAssets.iconEyeOff),
-                  color: AppColors.whiteColor,
-                ),
-              ),
-              SizedBox(height: screenHeight * 0.018),
-
-              // --- Phone Number Field ---
-              CustomTextField(
-                textStyle: AppTextStyles.regular16White,
-
-                hintText: localizations?.phoneNumber ?? '',
-                hintStyle: AppTextStyles.regular16White,
-                fillColor: AppColors.grayColor,
-                borderColor: AppColors.transparent,
-                keyboardType: TextInputType.phone,
-                prefixIcon: ImageIcon(
-                  AssetImage(AppAssets.iconPhone),
-                  color: AppColors.whiteColor,
-                ),
-              ),
-              SizedBox(height: screenHeight * 0.03),
-
-              // --- Create Account Action Button ---
-              SizedBox(
-                width: double.infinity,
-                child: CustomElevatedButton(
-                  backgroundColor: AppColors.yelloColor,
-                  sideColor: AppColors.transparent,
-                  redius: 15,
-                  verticalPadding: 14,
-                  onPressed: () {
-                    // TODO: Implement registration logic
-                    Navigator.pushReplacementNamed(context, AppRoutes.homeRouteName);
-
-                  },
-                  child: Text(
-                    localizations?.createAccount ?? '',
-                    style: AppTextStyles.bold20Black,
+                  hintText: localizations?.name ?? '',
+                  hintStyle: AppTextStyles.regular16White,
+                  fillColor: AppColors.grayColor,
+                  borderColor: AppColors.transparent,
+                  prefixIcon: ImageIcon(
+                    AssetImage(AppAssets.iconName),
+                    color: AppColors.whiteColor,
                   ),
                 ),
-              ),
-              SizedBox(height: screenHeight * 0.02),
+                SizedBox(height: screenHeight * 0.018),
 
-              // --- Already Have Account Row ---
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    localizations?.alreadyHaveAccount ?? '',
-                    style: AppTextStyles.regular16White.copyWith(
-                      fontSize: screenWidth * 0.033,
-                      color: AppColors.whiteColor.withValues(alpha: 0.8),
+                // --- Email Field ---
+                CustomTextField(
+                  validator: (text) {
+                    if (text == null || text.trim().isEmpty) {
+                      return "Please enter your email";
+                    }
+                    final bool emailValid = RegExp(
+                      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
+                    ).hasMatch(emailController.text);
+                    if (!emailValid) {
+                      return "Please enter a valid email";
+                    }
+                    return null;
+                  },
+                  controller: emailController,
+                  textStyle: AppTextStyles.regular16White,
+
+                  hintText: localizations?.email ?? '',
+                  hintStyle: AppTextStyles.regular16White,
+                  fillColor: AppColors.grayColor,
+                  borderColor: AppColors.transparent,
+                  keyboardType: TextInputType.emailAddress,
+                  prefixIcon: ImageIcon(
+                    AssetImage(AppAssets.iconMail),
+                    color: AppColors.whiteColor,
+                  ),
+                ),
+                SizedBox(height: screenHeight * 0.018),
+
+                // --- Password Field ---
+                CustomTextField(
+                  controller: passController,
+                  textStyle: AppTextStyles.regular16White,
+                  validator: (text) {
+                    if (text == null || text.trim().isEmpty) {
+                      return "Please enter your password";
+                    }
+                    if (text.length < 6) {
+                      return "Password must be at least 6 characters";
+                    }
+                    return null;
+                  },
+
+                  hintText: localizations?.password ?? '',
+                  hintStyle: AppTextStyles.regular16White,
+                  fillColor: AppColors.grayColor,
+                  borderColor: AppColors.transparent,
+                  obscureText: true,
+                  prefixIcon: ImageIcon(
+                    AssetImage(AppAssets.iconPass),
+                    color: AppColors.whiteColor,
+                  ),
+                  suffixIcon: ImageIcon(
+                    AssetImage(AppAssets.iconEyeOff),
+                    color: AppColors.whiteColor,
+                  ),
+                ),
+                SizedBox(height: screenHeight * 0.018),
+
+                // --- Confirm Password Field ---
+                CustomTextField(
+                  controller: confirmedController,
+                  textStyle: AppTextStyles.regular16White,
+                  validator: (text) {
+                    if (text == null || text.trim().isEmpty) {
+                      return "Please enter your password";
+                    }
+                    if (text.length < 6) {
+                      return "Password must be at least 6 characters";
+                    }
+                    return null;
+                  },
+
+                  hintText: localizations?.confirmPassword ?? '',
+                  hintStyle: AppTextStyles.regular16White,
+                  fillColor: AppColors.grayColor,
+                  borderColor: AppColors.transparent,
+                  obscureText: true,
+                  prefixIcon: ImageIcon(
+                    AssetImage(AppAssets.iconPass),
+                    color: AppColors.whiteColor,
+                  ),
+                  suffixIcon: ImageIcon(
+                    AssetImage(AppAssets.iconEyeOff),
+                    color: AppColors.whiteColor,
+                  ),
+                ),
+                SizedBox(height: screenHeight * 0.018),
+
+                // --- Phone Number Field ---
+                CustomTextField(
+                  controller: phoneController,
+                  textStyle: AppTextStyles.regular16White,
+                  hintText: localizations?.phoneNumber ?? '',
+                  hintStyle: AppTextStyles.regular16White,
+                  fillColor: AppColors.grayColor,
+                  borderColor: AppColors.transparent,
+                  keyboardType: TextInputType.phone,
+                  prefixIcon: ImageIcon(
+                    AssetImage(AppAssets.iconPhone),
+                    color: AppColors.whiteColor,
+                  ),
+                ),
+                SizedBox(height: screenHeight * 0.03),
+
+                // --- Create Account Action Button ---
+                SizedBox(
+                  width: double.infinity,
+                  child: CustomElevatedButton(
+                    backgroundColor: AppColors.yelloColor,
+                    sideColor: AppColors.transparent,
+                    redius: 15,
+                    verticalPadding: 14,
+                    onPressed: () {
+                      register();
+                    },
+                    child: Text(
+                      localizations?.createAccount ?? '',
+                      style: AppTextStyles.bold20Black,
                     ),
                   ),
-                  GestureDetector(
-                    onTap: () => Navigator.pop(context),
-                    child: Text(
-                      localizations?.login ?? '',
-                      style: AppTextStyles.bold14Yellow.copyWith(
+                ),
+                SizedBox(height: screenHeight * 0.02),
+
+                // --- Already Have Account Row ---
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      localizations?.alreadyHaveAccount ?? '',
+                      style: AppTextStyles.regular16White.copyWith(
                         fontSize: screenWidth * 0.033,
+                        color: AppColors.whiteColor.withValues(alpha: 0.8),
                       ),
                     ),
-                  ),
-                ],
-              ),
-              SizedBox(height: screenHeight * 0.03),
+                    GestureDetector(
+                      onTap: () => Navigator.pop(context),
+                      child: Text(
+                        localizations?.login ?? '',
+                        style: AppTextStyles.bold14Yellow.copyWith(
+                          fontSize: screenWidth * 0.033,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: screenHeight * 0.03),
 
-              // --- Language Toggle Switch ---
-              LanguageToggleSwitch(
-                currentLanguage: currentLang,
-                onLanguageChanged: (newLang) {
-                  // TODO: Implement language state change logic
-                },
-              ),
-              SizedBox(height: screenHeight * 0.02),
-            ],
+                // --- Language Toggle Switch ---
+                LanguageToggleSwitch(
+                  currentLanguage: currentLang,
+                  onLanguageChanged: (newLang) {
+                    // TODO: Implement language state change logic
+                  },
+                ),
+                SizedBox(height: screenHeight * 0.02),
+              ],
+            ),
           ),
         ),
       ),
     );
+  }
+
+  Future<void> register() async {
+    try {
+      DialogUtils.showLoading(context: context, loadingText: "Loading...");
+      final credential = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(
+            email: emailController.text,
+            password: passController.text,
+          );
+      DialogUtils.hideLoading(context: context);
+      DialogUtils.showMessage(
+        backgroundColor: AppColors.grayColor,
+        context: context,
+        message: "Registration successful",
+        title: "Success",
+
+        posActionName: "Ok",
+        posAction: () {
+          Navigator.pushReplacementNamed(context, AppRoutes.homeRouteName);
+        },
+        negActionName: "Cancel",
+        negAction: () {
+        },
+      );
+    }
+    catch (e) {
+      DialogUtils.hideLoading(context: context);
+      DialogUtils.showMessage(
+        backgroundColor: AppColors.grayColor,
+        context: context,
+        message: e.toString(),
+        title: "Error",
+        posActionName: "Ok",
+        posAction: () {
+          Navigator.pop(context);
+        },
+        negActionName: "Cancel",
+        negAction: () {
+        },
+      );
+    }
   }
 }
