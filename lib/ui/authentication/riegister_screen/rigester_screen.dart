@@ -58,6 +58,8 @@ class RegisterScreen extends StatelessWidget {
 
               // --- Name Field ---
               CustomTextField(
+                textStyle: AppTextStyles.regular16White,
+
                 hintText: localizations?.name ?? '',
                 hintStyle: AppTextStyles.regular16White,
                 fillColor: AppColors.grayColor,

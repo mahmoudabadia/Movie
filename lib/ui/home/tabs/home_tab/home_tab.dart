@@ -37,7 +37,7 @@ class HomeTab extends StatelessWidget {
               child: Column(
                 children: [
                   Image.asset(AppAssets.imageAvailableNow, fit: BoxFit.cover),
-                  SizedBox(height: 350),
+                  SizedBox(height: 350), //todo : show ,ovie on home tab
                   Image.asset(AppAssets.imageWatchNow, fit: BoxFit.cover),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -64,7 +64,6 @@ class HomeTab extends StatelessWidget {
                   ),
                   Container(
                     //todo: action
-
                   )
                 ],
               ),
