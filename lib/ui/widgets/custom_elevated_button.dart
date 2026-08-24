@@ -4,13 +4,14 @@ import '../../utils/app_colors.dart';
 
 
 class CustomElevatedButton extends StatelessWidget {
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final Widget child;
   final Color? backgroundColor;
   final double? redius;
   final Color? sideColor;
   final double? verticalPadding;
   final double? horizontalPadding;
+
 
 
 

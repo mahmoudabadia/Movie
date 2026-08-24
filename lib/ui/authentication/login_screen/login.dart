@@ -9,6 +9,7 @@ import '../../../utils/app_routes.dart';
 import '../../../utils/app_text_styles.dart';
 import '../../../utils/dialog_utilis.dart';
 import '../../../utils/size_utils.dart';
+import '../../../utils/toast_utilis.dart';
 import '../../cubit/cubit_language.dart';
 import '../../widgets/custom_elevated_button.dart';
 import '../../widgets/custom_text_field.dart';
@@ -18,7 +19,6 @@ import 'app_logo.dart';
 import 'create_account_row.dart';
 import 'language_toggle_switch.dart';
 
-// --- Login Page Component ---
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -29,10 +29,10 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   var formKey = GlobalKey<FormState>();
 
-  TextEditingController emailController = TextEditingController(
-
-  );
+  TextEditingController emailController = TextEditingController();
   TextEditingController passController = TextEditingController();
+
+  bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -50,20 +50,17 @@ class _LoginPageState extends State<LoginPage> {
             vertical: screenHeight * 0.02,
           ),
           child: Form(
-            key:formKey,
+            key: formKey,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(height: screenHeight * 0.03),
 
-                // --- Logo Header ---
                 AppLogo(),
                 SizedBox(height: screenHeight * 0.025),
 
-                // --- Email Field ---
                 CustomTextField(
                   textStyle: AppTextStyles.regular16White,
-
                   hintText: localizations?.email ?? '',
                   hintStyle: AppTextStyles.regular16White,
                   fillColor: AppColors.grayColor,
@@ -77,11 +74,9 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 SizedBox(height: screenHeight * 0.02),
 
-                // --- Password Field ---
                 CustomTextField(
                   textStyle: AppTextStyles.regular16White,
                   controller: passController,
-
                   hintText: localizations?.password ?? '',
                   hintStyle: AppTextStyles.regular16White,
                   fillColor: AppColors.grayColor,
@@ -98,7 +93,6 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 SizedBox(height: screenHeight * 0.015),
 
-                // --- Forget Password Navigation ---
                 Align(
                   alignment: Alignment.centerRight,
                   child: GestureDetector(
@@ -120,7 +114,6 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 SizedBox(height: screenHeight * 0.025),
 
-                // --- Primary Login Button ---
                 SizedBox(
                   width: double.infinity,
                   child: CustomElevatedButton(
@@ -128,10 +121,23 @@ class _LoginPageState extends State<LoginPage> {
                     sideColor: AppColors.transparent,
                     redius: 15,
                     verticalPadding: 14,
-                    onPressed: () {
-                      login();
+                    onPressed: isLoading
+                        ? () {}
+                        : () {
+                      if (formKey.currentState?.validate() ?? true) {
+                        login();
+                      }
                     },
-                    child: Text(
+                    child: isLoading
+                        ? const SizedBox(
+                      height: 24,
+                      width: 24,
+                      child: CircularProgressIndicator(
+                        color: AppColors.blackColor,
+                        strokeWidth: 2.5,
+                      ),
+                    )
+                        : Text(
                       localizations?.login ?? '',
                       style: AppTextStyles.bold20Black,
                     ),
@@ -139,22 +145,18 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 SizedBox(height: screenHeight * 0.025),
 
-                // --- Create Account Row ---
                 CreateAccountRow(),
                 SizedBox(height: screenHeight * 0.03),
 
-                // --- Divider ---
                 DividerWithText(text: localizations?.or ?? ''),
                 SizedBox(height: screenHeight * 0.03),
 
-                // --- Google Login Button ---
                 CustomElevatedButton(
                   backgroundColor: AppColors.yelloColor,
                   sideColor: AppColors.transparent,
                   redius: 15,
                   verticalPadding: 14,
                   onPressed: () {
-                    // TODO: Implement Google Sign-In logic
                     Navigator.pushReplacementNamed(
                       context,
                       AppRoutes.homeRouteName,
@@ -178,14 +180,10 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 SizedBox(height: screenHeight * 0.035),
 
-                // --- Language Toggle Switch ---
                 LanguageToggleSwitch(
                   currentLanguage: currentLang,
                   onLanguageChanged: (newLang) {
                     context.read<LanguageCubit>().toggleLanguage();
-
-
-                    // TODO: Implement language state change logic
                   },
                 ),
               ],
@@ -195,41 +193,83 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
-  void login()async{
+
+  void login() async {
+    setState(() {
+      isLoading = true;
+    });
+
     try {
-      DialogUtils.showLoading(context: context, loadingText: "Loading...");
-      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: emailController.text,
-          password: passController.text
+      final loginFuture = FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailController.text.trim(),
+        password: passController.text,
       );
-      DialogUtils.hideLoading(context: context);
-      DialogUtils.showMessage(
-        backgroundColor: AppColors.grayColor,
+
+      final delayFuture = Future.delayed(const Duration(seconds: 2));
+
+      await Future.wait([loginFuture, delayFuture]);
+
+      if (!mounted) return;
+      ToastUtils.showCustomToast(
         context: context,
         message: AppLocalizations.of(context)!.loginSuccess,
-        title: AppLocalizations.of(context)!.success,
-        posActionName: AppLocalizations.of(context)!.ok,
-        posAction: () {
-          Navigator.pushReplacementNamed(context, AppRoutes.homeRouteName);
-        },
-        negActionName: AppLocalizations.of(context)!.cancel,
-        negAction: () {
-        },
+        backgroundColor: AppColors.yelloColor,
+        textColor: AppColors.blackColor,
+        icon: Icons.check_circle,
+        iconColor: AppColors.blackColor,
       );
-    } catch(e){
-      DialogUtils.hideLoading(context: context);
+
+      Navigator.pushReplacementNamed(context, AppRoutes.homeRouteName);
+    } on FirebaseAuthException catch (e) {
+      if (!mounted) return;
+
+      setState(() {
+        isLoading = false;
+      });
+
       DialogUtils.showMessage(
         backgroundColor: AppColors.grayColor,
         context: context,
-        message: e.toString(),
+        message: _getAuthErrorMessage(e.code, context),
         title: AppLocalizations.of(context)!.error,
         posActionName: AppLocalizations.of(context)!.ok,
-        posAction: () {
-        },
-        negActionName:AppLocalizations.of(context)!.cancel ,
-        negAction: () {
-        },
+        posAction: () {},
+        negActionName: AppLocalizations.of(context)!.cancel,
+        negAction: () {},
+      );
+    } catch (e) {
+      if (!mounted) return;
+
+      setState(() {
+        isLoading = false;
+      });
+
+      DialogUtils.showMessage(
+        backgroundColor: AppColors.grayColor,
+        context: context,
+        message: AppLocalizations.of(context)!.error,
+        title: AppLocalizations.of(context)!.error,
+        posActionName: AppLocalizations.of(context)!.ok,
+        posAction: () {},
+        negActionName: AppLocalizations.of(context)!.cancel,
+        negAction: () {},
       );
     }
   }
-}
+
+  String _getAuthErrorMessage(String errorCode, BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
+
+    switch (errorCode) {
+      case 'user-not-found':
+      case 'wrong-password':
+      case 'invalid-credential':
+        return localizations.invalidCredentials;
+      case 'too-many-requests':
+        return localizations.tooManyRequests;
+      case 'network-request-failed':
+        return localizations.networkError;
+      default:
+        return localizations.defaultAuthError;
+    }
+  }}

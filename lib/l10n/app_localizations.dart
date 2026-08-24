@@ -293,7 +293,7 @@ abstract class AppLocalizations {
   /// No description provided for @descThree.
   ///
   /// In en, this message translates to:
-  /// **'Save movies to your watchlist to keep track of what you want to watch next. Enjoy films in various qualities and genres.\''**
+  /// **'Save movies to your watchlist to keep track of what you want to watch next. Enjoy films in various qualities and genres.'**
   String get descThree;
 
   /// No description provided for @titleFour.
@@ -305,7 +305,7 @@ abstract class AppLocalizations {
   /// No description provided for @descFour.
   ///
   /// In en, this message translates to:
-  /// **'Share your thoughts on the movies you\\\'ve watched. Dive deep into film details and help others discover great movies with your reviews.'**
+  /// **'Share your thoughts on the movies you\'ve watched. Dive deep into film details and help others discover great movies with your reviews.'**
   String get descFour;
 
   /// No description provided for @titleFive.
@@ -403,6 +403,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Registration successful'**
   String get regSuccess;
+
+  /// No description provided for @invalidCredentials.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid email or password.'**
+  String get invalidCredentials;
+
+  /// No description provided for @networkError.
+  ///
+  /// In en, this message translates to:
+  /// **'Network error, please check your connection.'**
+  String get networkError;
+
+  /// No description provided for @tooManyRequests.
+  ///
+  /// In en, this message translates to:
+  /// **'Too many attempts. Please try again later.'**
+  String get tooManyRequests;
+
+  /// No description provided for @defaultAuthError.
+  ///
+  /// In en, this message translates to:
+  /// **'An error occurred, please try again.'**
+  String get defaultAuthError;
+
+  /// No description provided for @emailAlreadyInUse.
+  ///
+  /// In en, this message translates to:
+  /// **'This email is already registered.'**
+  String get emailAlreadyInUse;
+
+  /// No description provided for @invalidEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid email address.'**
+  String get invalidEmail;
+
+  /// No description provided for @weakPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'The password provided is too weak.'**
+  String get weakPassword;
 }
 
 class _AppLocalizationsDelegate
