@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/l10n/app_localizations.dart';
 import 'package:movie_app/ui/home/tabs/profile_tab/update_profile/create_bottom_sheet/create_bottom_sheet.dart';
 import 'package:movie_app/ui/home/tabs/profile_tab/update_profile/create_delete/delete_dialog.dart';
 import 'package:movie_app/ui/widgets/custom_elevated_button.dart';
@@ -53,7 +54,7 @@ class _CreateUpdateState extends State<CreateUpdate> {
             size: 35,
           ),
         ),
-        title: Text("Pick Avatar", style: AppTextStyles.regular16Yellow),
+        title: Text(AppLocalizations.of(context)!.pick, style: AppTextStyles.regular16Yellow),
         centerTitle: true,
       ),
 
@@ -109,7 +110,7 @@ class _CreateUpdateState extends State<CreateUpdate> {
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: width * 0.05),
               child: Text(
-                "Reset Password",
+                AppLocalizations.of(context)!.reset,
                 style: AppTextStyles.regular20White,
               ),
             ),
@@ -134,7 +135,7 @@ class _CreateUpdateState extends State<CreateUpdate> {
               backgroundColor: AppColors.redColor,
               sideColor: AppColors.redColor,
               child: Text(
-                "Delete Account",
+                AppLocalizations.of(context)!.delete,
                 style: AppTextStyles.regular20White,
               ),
             ),
@@ -178,7 +179,7 @@ class _CreateUpdateState extends State<CreateUpdate> {
               },
               backgroundColor: AppColors.yelloColor,
               sideColor: AppColors.yelloColor,
-              child: Text("Update Data", style: AppTextStyles.regular20Black),
+              child: Text(AppLocalizations.of(context)!.update, style: AppTextStyles.regular20Black),
             ),
           ),
 

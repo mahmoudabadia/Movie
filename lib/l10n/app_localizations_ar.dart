@@ -9,7 +9,7 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
-  String get alreadyHaveAccount => 'لديك حساب بالفعل ؟ ';
+  String get alreadyHaveAccount => 'لديك حساب بالفعل؟ ';
 
   @override
   String get avatar => 'الصورة الشخصية';
@@ -18,13 +18,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get confirmPassword => 'تأكيد كلمة المرور';
 
   @override
-  String get createAccount => 'إنشاء الحساب';
+  String get createAccount => 'إنشاء حساب';
 
   @override
   String get createOne => 'إنشاء حساب جديد';
 
   @override
-  String get dontHaveAccount => 'ليس لديك حساب ؟ ';
+  String get dontHaveAccount => 'ليس لديك حساب؟ ';
 
   @override
   String get editProfile => 'تعديل الملف الشخصي';
@@ -36,16 +36,16 @@ class AppLocalizationsAr extends AppLocalizations {
   String get exit => 'خروج';
 
   @override
-  String get forgetPassword => 'نسيت كلمة المرور ؟';
+  String get forgetPassword => 'نسيت كلمة المرور؟';
 
   @override
-  String get forgetPasswordTitle => 'نسيان كلمة المرور';
+  String get forgetPasswordTitle => 'نسيت كلمة المرور';
 
   @override
   String get history => 'السجل';
 
   @override
-  String get homeScreen => 'الشاشة الرئيسية';
+  String get homeScreen => 'الرئيسية';
 
   @override
   String get login => 'تسجيل الدخول';
@@ -75,7 +75,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get seeMore => 'عرض المزيد';
 
   @override
-  String get verifyEmail => 'التحقق من البريد الإلكتروني';
+  String get verifyEmail => 'تأكيد البريد الإلكتروني';
 
   @override
   String get watchList => 'قائمة المشاهدة';
@@ -84,64 +84,85 @@ class AppLocalizationsAr extends AppLocalizations {
   String get welcome => 'مرحباً بك في الشاشة الرئيسية';
 
   @override
-  String get titleMain => 'Find Your Next\nFavorite Movie Here';
+  String get titleMain => 'اعثر على فيلمك المفضّل القادم هنا';
 
   @override
   String get descMain =>
-      'Get access to a huge library of movies to suit all tastes. You will surely like it.';
+      'احصل على إمكانية الوصول إلى مكتبة ضخمة من الأفلام التي تناسب جميع الأذواق. ستعجبك بكل تأكيد.';
 
   @override
-  String get titleOne => 'Discover Movies';
+  String get titleOne => 'اكتشف الأفلام';
 
   @override
   String get descOne =>
-      'Explore a vast collection of movies in all qualities and genres. Find your next favorite film with ease.';
+      'استكشف مجموعة واسعة من الأفلام بجميع الجودات والتصنيفات. اعثر على فيلمك المفضّل القادم بسهولة.';
 
   @override
-  String get titleTwo => 'Explore All Genres';
+  String get titleTwo => 'استكشف جميع التصنيفات';
 
   @override
   String get descTwo =>
-      'Discover movies from every genre, in all available qualities. Find something new and exciting to watch every day.';
+      'اكتشف أفلاماً من كل تصنيف وبجميع الجودات المتاحة. اعثر على شيء جديد وممتع لمشاهدته كل يوم.';
 
   @override
-  String get titleThree => 'Create Watchlists';
+  String get titleThree => 'إنشاء قوائم المشاهدة';
 
   @override
   String get descThree =>
-      'Save movies to your watchlist to keep track of what you want to watch next. Enjoy films in various qualities and genres.\'';
+      'احفظ الأفلام في قائمة المشاهدة الخاصة بك لمتابعة ما تريد مشاهدته لاحقاً. استمتع بالأفلام بمختلف الجودات والتصنيفات.';
 
   @override
-  String get titleFour => 'Rate, Review, and Learn';
+  String get titleFour => 'قيّم، راجع، واكتشف';
 
   @override
   String get descFour =>
-      'Share your thoughts on the movies you\\\'ve watched. Dive deep into film details and help others discover great movies with your reviews.';
+      'شارك أفكارك حول الأفلام التي شاهدتها. تعمق في تفاصيل الأفلام وساعد الآخرين على اكتشاف أفلام رائعة بمراجعاتك.';
 
   @override
-  String get titleFive => 'Start Watching Now';
+  String get titleFive => 'ابدأ المشاهدة الآن';
 
   @override
-  String get exploreNow => 'Explore Now';
+  String get exploreNow => 'استكشف الآن';
 
   @override
-  String get finish => 'Finish';
+  String get finish => 'إنهاء';
 
   @override
-  String get next => 'Next';
+  String get next => 'التالي';
 
   @override
-  String get back => 'Back';
+  String get back => 'السابق';
 
   @override
-  String get pick => 'ختيار الصورة الشخصية';
+  String get pick => 'اختر صورة شخصية';
 
   @override
-  String get reset => 'إعادة تعيين كلمة المرور';
+  String get reset => 'إعادة ضبط كلمة المرور';
 
   @override
   String get delete => 'حذف الحساب';
 
   @override
   String get update => 'تحديث البيانات';
+
+  @override
+  String get error => 'خطأ';
+
+  @override
+  String get cancel => 'إلغاء';
+
+  @override
+  String get ok => 'موافق';
+
+  @override
+  String get success => 'نجاح';
+
+  @override
+  String get loginSuccess => 'تم تسجيل الدخول بنجاح';
+
+  @override
+  String get loading => 'جاري التحميل...';
+
+  @override
+  String get regSuccess => 'تم التسجيل بنجاح';
 }

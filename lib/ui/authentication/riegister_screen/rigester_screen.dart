@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/ui/cubit/cubit_language.dart';
 import 'package:movie_app/utils/dialog_utilis.dart';
 
 import '../../../l10n/app_localizations.dart';
@@ -24,18 +26,18 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   var formKey = GlobalKey<FormState>();
   TextEditingController emailController = TextEditingController(
-    text: "mahmoud@gmail.come",
+
   );
 
-  TextEditingController nameController = TextEditingController(text: "Mahmoud");
+  TextEditingController nameController = TextEditingController();
 
-  TextEditingController passController = TextEditingController(text: "123456");
+  TextEditingController passController = TextEditingController();
 
   TextEditingController confirmedController = TextEditingController(
-    text: "123456",
+
   );
   TextEditingController phoneController = TextEditingController(
-    text: "01009931572",
+
   );
 
   @override
@@ -249,6 +251,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 LanguageToggleSwitch(
                   currentLanguage: currentLang,
                   onLanguageChanged: (newLang) {
+                    context.read<LanguageCubit>().toggleLanguage();
                     // TODO: Implement language state change logic
                   },
                 ),
@@ -273,14 +276,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
       DialogUtils.showMessage(
         backgroundColor: AppColors.grayColor,
         context: context,
-        message: "Registration successful",
-        title: "Success",
+        message: AppLocalizations.of(context)!.regSuccess,
+        title: AppLocalizations.of(context)!.success,
 
-        posActionName: "Ok",
+        posActionName: AppLocalizations.of(context)!.ok,
         posAction: () {
           Navigator.pushReplacementNamed(context, AppRoutes.homeRouteName);
         },
-        negActionName: "Cancel",
+        negActionName: AppLocalizations.of(context)!.cancel,
         negAction: () {
         },
       );
@@ -291,12 +294,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
         backgroundColor: AppColors.grayColor,
         context: context,
         message: e.toString(),
-        title: "Error",
-        posActionName: "Ok",
+        title: AppLocalizations.of(context)!.error,
+        posActionName: AppLocalizations.of(context)!.ok,
         posAction: () {
           Navigator.pop(context);
         },
-        negActionName: "Cancel",
+        negActionName: AppLocalizations.of(context)!.cancel,
         negAction: () {
         },
       );
