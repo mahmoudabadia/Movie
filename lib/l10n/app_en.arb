@@ -42,7 +42,15 @@
   "pick": "pick Avatar",
   "reset" : "Reset Password",
   "delete" : "Delete Account",
-  "update" : "Update Data"
+  "update" : "Update Data",
+  "error": "Error",
+  "cancel": "Cancel",
+  "ok": "Ok",
+  "success": "Success",
+  "loginSuccess": "Login successful",
+  "loading": "Loading...",
+  "regSuccess": "Registration successful"
+
 
 
 

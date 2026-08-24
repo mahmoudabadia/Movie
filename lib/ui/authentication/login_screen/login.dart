@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../l10n/app_localizations.dart';
 import '../../../utils/app_assets.dart';
@@ -8,6 +9,7 @@ import '../../../utils/app_routes.dart';
 import '../../../utils/app_text_styles.dart';
 import '../../../utils/dialog_utilis.dart';
 import '../../../utils/size_utils.dart';
+import '../../cubit/cubit_language.dart';
 import '../../widgets/custom_elevated_button.dart';
 import '../../widgets/custom_text_field.dart';
 import '../../widgets/divider_with_text.dart';
@@ -28,9 +30,9 @@ class _LoginPageState extends State<LoginPage> {
   var formKey = GlobalKey<FormState>();
 
   TextEditingController emailController = TextEditingController(
-    text: "mahmoud@gmail.come",
+
   );
-  TextEditingController passController = TextEditingController(text: "123456");
+  TextEditingController passController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -180,6 +182,9 @@ class _LoginPageState extends State<LoginPage> {
                 LanguageToggleSwitch(
                   currentLanguage: currentLang,
                   onLanguageChanged: (newLang) {
+                    context.read<LanguageCubit>().toggleLanguage();
+
+
                     // TODO: Implement language state change logic
                   },
                 ),
@@ -201,13 +206,13 @@ class _LoginPageState extends State<LoginPage> {
       DialogUtils.showMessage(
         backgroundColor: AppColors.grayColor,
         context: context,
-        message: "Login successful",
-        title: "Success",
-        posActionName: "Ok",
+        message: AppLocalizations.of(context)!.loginSuccess,
+        title: AppLocalizations.of(context)!.success,
+        posActionName: AppLocalizations.of(context)!.ok,
         posAction: () {
           Navigator.pushReplacementNamed(context, AppRoutes.homeRouteName);
         },
-        negActionName: "Cancel",
+        negActionName: AppLocalizations.of(context)!.cancel,
         negAction: () {
         },
       );
@@ -217,11 +222,11 @@ class _LoginPageState extends State<LoginPage> {
         backgroundColor: AppColors.grayColor,
         context: context,
         message: e.toString(),
-        title: "Error",
-        posActionName: "Ok",
+        title: AppLocalizations.of(context)!.error,
+        posActionName: AppLocalizations.of(context)!.ok,
         posAction: () {
         },
-        negActionName: "Cancel",
+        negActionName:AppLocalizations.of(context)!.cancel ,
         negAction: () {
         },
       );

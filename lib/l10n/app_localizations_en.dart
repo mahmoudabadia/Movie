@@ -144,4 +144,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get update => 'Update Data';
+
+  @override
+  String get error => 'Error';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get ok => 'Ok';
+
+  @override
+  String get success => 'Success';
+
+  @override
+  String get loginSuccess => 'Login successful';
+
+  @override
+  String get loading => 'Loading...';
+
+  @override
+  String get regSuccess => 'Registration successful';
 }

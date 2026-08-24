@@ -38,24 +38,14 @@ class ProfileTab extends StatelessWidget {
                       children: [
                         Expanded(
                           flex: 3,
-                          child: Column(
-                            children: [
-                              Image.asset(AppAssets.imageAvatar0, height: 90),
-                              SizedBox(height: context.height * 0.01),
-                              Text(
-                                "Route",
-                                style: AppTextStyles.bold20White,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ],
-                          ),
+                          child: Image.asset(AppAssets.imageAvatar0, height: 90),
                         ),
                         Expanded(
                           flex: 4,
                           child: Column(
                             children: [
                               Text("0", style: AppTextStyles.bold36White),
-                              SizedBox(height: context.height * 0.02),
+                              SizedBox(height: context.height * 0.01),
                               Text(
                                 AppLocalizations.of(context)!.watchList,
                                 style: AppTextStyles.bold20White,
@@ -69,7 +59,7 @@ class ProfileTab extends StatelessWidget {
                           child: Column(
                             children: [
                               Text("0", style: AppTextStyles.bold36White),
-                              SizedBox(height: context.height * 0.02),
+                              SizedBox(height: context.height * 0.01),
                               Text(
                                 AppLocalizations.of(context)!.history,
                                 style: AppTextStyles.bold20White,
@@ -80,6 +70,19 @@ class ProfileTab extends StatelessWidget {
                         ),
                       ],
                     ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 6),
+                          child: Text(
+                          "Route Name",
+                          style: AppTextStyles.bold20White,
+                          ),
+                        ),
+                      ],
+                    ),
+
                     Row(
                       children: [
                         Expanded(
@@ -157,7 +160,7 @@ class ProfileTab extends StatelessWidget {
                           text: AppLocalizations.of(context)!.watchList,
                           icon: Image.asset(
                             AppAssets.iconWatchList,
-                            height: 20,
+                            height: 16,
                             fit: BoxFit.contain,
                           ),
                         ),
@@ -186,4 +189,9 @@ class ProfileTab extends StatelessWidget {
       ),
     );
   }
+  // Text(
+  // "Route",
+  // style: AppTextStyles.bold20White,
+  // overflow: TextOverflow.ellipsis,
+  // ),
 }

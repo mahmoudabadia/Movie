@@ -1,12 +1,13 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/ui/authentication/forget_password_screen/forget_password_screen.dart';
 import 'package:movie_app/ui/authentication/login_screen/login.dart';
 import 'package:movie_app/ui/authentication/riegister_screen/rigester_screen.dart';
+import 'package:movie_app/ui/cubit/cubit_language.dart';
 import 'package:movie_app/ui/home/home_screen.dart';
 import 'package:movie_app/ui/home/tabs/home_tab/home_tab.dart';
-import 'package:movie_app/ui/home/tabs/profile_tab/profile_tab.dart'
-    show ProfileTab;
+import 'package:movie_app/ui/home/tabs/profile_tab/profile_tab.dart' show ProfileTab;
 import 'package:movie_app/ui/home/tabs/profile_tab/update_profile/create_update_profile.dart';
 import 'package:movie_app/ui/home/tabs/prowse_tab/prowse_tab.dart';
 import 'package:movie_app/ui/home/tabs/search_tab/search_tab.dart';
@@ -20,7 +21,12 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
-  runApp(const MyApp());
+  runApp(
+    BlocProvider(
+      create: (context) => LanguageCubit(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -28,26 +34,32 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      initialRoute: AppRoutes.loginRouteName,
-      routes: {
-        AppRoutes.homeRouteName: (context) => HomeScreen(),
-        AppRoutes.homeTabRouteName: (context) => HomeTab(),
-        AppRoutes.profileRouteName: (context) => ProfileTab(),
-        AppRoutes.prowseRouteName: (context) => ProwseTab(),
-        AppRoutes.searchRouteName: (context) => SearchTab(),
-        AppRoutes.loginRouteName: (context) => LoginPage(),
-        AppRoutes.forgetPassRouteName: (context) => ForgetPasswordScreen(),
-        AppRoutes.registerRouteName: (context) => RegisterScreen(),
-        AppRoutes.onboardingRouteName: (context) => OnboardingScreen(),
-        AppRoutes.splashRouteName: (context) => SplashScreen(),
-        AppRoutes.createUpdateRouteName: (context) => CreateUpdate(),
+    return BlocBuilder<LanguageCubit, Locale>(
+      builder: (context, currentLocale) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+
+          locale: currentLocale,
+
+          initialRoute: AppRoutes.loginRouteName,
+          routes: {
+            AppRoutes.homeRouteName: (context) => HomeScreen(),
+            AppRoutes.homeTabRouteName: (context) => HomeTab(),
+            AppRoutes.profileRouteName: (context) => ProfileTab(),
+            AppRoutes.prowseRouteName: (context) => ProwseTab(),
+            AppRoutes.searchRouteName: (context) => SearchTab(),
+            AppRoutes.loginRouteName: (context) => LoginPage(),
+            AppRoutes.forgetPassRouteName: (context) => ForgetPasswordScreen(),
+            AppRoutes.registerRouteName: (context) => RegisterScreen(),
+            AppRoutes.onboardingRouteName: (context) => OnboardingScreen(),
+            AppRoutes.splashRouteName: (context) => SplashScreen(),
+            AppRoutes.createUpdateRouteName: (context) => CreateUpdate(),
+          },
+
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
+        );
       },
-
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-
-      supportedLocales: AppLocalizations.supportedLocales,
     );
   }
 }
