@@ -170,6 +170,7 @@ packages:
     source: hosted
     version: "6.2.7"
   firebase_core:
+    dependency: transitive
     dependency: "direct main"
     description:
       name: firebase_core
