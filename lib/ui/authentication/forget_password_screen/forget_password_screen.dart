@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../utils/app_assets.dart';
 import '../../../utils/app_colors.dart';
@@ -10,8 +10,8 @@ import '../../widgets/custom_text_field.dart';
 
 // --- Screen Declaration ---
 class ForgetPasswordScreen extends StatelessWidget {
-  const ForgetPasswordScreen({super.key});
-
+  ForgetPasswordScreen({super.key});
+  final TextEditingController emailController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     // --- Screen Dimensions & Localizations ---
@@ -76,6 +76,7 @@ class ForgetPasswordScreen extends StatelessWidget {
 
               // --- Email Form Field ---
               CustomTextField(
+                controller: emailController,
                 hintText: localizations?.email ?? '',
                 hintStyle: AppTextStyles.regular16White,
                 fillColor: AppColors.grayColor,
@@ -96,8 +97,32 @@ class ForgetPasswordScreen extends StatelessWidget {
                   sideColor: AppColors.transparent,
                   redius: 15,
                   verticalPadding: 14,
-                  onPressed: () {
-                    // TODO: Implement email verification logic
+                  onPressed: () async {
+                    if (emailController.text.trim().isEmpty) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Please enter your email')),
+                      );
+                      return;
+                    }
+
+                    try {
+                      await FirebaseAuth.instance.sendPasswordResetEmail(
+                        email: emailController.text.trim(),
+                      );
+                      if (context.mounted) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Password reset link sent! Check your email.'),
+                          ),
+                        );
+                      }
+                    } catch (e) {
+                      if (context.mounted) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text(e.toString())),
+                        );
+                      }
+                    }
                   },
                   child: Text(
                     localizations?.verifyEmail ?? '',
