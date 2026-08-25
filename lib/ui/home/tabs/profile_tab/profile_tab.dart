@@ -19,6 +19,13 @@ class ProfileTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var _ = context.height;
+
+    final user = FirebaseAuth.instance.currentUser;
+    final String userName = user?.displayName ?? "User";
+    final String userAvatar = (user?.photoURL != null && user!.photoURL!.isNotEmpty)
+        ? user.photoURL!
+        : AppAssets.imageAvatar0;
+
     return DefaultTabController(
       length: 2,
       child: Scaffold(
@@ -41,7 +48,12 @@ class ProfileTab extends StatelessWidget {
                       children: [
                         Expanded(
                           flex: 3,
-                          child: Image.asset(AppAssets.imageAvatar0, height: 90),
+                          child: Image.asset(
+                            userAvatar,
+                            height: 90,
+                            errorBuilder: (context, error, stackTrace) =>
+                                Image.asset(AppAssets.imageAvatar0, height: 90),
+                          ),
                         ),
                         Expanded(
                           flex: 4,
@@ -79,8 +91,9 @@ class ProfileTab extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 6),
                           child: Text(
-                          "Route Name",
-                          style: AppTextStyles.bold20White,
+                            userName,
+                            style: AppTextStyles.bold20White,
+                            overflow: TextOverflow.ellipsis,
                           ),
                         ),
                       ],
@@ -115,28 +128,23 @@ class ProfileTab extends StatelessWidget {
                           flex: 4,
                           child: CustomElevatedButton(
                             onPressed: () async {
-                              await FirebaseAuth.instance.signOut();
                               DialogUtils.showMessage(
                                 backgroundColor: AppColors.grayColor,
                                 context: context,
                                 message: AppLocalizations.of(context)!.makeSure,
                                 title: AppLocalizations.of(context)!.warning,
                                 posActionName: AppLocalizations.of(context)!.yes,
-                                posAction: () {
+                                posAction: () async {
+                                  await FirebaseAuth.instance.signOut();
+                                  if (!context.mounted) return;
                                   Navigator.of(context).pushAndRemoveUntil(
-                                    MaterialPageRoute(builder: (context) =>  LoginPage()),
+                                    MaterialPageRoute(builder: (context) => LoginPage()),
                                         (route) => false,
                                   );
                                 },
                                 negActionName: AppLocalizations.of(context)!.cancel,
-                                negAction: () {
-
-                                },
+                                negAction: () {},
                               );
-
-
-
-                              //todo: logout logic
                             },
                             backgroundColor: AppColors.redColor,
                             sideColor: AppColors.redColor,
@@ -147,7 +155,6 @@ class ProfileTab extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-
                                   AppLocalizations.of(context)!.exit,
                                   style: AppTextStyles.regular20White,
                                 ),
@@ -181,7 +188,7 @@ class ProfileTab extends StatelessWidget {
                       splashFactory: NoSplash.splashFactory,
                       tabs: [
                         Tab(
-                          iconMargin: EdgeInsets.symmetric(vertical: 16),
+                          iconMargin: const EdgeInsets.symmetric(vertical: 16),
                           text: AppLocalizations.of(context)!.watchList,
                           icon: Image.asset(
                             AppAssets.iconWatchList,
@@ -190,7 +197,7 @@ class ProfileTab extends StatelessWidget {
                           ),
                         ),
                         Tab(
-                          iconMargin: EdgeInsets.symmetric(vertical: 6),
+                          iconMargin: const EdgeInsets.symmetric(vertical: 6),
                           text: AppLocalizations.of(context)!.history,
                           icon: Image.asset(
                             AppAssets.iconHistory,
@@ -214,9 +221,4 @@ class ProfileTab extends StatelessWidget {
       ),
     );
   }
-  // Text(
-  // "Route",
-  // style: AppTextStyles.bold20White,
-  // overflow: TextOverflow.ellipsis,
-  // ),
 }

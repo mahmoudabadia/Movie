@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/l10n/app_localizations.dart';
 import 'package:movie_app/ui/home/tabs/profile_tab/update_profile/create_bottom_sheet/create_bottom_sheet.dart';
@@ -7,6 +8,8 @@ import 'package:movie_app/ui/widgets/custom_text_field.dart';
 import 'package:movie_app/utils/app_assets.dart';
 import 'package:movie_app/utils/app_colors.dart';
 import 'package:movie_app/utils/app_text_styles.dart';
+
+import '../../../../../utils/toast_utilis.dart';
 
 class CreateUpdate extends StatefulWidget {
   const CreateUpdate({super.key});
@@ -29,10 +32,32 @@ class _CreateUpdateState extends State<CreateUpdate> {
   ];
 
   int selectedAvatarIndex = 0;
+  late TextEditingController nameController;
+  late TextEditingController phoneController;
+  bool isLoading = false;
 
-  final nameController = TextEditingController(text: "John Safwat");
+  @override
+  void initState() {
+    super.initState();
+    final user = FirebaseAuth.instance.currentUser;
 
-  final phoneController = TextEditingController(text: "0120000");
+    nameController = TextEditingController(text: user?.displayName ?? "");
+    phoneController = TextEditingController(text: "0120000");
+
+    if (user?.photoURL != null) {
+      final index = avatars.indexOf(user!.photoURL!);
+      if (index != -1) {
+        selectedAvatarIndex = index;
+      }
+    }
+  }
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    phoneController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,23 +66,24 @@ class _CreateUpdateState extends State<CreateUpdate> {
 
     return Scaffold(
       backgroundColor: AppColors.blackColor,
-
       appBar: AppBar(
         backgroundColor: AppColors.blackColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_rounded,
             color: AppColors.yelloColor,
             size: 35,
           ),
         ),
-        title: Text(AppLocalizations.of(context)!.pick, style: AppTextStyles.regular16Yellow),
+        title: Text(
+          AppLocalizations.of(context)!.pick,
+          style: AppTextStyles.regular16Yellow,
+        ),
         centerTitle: true,
       ),
-
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -79,7 +105,7 @@ class _CreateUpdateState extends State<CreateUpdate> {
               child: CustomTextField(
                 borderColor: AppColors.grayColor,
                 textStyle: AppTextStyles.regular16White,
-                prefixIcon: Icon(Icons.person, color: AppColors.whiteColor),
+                prefixIcon: const Icon(Icons.person, color: AppColors.whiteColor),
                 controller: nameController,
               ),
             ),
@@ -93,7 +119,7 @@ class _CreateUpdateState extends State<CreateUpdate> {
               child: CustomTextField(
                 borderColor: AppColors.grayColor,
                 textStyle: AppTextStyles.regular16White,
-                prefixIcon: Icon(
+                prefixIcon: const Icon(
                   Icons.phone_rounded,
                   color: AppColors.whiteColor,
                 ),
@@ -116,7 +142,7 @@ class _CreateUpdateState extends State<CreateUpdate> {
             ),
           ),
 
-          Spacer(),
+          const Spacer(),
 
           SizedBox(
             height: height * (55.72 / 932),
@@ -125,11 +151,10 @@ class _CreateUpdateState extends State<CreateUpdate> {
               onPressed: () async {
                 final result = await showDialog<bool>(
                   context: context,
-                  builder: (context) => DeleteDialog(),
+                  builder: (context) => const DeleteDialog(),
                 );
 
                 if (result == true) {
-                  // TODO: delete account
                 }
               },
               backgroundColor: AppColors.redColor,
@@ -147,7 +172,9 @@ class _CreateUpdateState extends State<CreateUpdate> {
             height: height * (55.72 / 932),
             width: width * (398 / 430),
             child: CustomElevatedButton(
-              onPressed: () async {
+              onPressed: isLoading
+                  ? () {}
+                  : () async {
                 final selectedIndex = await showModalBottomSheet<int>(
                   backgroundColor: AppColors.transparent,
                   context: context,
@@ -157,7 +184,6 @@ class _CreateUpdateState extends State<CreateUpdate> {
                       height: height * 0.45,
                       margin: EdgeInsets.only(
                         bottom: height * 0.01,
-
                         left: width * 0.02,
                         right: width * 0.02,
                       ),
@@ -165,7 +191,6 @@ class _CreateUpdateState extends State<CreateUpdate> {
                         color: AppColors.grayColor,
                         borderRadius: BorderRadius.circular(24),
                       ),
-
                       child: const CreateBottomSheet(),
                     );
                   },
@@ -176,10 +201,47 @@ class _CreateUpdateState extends State<CreateUpdate> {
                     selectedAvatarIndex = selectedIndex;
                   });
                 }
+
+                setState(() {
+                  isLoading = true;
+                });
+
+                final user = FirebaseAuth.instance.currentUser;
+                if (user != null) {
+                  await user.updateDisplayName(nameController.text.trim());
+                  await user.updatePhotoURL(avatars[selectedAvatarIndex]);
+                  await user.reload();
+                }
+
+                if (!context.mounted) return;
+                setState(() {
+                  isLoading = false;
+                });
+                Navigator.pop(context);
+                ToastUtils.showCustomToast(
+                  context: context,
+                  message: AppLocalizations.of(context)!.updatedSucsess,
+                  backgroundColor: AppColors.yelloColor,
+                  textColor: AppColors.blackColor,
+                  icon: Icons.check_circle,
+                  iconColor: AppColors.blackColor,
+                );
               },
               backgroundColor: AppColors.yelloColor,
               sideColor: AppColors.yelloColor,
-              child: Text(AppLocalizations.of(context)!.update, style: AppTextStyles.regular20Black),
+              child: isLoading
+                  ? const SizedBox(
+                height: 24,
+                width: 24,
+                child: CircularProgressIndicator(
+                  color: AppColors.blackColor,
+                  strokeWidth: 3,
+                ),
+              )
+                  : Text(
+                AppLocalizations.of(context)!.update,
+                style: AppTextStyles.regular20Black,
+              ),
             ),
           ),
 

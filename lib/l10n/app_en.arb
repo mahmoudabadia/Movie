@@ -59,6 +59,7 @@
   "weakPassword": "The password provided is too weak.",
   "makeSure" : "Are you sure to log out?",
   "warning": "Warning!!",
-  "yes": "Yes"
+  "yes": "Yes",
+  "updatedSucsess": "Profile Updated Successfully"
 
 }

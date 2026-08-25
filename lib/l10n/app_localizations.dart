@@ -463,6 +463,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Yes'**
   String get yes;
+
+  /// No description provided for @updatedSucsess.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile Updated Successfully'**
+  String get updatedSucsess;
 }
 
 class _AppLocalizationsDelegate

@@ -197,4 +197,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get yes => 'Yes';
+
+  @override
+  String get updatedSucsess => 'Profile Updated Successfully';
 }
