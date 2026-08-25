@@ -1,15 +1,17 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/ui/home/tabs/profile_tab/watch_list.dart';
+import 'package:movie_app/utils/app_routes.dart';
 
 import '../../../../l10n/app_localizations.dart';
 import '../../../../utils/app_assets.dart';
 import '../../../../utils/app_colors.dart';
 import '../../../../utils/app_text_styles.dart';
+import '../../../../utils/dialog_utilis.dart';
 import '../../../../utils/size_utils.dart';
+import '../../../authentication/login_screen/login.dart';
 import '../../../widgets/custom_elevated_button.dart';
 import 'history.dart';
-
-
 
 class ProfileTab extends StatelessWidget {
   const ProfileTab({super.key});
@@ -39,24 +41,14 @@ class ProfileTab extends StatelessWidget {
                       children: [
                         Expanded(
                           flex: 3,
-                          child: Column(
-                            children: [
-                              Image.asset(AppAssets.imageAvatar0, height: 90),
-                              SizedBox(height: context.height * 0.01),
-                              Text(
-                                "Route",
-                                style: AppTextStyles.bold20White,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ],
-                          ),
+                          child: Image.asset(AppAssets.imageAvatar0, height: 90),
                         ),
                         Expanded(
                           flex: 4,
                           child: Column(
                             children: [
                               Text("0", style: AppTextStyles.bold36White),
-                              SizedBox(height: context.height * 0.02),
+                              SizedBox(height: context.height * 0.01),
                               Text(
                                 AppLocalizations.of(context)!.watchList,
                                 style: AppTextStyles.bold20White,
@@ -70,7 +62,7 @@ class ProfileTab extends StatelessWidget {
                           child: Column(
                             children: [
                               Text("0", style: AppTextStyles.bold36White),
-                              SizedBox(height: context.height * 0.02),
+                              SizedBox(height: context.height * 0.01),
                               Text(
                                 AppLocalizations.of(context)!.history,
                                 style: AppTextStyles.bold20White,
@@ -82,12 +74,28 @@ class ProfileTab extends StatelessWidget {
                       ],
                     ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 6),
+                          child: Text(
+                          "Route Name",
+                          style: AppTextStyles.bold20White,
+                          ),
+                        ),
+                      ],
+                    ),
+
+                    Row(
                       children: [
                         Expanded(
                           flex: 7,
                           child: CustomElevatedButton(
                             onPressed: () {
-                              //todo: update profile
+                              Navigator.pushNamed(
+                                context,
+                                AppRoutes.createUpdateRouteName,
+                              );
                             },
                             backgroundColor: AppColors.yelloColor,
                             sideColor: AppColors.yelloColor,
@@ -106,7 +114,28 @@ class ProfileTab extends StatelessWidget {
                         Expanded(
                           flex: 4,
                           child: CustomElevatedButton(
-                            onPressed: () {
+                            onPressed: () async {
+                              await FirebaseAuth.instance.signOut();
+                              DialogUtils.showMessage(
+                                backgroundColor: AppColors.grayColor,
+                                context: context,
+                                message: AppLocalizations.of(context)!.makeSure,
+                                title: AppLocalizations.of(context)!.warning,
+                                posActionName: AppLocalizations.of(context)!.yes,
+                                posAction: () {
+                                  Navigator.of(context).pushAndRemoveUntil(
+                                    MaterialPageRoute(builder: (context) =>  LoginPage()),
+                                        (route) => false,
+                                  );
+                                },
+                                negActionName: AppLocalizations.of(context)!.cancel,
+                                negAction: () {
+
+                                },
+                              );
+
+
+
                               //todo: logout logic
                             },
                             backgroundColor: AppColors.redColor,
@@ -117,7 +146,11 @@ class ProfileTab extends StatelessWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text(AppLocalizations.of(context)!.exit, style: AppTextStyles.regular20White),
+                                Text(
+
+                                  AppLocalizations.of(context)!.exit,
+                                  style: AppTextStyles.regular20White,
+                                ),
                                 SizedBox(width: context.width * 0.02),
                                 Icon(
                                   Icons.logout_outlined,
@@ -152,7 +185,7 @@ class ProfileTab extends StatelessWidget {
                           text: AppLocalizations.of(context)!.watchList,
                           icon: Image.asset(
                             AppAssets.iconWatchList,
-                            height: 20,
+                            height: 16,
                             fit: BoxFit.contain,
                           ),
                         ),
@@ -174,16 +207,16 @@ class ProfileTab extends StatelessWidget {
 
             Expanded(
               flex: 6,
-              child: TabBarView(
-                children: [
-                  WatchList(),
-                  History(),
-                ],
-              ),
+              child: TabBarView(children: [WatchList(), History()]),
             ),
           ],
         ),
       ),
     );
   }
+  // Text(
+  // "Route",
+  // style: AppTextStyles.bold20White,
+  // overflow: TextOverflow.ellipsis,
+  // ),
 }
