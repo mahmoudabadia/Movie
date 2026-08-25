@@ -32,6 +32,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   TextEditingController confirmedController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
 
+  String selectedAvatar = AppAssets.imageAvatar1;
   bool isLoading = false;
 
   @override
@@ -43,7 +44,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
     return Scaffold(
       backgroundColor: AppColors.blackColor,
-
       appBar: AppBar(
         backgroundColor: AppColors.transparent,
         elevation: 0,
@@ -70,7 +70,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
             key: formKey,
             child: Column(
               children: [
-                const AvatarSelector(),
+                AvatarSelector(
+                  onAvatarSelected: (avatar) {
+                    selectedAvatar = avatar;
+                  },
+                ),
                 SizedBox(height: screenHeight * 0.025),
 
                 CustomTextField(
@@ -80,6 +84,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   hintStyle: AppTextStyles.regular16White,
                   fillColor: AppColors.grayColor,
                   borderColor: AppColors.transparent,
+                  validator: (text) {
+                    if (text == null || text.trim().isEmpty) {
+                      return "Please enter your name";
+                    }
+                    return null;
+                  },
                   prefixIcon: ImageIcon(
                     AssetImage(AppAssets.iconName),
                     color: AppColors.whiteColor,
@@ -260,15 +270,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
     });
 
     try {
-      final registerFuture = FirebaseAuth.instance
-          .createUserWithEmailAndPassword(
+      UserCredential userCredential =
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: emailController.text.trim(),
         password: passController.text,
       );
 
-      final delayFuture = Future.delayed(const Duration(seconds: 2));
+      await userCredential.user?.updateDisplayName(nameController.text.trim());
+      await userCredential.user?.updatePhotoURL(selectedAvatar);
 
-      await Future.wait([registerFuture, delayFuture]);
+      final delayFuture = Future.delayed(const Duration(seconds: 2));
+      await delayFuture;
 
       if (!mounted) return;
       ToastUtils.showCustomToast(
@@ -312,7 +324,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
         title: AppLocalizations.of(context)!.error,
         posActionName: AppLocalizations.of(context)!.ok,
         posAction: () {},
-
       );
     }
   }
