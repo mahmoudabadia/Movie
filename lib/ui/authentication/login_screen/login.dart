@@ -234,8 +234,7 @@ class _LoginPageState extends State<LoginPage> {
         title: AppLocalizations.of(context)!.error,
         posActionName: AppLocalizations.of(context)!.ok,
         posAction: () {},
-        negActionName: AppLocalizations.of(context)!.cancel,
-        negAction: () {},
+
       );
     } catch (e) {
       if (!mounted) return;
@@ -251,8 +250,7 @@ class _LoginPageState extends State<LoginPage> {
         title: AppLocalizations.of(context)!.error,
         posActionName: AppLocalizations.of(context)!.ok,
         posAction: () {},
-        negActionName: AppLocalizations.of(context)!.cancel,
-        negAction: () {},
+
       );
     }
   }

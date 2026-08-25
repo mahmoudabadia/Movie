@@ -7,7 +7,8 @@ import 'package:movie_app/ui/authentication/riegister_screen/rigester_screen.dar
 import 'package:movie_app/ui/cubit/cubit_language.dart';
 import 'package:movie_app/ui/home/home_screen.dart';
 import 'package:movie_app/ui/home/tabs/home_tab/home_tab.dart';
-import 'package:movie_app/ui/home/tabs/profile_tab/profile_tab.dart' show ProfileTab;
+import 'package:movie_app/ui/home/tabs/profile_tab/profile_tab.dart'
+    show ProfileTab;
 import 'package:movie_app/ui/home/tabs/profile_tab/update_profile/create_update_profile.dart';
 import 'package:movie_app/ui/home/tabs/prowse_tab/prowse_tab.dart';
 import 'package:movie_app/ui/home/tabs/search_tab/search_tab.dart';
@@ -22,10 +23,7 @@ void main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   runApp(
-    BlocProvider(
-      create: (context) => LanguageCubit(),
-      child: const MyApp(),
-    ),
+    BlocProvider(create: (context) => LanguageCubit(), child: const MyApp()),
   );
 }
 
@@ -38,8 +36,6 @@ class MyApp extends StatelessWidget {
       builder: (context, currentLocale) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-
-          locale: currentLocale,
 
           initialRoute: AppRoutes.loginRouteName,
           routes: {
@@ -55,6 +51,7 @@ class MyApp extends StatelessWidget {
             AppRoutes.splashRouteName: (context) => SplashScreen(),
             AppRoutes.createUpdateRouteName: (context) => CreateUpdate(),
           },
+          locale: currentLocale,
 
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,

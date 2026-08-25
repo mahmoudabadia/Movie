@@ -56,5 +56,9 @@
   "defaultAuthError": "An error occurred, please try again.",
   "emailAlreadyInUse": "This email is already registered.",
   "invalidEmail": "Please enter a valid email address.",
-  "weakPassword": "The password provided is too weak."
+  "weakPassword": "The password provided is too weak.",
+  "makeSure" : "Are you sure to log out?",
+  "warning": "Warning!!",
+  "yes": "Yes"
+
 }
