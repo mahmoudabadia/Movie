@@ -28,11 +28,6 @@ class MyApp extends StatelessWidget {
         AppRoutes.profileRouteName: (context) => ProfileTab(),
         AppRoutes.prowseRouteName: (context) => ProwseTab(),
         AppRoutes.searchRouteName: (context) => SearchTab(),
-
-
-
-
-
       },
 
       localizationsDelegates: AppLocalizations.localizationsDelegates,
