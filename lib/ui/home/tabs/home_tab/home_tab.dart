@@ -1,12 +1,40 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:movie_app/l10n/app_localizations.dart';
-import 'package:movie_app/utils/app_text_styles.dart';
 
+import '../../../../api/api_manager.dart';
+import '../../../../api/model/available_movies_response.dart';
+import '../../../../api/model/genre.dart';
 import '../../../../utils/app_assets.dart';
 import '../../../../utils/app_colors.dart';
+import 'home_tab_widget/carousel_section.dart';
+import 'home_tab_widget/category_movies_section.dart';
 
-class HomeTab extends StatelessWidget {
+class HomeTab extends StatefulWidget {
   const HomeTab({super.key});
+
+  @override
+  State<HomeTab> createState() => _HomeTabState();
+}
+
+class _HomeTabState extends State<HomeTab> {
+  String selectedBgImage = '';
+
+  late Future<AvailableMoviesResponse?> availableMoviesFuture;
+  late Future<AvailableMoviesResponse?> categoryMoviesFuture;
+  late String selectedGenre;
+
+  @override
+  void initState() {
+    super.initState();
+
+    selectedGenre = AppGenres.list[Random().nextInt(AppGenres.list.length)];
+
+    availableMoviesFuture = ApiManager.getMovies(limit: 10);
+    categoryMoviesFuture = ApiManager.getMovies(
+      genre: selectedGenre,
+      limit: 10,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +42,14 @@ class HomeTab extends StatelessWidget {
       backgroundColor: AppColors.blackColor,
       body: Stack(
         children: [
+
           SizedBox.expand(
-            child: Image.asset(AppAssets.imageOnBoarding5, fit: BoxFit.cover),
+            child: selectedBgImage.isNotEmpty
+                ? Image.network(selectedBgImage, fit: BoxFit.cover)
+                : Image.asset(AppAssets.imageOnBoarding5, fit: BoxFit.cover),
           ),
+
+
           SizedBox.expand(
             child: Container(
               decoration: BoxDecoration(
@@ -32,40 +65,41 @@ class HomeTab extends StatelessWidget {
               ),
             ),
           ),
-          SafeArea(
-            child: Center(
-              child: Column(
-                children: [
-                  Image.asset(AppAssets.imageAvailableNow, fit: BoxFit.cover),
-                  SizedBox(height: 350),
-                  Image.asset(AppAssets.imageWatchNow, fit: BoxFit.cover),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: InkWell(
-                      onTap: () {
-                        //todo: SeeMore
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Text(
-                            AppLocalizations.of(context)!.seeMore,
-                            style: AppTextStyles.regular14Yellow,
-                          ),
-                          SizedBox(width: 5),
-                          Icon(
-                            Icons.arrow_forward,
-                            color: AppColors.yelloColor,
-                            size: 16,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Container(
-                    //todo: action
 
-                  )
+
+          SafeArea(
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Center(
+                    child: Image.asset(AppAssets.imageAvailableNow, fit: BoxFit.cover),
+                  ),
+                  const SizedBox(height: 15),
+
+
+                  CarouselSection(
+                    future: availableMoviesFuture,
+                    onPageChanged: (newBg) {
+                      setState(() {
+                        selectedBgImage = newBg;
+                      });
+                    },
+                  ),
+
+                  const SizedBox(height: 15),
+                  Center(
+                    child: Image.asset(AppAssets.imageWatchNow, fit: BoxFit.cover),
+                  ),
+                  const SizedBox(height: 20),
+
+
+                  CategoryMoviesSection(
+                    genreName: selectedGenre,
+                    future: categoryMoviesFuture,
+                  ),
+
+                  const SizedBox(height: 20),
                 ],
               ),
             ),
