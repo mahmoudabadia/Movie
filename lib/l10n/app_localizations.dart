@@ -445,6 +445,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'The password provided is too weak.'**
   String get weakPassword;
+
+  /// No description provided for @makeSure.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure to log out?'**
+  String get makeSure;
+
+  /// No description provided for @warning.
+  ///
+  /// In en, this message translates to:
+  /// **'Warning!!'**
+  String get warning;
+
+  /// No description provided for @yes.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes'**
+  String get yes;
 }
 
 class _AppLocalizationsDelegate

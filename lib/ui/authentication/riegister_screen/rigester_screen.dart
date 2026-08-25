@@ -312,8 +312,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         title: AppLocalizations.of(context)!.error,
         posActionName: AppLocalizations.of(context)!.ok,
         posAction: () {},
-        negActionName: AppLocalizations.of(context)!.cancel,
-        negAction: () {},
+
       );
     }
   }

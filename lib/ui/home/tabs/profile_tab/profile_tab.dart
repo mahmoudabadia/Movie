@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/ui/home/tabs/profile_tab/watch_list.dart';
 import 'package:movie_app/utils/app_routes.dart';
@@ -6,7 +7,9 @@ import '../../../../l10n/app_localizations.dart';
 import '../../../../utils/app_assets.dart';
 import '../../../../utils/app_colors.dart';
 import '../../../../utils/app_text_styles.dart';
+import '../../../../utils/dialog_utilis.dart';
 import '../../../../utils/size_utils.dart';
+import '../../../authentication/login_screen/login.dart';
 import '../../../widgets/custom_elevated_button.dart';
 import 'history.dart';
 
@@ -111,7 +114,28 @@ class ProfileTab extends StatelessWidget {
                         Expanded(
                           flex: 4,
                           child: CustomElevatedButton(
-                            onPressed: () {
+                            onPressed: () async {
+                              await FirebaseAuth.instance.signOut();
+                              DialogUtils.showMessage(
+                                backgroundColor: AppColors.grayColor,
+                                context: context,
+                                message: AppLocalizations.of(context)!.makeSure,
+                                title: AppLocalizations.of(context)!.warning,
+                                posActionName: AppLocalizations.of(context)!.yes,
+                                posAction: () {
+                                  Navigator.of(context).pushAndRemoveUntil(
+                                    MaterialPageRoute(builder: (context) =>  LoginPage()),
+                                        (route) => false,
+                                  );
+                                },
+                                negActionName: AppLocalizations.of(context)!.cancel,
+                                negAction: () {
+
+                                },
+                              );
+
+
+
                               //todo: logout logic
                             },
                             backgroundColor: AppColors.redColor,
@@ -123,6 +147,7 @@ class ProfileTab extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
+
                                   AppLocalizations.of(context)!.exit,
                                   style: AppTextStyles.regular20White,
                                 ),

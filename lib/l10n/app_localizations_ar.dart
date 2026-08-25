@@ -188,4 +188,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get weakPassword => 'كلمة المرور ضعيفة للغاية.';
+
+  @override
+  String get makeSure => 'Are you sure to log out?';
+
+  @override
+  String get warning => 'Warning!!';
+
+  @override
+  String get yes => 'Yes';
 }

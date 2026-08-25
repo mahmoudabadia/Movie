@@ -76,7 +76,7 @@ mixin DialogUtils {
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
-              color: AppColors.greeen,
+              color: AppColors.yelloColor,
             ),
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
             child: Text(posActionName, style: AppTextStyles.semiBold20Black),
