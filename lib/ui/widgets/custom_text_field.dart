@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../utils/app_colors.dart';
 
-
 typedef OnValidator = String? Function(String?)?;
 
 class CustomTextField extends StatelessWidget {
@@ -22,6 +21,7 @@ class CustomTextField extends StatelessWidget {
   final Widget? suffixIcon;
   final int? maxLines;
   final OnValidator? validator;
+  final TextStyle? textStyle;
 
   const CustomTextField({
     super.key,
@@ -41,11 +41,13 @@ class CustomTextField extends StatelessWidget {
     this.validator,
     this.keyboardType = TextInputType.text,
     this.obscureText = false,
+    this.textStyle,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      style: textStyle,
       decoration: InputDecoration(
         filled: fill ?? true,
         fillColor: fillColor ?? AppColors.grayColor,
@@ -72,7 +74,6 @@ class CustomTextField extends StatelessWidget {
 
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
-
       ),
       maxLines: maxLines,
       controller: controller,
@@ -81,9 +82,6 @@ class CustomTextField extends StatelessWidget {
       keyboardType: keyboardType,
       obscureText: obscureText,
       cursorColor: AppColors.whiteColor,
-
-
-
     );
   }
 
@@ -92,7 +90,7 @@ class CustomTextField extends StatelessWidget {
     required Color borderColor,
   }) {
     return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(10),
+      borderRadius: BorderRadius.circular(redius),
       borderSide: BorderSide(width: 2, color: borderColor),
     );
   }

@@ -7,7 +7,7 @@ import 'package:movie_app/ui/widgets/custom_bottom_navigation_bar.dart';
 import 'package:movie_app/utils/app_colors.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({super.key});
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
