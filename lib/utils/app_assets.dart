@@ -45,4 +45,7 @@ class AppAssets {
   static const String imageMovieDetails = "${_basePathImages}movie_details_img.png";
   static const String imageSplashScreen = "${_basePathImages}splash_screen_img.png";
   static const String imageOnBoardingMain = "${_basePathImages}onBoarding_main_img.png";
+  static const String imagAppLogo = "assets/images/img.png";
+
+
 }
