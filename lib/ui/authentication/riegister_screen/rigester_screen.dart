@@ -13,6 +13,7 @@ import '../../../utils/size_utils.dart';
 import '../../../utils/toast_utilis.dart';
 import '../../widgets/custom_elevated_button.dart';
 import '../../widgets/custom_text_field.dart';
+import '../../widgets/snakbar_widget.dart';
 import '../login_screen/language_toggle_switch.dart';
 import 'avatar_selector.dart';
 
@@ -283,13 +284,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
       await delayFuture;
 
       if (!mounted) return;
-      ToastUtils.showCustomToast(
-        context: context,
-        message: AppLocalizations.of(context)!.regSuccess,
-        backgroundColor: AppColors.yelloColor,
-        textColor: AppColors.blackColor,
-        icon: Icons.check_circle,
-        iconColor: AppColors.blackColor,
+      showSnackBar(
+        AppLocalizations.of(context)!.regSuccess,
+        context,
+        isError: false,
       );
 
       Navigator.pushReplacementNamed(context, AppRoutes.homeRouteName);

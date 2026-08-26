@@ -8,6 +8,7 @@ import '../../../utils/size_utils.dart';
 import '../../widgets/custom_elevated_button.dart';
 import '../../widgets/custom_text_field.dart';
 import '../../widgets/divider_with_text.dart';
+import '../../widgets/snakbar_widget.dart';
 import '../forget_password_screen/forget_password_screen.dart';
 import 'app_logo.dart';
 import 'create_account_row.dart';
@@ -84,9 +85,26 @@ class LoginPage extends StatelessWidget {
                   AssetImage(AppAssets.iconPass),
                   color: AppColors.whiteColor,
                 ),
-                suffixIcon: ImageIcon(
-                  AssetImage(AppAssets.iconEyeOff),
-                  color: AppColors.whiteColor,
+                SizedBox(height: screenHeight * 0.015),
+
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>  ForgetPasswordScreen(),
+                        ),
+                      );
+                    },
+                    child: Text(
+                      localizations?.forgetPassword ?? '',
+                      style: AppTextStyles.bold14Yellow.copyWith(
+                        fontSize: screenWidth * 0.033,
+                      ),
+                    ),
+                  ),
                 ),
               ),
               SizedBox(height: screenHeight * 0.015),
@@ -186,3 +204,78 @@ class LoginPage extends StatelessWidget {
     );
   }
 }
+
+  void login() async {
+    setState(() {
+      isLoading = true;
+    });
+
+    try {
+      final loginFuture = FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailController.text.trim(),
+        password: passController.text,
+      );
+
+      final delayFuture = Future.delayed(const Duration(seconds: 2));
+
+      await Future.wait([loginFuture, delayFuture]);
+
+      if (!mounted) return;
+      showSnackBar(
+        AppLocalizations.of(context)!.loginSuccess,
+        context,
+        isError: false,
+      );
+
+      Navigator.pushReplacementNamed(context, AppRoutes.homeRouteName);
+    } on FirebaseAuthException catch (e) {
+      if (!mounted) return;
+
+      setState(() {
+        isLoading = false;
+      });
+
+      DialogUtils.showMessage(
+        backgroundColor: AppColors.grayColor,
+        context: context,
+        message: _getAuthErrorMessage(e.code, context),
+        title: AppLocalizations.of(context)!.error,
+        posActionName: AppLocalizations.of(context)!.ok,
+        posAction: () {},
+
+      );
+    } catch (e) {
+      if (!mounted) return;
+
+      setState(() {
+        isLoading = false;
+      });
+
+      DialogUtils.showMessage(
+        backgroundColor: AppColors.grayColor,
+        context: context,
+        message: AppLocalizations.of(context)!.error,
+        title: AppLocalizations.of(context)!.error,
+        posActionName: AppLocalizations.of(context)!.ok,
+        posAction: () {},
+
+      );
+    }
+  }
+
+  String _getAuthErrorMessage(String errorCode, BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
+
+    switch (errorCode) {
+      case 'user-not-found':
+      case 'wrong-password':
+      case 'invalid-credential':
+        return localizations.invalidCredentials;
+      case 'too-many-requests':
+        return localizations.tooManyRequests;
+      case 'network-request-failed':
+        return localizations.networkError;
+      default:
+        return localizations.defaultAuthError;
+    }
+  }}

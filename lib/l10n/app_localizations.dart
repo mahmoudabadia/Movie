@@ -469,6 +469,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Profile Updated Successfully'**
   String get updatedSucsess;
+
+  /// No description provided for @plsEnterName.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your email'**
+  String get plsEnterName;
+
+  /// No description provided for @passSend.
+  ///
+  /// In en, this message translates to:
+  /// **'Password link sent to your email'**
+  String get passSend;
+
+  /// No description provided for @errorOccur.
+  ///
+  /// In en, this message translates to:
+  /// **'An error occurred'**
+  String get errorOccur;
+
+  /// No description provided for @unexpectedError.
+  ///
+  /// In en, this message translates to:
+  /// **'Unexpected error occurred'**
+  String get unexpectedError;
 }
 
 class _AppLocalizationsDelegate
