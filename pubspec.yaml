@@ -44,7 +44,6 @@ dependencies:
   firebase_auth: ^6.6.0
   palette_generator: ^0.3.3+7
   firebase_core: ^4.14.0
-  firebase_auth: ^6.6.0
   fluttertoast: ^10.0.0
   flutter_bloc: ^9.1.1
   carousel_slider: ^5.1.2

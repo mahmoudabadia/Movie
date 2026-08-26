@@ -60,6 +60,10 @@
   "makeSure" : "Are you sure to log out?",
   "warning": "Warning!!",
   "yes": "Yes",
-  "updatedSucsess": "Profile Updated Successfully"
+  "updatedSucsess": "Profile Updated Successfully",
+  "plsEnterName": "Please enter your email",
+  "passSend": "Password link sent to your email",
+  "errorOccur": "An error occurred",
+  "unexpectedError": "Unexpected error occurred"
 
 }

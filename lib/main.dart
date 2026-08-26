@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,7 +9,7 @@ import 'package:movie_app/ui/cubit/cubit_language.dart';
 import 'package:movie_app/ui/home/home_screen.dart';
 import 'package:movie_app/ui/home/tabs/home_tab/home_tab.dart';
 import 'package:movie_app/ui/home/tabs/profile_tab/profile_tab.dart'
-    show ProfileTab;
+     ;
 import 'package:movie_app/ui/home/tabs/profile_tab/update_profile/create_update_profile.dart';
 import 'package:movie_app/ui/home/tabs/prowse_tab/prowse_tab.dart';
 import 'package:movie_app/ui/home/tabs/search_tab/search_tab.dart';
@@ -21,6 +22,9 @@ import 'l10n/app_localizations.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await FirebaseAuth.instance.setSettings(
+    appVerificationDisabledForTesting: true,
+  );
 
   runApp(
     BlocProvider(create: (context) => LanguageCubit(), child: const MyApp()),
