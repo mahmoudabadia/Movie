@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../l10n/app_localizations.dart';
 import '../../../utils/app_assets.dart';
 import '../../../utils/app_colors.dart';
@@ -13,11 +12,29 @@ import '../forget_password_screen/forget_password_screen.dart';
 import 'app_logo.dart';
 import 'create_account_row.dart';
 import 'language_toggle_switch.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 // --- Login Page Component ---
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
+  Future<UserCredential?> signInWithGoogle() async {
+    try {
+      final googleUser = await GoogleSignIn.instance.authenticate();
+      if (googleUser == null) return null;
 
+      final googleAuth = googleUser.authentication;
+
+      final OAuthCredential credential = GoogleAuthProvider.credential(
+        idToken: googleAuth.idToken,
+      );
+
+      return await FirebaseAuth.instance.signInWithCredential(credential);
+    } catch (e) {
+      debugPrint("Google Sign-In Error: $e");
+      return null;
+    }
+  }
   @override
   Widget build(BuildContext context) {
     final double screenHeight = context.height;
@@ -82,7 +99,7 @@ class LoginPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const ForgetPasswordScreen(),
+                        builder: (context) =>  ForgetPasswordScreen(),
                       ),
                     );
                   },
@@ -131,8 +148,11 @@ class LoginPage extends StatelessWidget {
                 sideColor: AppColors.transparent,
                 redius: 15,
                 verticalPadding: 14,
-                onPressed: () {
-                  // TODO: Implement Google Sign-In logic
+                onPressed: () async {
+                  UserCredential? userCredential = await signInWithGoogle();
+                  if (userCredential != null) {
+                    Navigator.pushReplacementNamed(context, AppRoutes.homeRouteName);
+                  }
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
