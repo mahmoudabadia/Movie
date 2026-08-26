@@ -247,6 +247,228 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Welcome to the Home Screen'**
   String get welcome;
+
+  /// No description provided for @titleMain.
+  ///
+  /// In en, this message translates to:
+  /// **'Find Your Next\nFavorite Movie Here'**
+  String get titleMain;
+
+  /// No description provided for @descMain.
+  ///
+  /// In en, this message translates to:
+  /// **'Get access to a huge library of movies to suit all tastes. You will surely like it.'**
+  String get descMain;
+
+  /// No description provided for @titleOne.
+  ///
+  /// In en, this message translates to:
+  /// **'Discover Movies'**
+  String get titleOne;
+
+  /// No description provided for @descOne.
+  ///
+  /// In en, this message translates to:
+  /// **'Explore a vast collection of movies in all qualities and genres. Find your next favorite film with ease.'**
+  String get descOne;
+
+  /// No description provided for @titleTwo.
+  ///
+  /// In en, this message translates to:
+  /// **'Explore All Genres'**
+  String get titleTwo;
+
+  /// No description provided for @descTwo.
+  ///
+  /// In en, this message translates to:
+  /// **'Discover movies from every genre, in all available qualities. Find something new and exciting to watch every day.'**
+  String get descTwo;
+
+  /// No description provided for @titleThree.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Watchlists'**
+  String get titleThree;
+
+  /// No description provided for @descThree.
+  ///
+  /// In en, this message translates to:
+  /// **'Save movies to your watchlist to keep track of what you want to watch next. Enjoy films in various qualities and genres.'**
+  String get descThree;
+
+  /// No description provided for @titleFour.
+  ///
+  /// In en, this message translates to:
+  /// **'Rate, Review, and Learn'**
+  String get titleFour;
+
+  /// No description provided for @descFour.
+  ///
+  /// In en, this message translates to:
+  /// **'Share your thoughts on the movies you\'ve watched. Dive deep into film details and help others discover great movies with your reviews.'**
+  String get descFour;
+
+  /// No description provided for @titleFive.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Watching Now'**
+  String get titleFive;
+
+  /// No description provided for @exploreNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Explore Now'**
+  String get exploreNow;
+
+  /// No description provided for @finish.
+  ///
+  /// In en, this message translates to:
+  /// **'Finish'**
+  String get finish;
+
+  /// No description provided for @next.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get next;
+
+  /// No description provided for @back.
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get back;
+
+  /// No description provided for @pick.
+  ///
+  /// In en, this message translates to:
+  /// **'pick Avatar'**
+  String get pick;
+
+  /// No description provided for @reset.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset Password'**
+  String get reset;
+
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Account'**
+  String get delete;
+
+  /// No description provided for @update.
+  ///
+  /// In en, this message translates to:
+  /// **'Update Data'**
+  String get update;
+
+  /// No description provided for @error.
+  ///
+  /// In en, this message translates to:
+  /// **'Error'**
+  String get error;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @ok.
+  ///
+  /// In en, this message translates to:
+  /// **'Ok'**
+  String get ok;
+
+  /// No description provided for @success.
+  ///
+  /// In en, this message translates to:
+  /// **'Success'**
+  String get success;
+
+  /// No description provided for @loginSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Login successful'**
+  String get loginSuccess;
+
+  /// No description provided for @loading.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading...'**
+  String get loading;
+
+  /// No description provided for @regSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Registration successful'**
+  String get regSuccess;
+
+  /// No description provided for @invalidCredentials.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid email or password.'**
+  String get invalidCredentials;
+
+  /// No description provided for @networkError.
+  ///
+  /// In en, this message translates to:
+  /// **'Network error, please check your connection.'**
+  String get networkError;
+
+  /// No description provided for @tooManyRequests.
+  ///
+  /// In en, this message translates to:
+  /// **'Too many attempts. Please try again later.'**
+  String get tooManyRequests;
+
+  /// No description provided for @defaultAuthError.
+  ///
+  /// In en, this message translates to:
+  /// **'An error occurred, please try again.'**
+  String get defaultAuthError;
+
+  /// No description provided for @emailAlreadyInUse.
+  ///
+  /// In en, this message translates to:
+  /// **'This email is already registered.'**
+  String get emailAlreadyInUse;
+
+  /// No description provided for @invalidEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid email address.'**
+  String get invalidEmail;
+
+  /// No description provided for @weakPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'The password provided is too weak.'**
+  String get weakPassword;
+
+  /// No description provided for @makeSure.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure to log out?'**
+  String get makeSure;
+
+  /// No description provided for @warning.
+  ///
+  /// In en, this message translates to:
+  /// **'Warning!!'**
+  String get warning;
+
+  /// No description provided for @yes.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes'**
+  String get yes;
+
+  /// No description provided for @updatedSucsess.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile Updated Successfully'**
+  String get updatedSucsess;
 }
 
 class _AppLocalizationsDelegate

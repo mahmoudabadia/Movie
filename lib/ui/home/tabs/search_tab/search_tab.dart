@@ -20,6 +20,7 @@ class SearchTab extends StatelessWidget {
           Padding(
             padding: EdgeInsets.symmetric(vertical: 60, horizontal: 10),
             child: CustomTextField(
+              textStyle: AppTextStyles.regular16White,
               fill: true,
               hintText: AppLocalizations.of(context)!.search,
               hintStyle: AppTextStyles.regular16White,

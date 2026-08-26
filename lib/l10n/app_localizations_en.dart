@@ -82,4 +82,120 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get welcome => 'Welcome to the Home Screen';
+
+  @override
+  String get titleMain => 'Find Your Next\nFavorite Movie Here';
+
+  @override
+  String get descMain =>
+      'Get access to a huge library of movies to suit all tastes. You will surely like it.';
+
+  @override
+  String get titleOne => 'Discover Movies';
+
+  @override
+  String get descOne =>
+      'Explore a vast collection of movies in all qualities and genres. Find your next favorite film with ease.';
+
+  @override
+  String get titleTwo => 'Explore All Genres';
+
+  @override
+  String get descTwo =>
+      'Discover movies from every genre, in all available qualities. Find something new and exciting to watch every day.';
+
+  @override
+  String get titleThree => 'Create Watchlists';
+
+  @override
+  String get descThree =>
+      'Save movies to your watchlist to keep track of what you want to watch next. Enjoy films in various qualities and genres.';
+
+  @override
+  String get titleFour => 'Rate, Review, and Learn';
+
+  @override
+  String get descFour =>
+      'Share your thoughts on the movies you\'ve watched. Dive deep into film details and help others discover great movies with your reviews.';
+
+  @override
+  String get titleFive => 'Start Watching Now';
+
+  @override
+  String get exploreNow => 'Explore Now';
+
+  @override
+  String get finish => 'Finish';
+
+  @override
+  String get next => 'Next';
+
+  @override
+  String get back => 'Back';
+
+  @override
+  String get pick => 'pick Avatar';
+
+  @override
+  String get reset => 'Reset Password';
+
+  @override
+  String get delete => 'Delete Account';
+
+  @override
+  String get update => 'Update Data';
+
+  @override
+  String get error => 'Error';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get ok => 'Ok';
+
+  @override
+  String get success => 'Success';
+
+  @override
+  String get loginSuccess => 'Login successful';
+
+  @override
+  String get loading => 'Loading...';
+
+  @override
+  String get regSuccess => 'Registration successful';
+
+  @override
+  String get invalidCredentials => 'Invalid email or password.';
+
+  @override
+  String get networkError => 'Network error, please check your connection.';
+
+  @override
+  String get tooManyRequests => 'Too many attempts. Please try again later.';
+
+  @override
+  String get defaultAuthError => 'An error occurred, please try again.';
+
+  @override
+  String get emailAlreadyInUse => 'This email is already registered.';
+
+  @override
+  String get invalidEmail => 'Please enter a valid email address.';
+
+  @override
+  String get weakPassword => 'The password provided is too weak.';
+
+  @override
+  String get makeSure => 'Are you sure to log out?';
+
+  @override
+  String get warning => 'Warning!!';
+
+  @override
+  String get yes => 'Yes';
+
+  @override
+  String get updatedSucsess => 'Profile Updated Successfully';
 }

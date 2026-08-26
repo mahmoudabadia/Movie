@@ -89,6 +89,11 @@ class AppTextStyles {
     fontWeight: FontWeight.w400,
     color: AppColors.whiteColor,
   );
+  static final TextStyle regular16Yellow = inter(
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+    color: AppColors.yelloColor,
+  );
 
   /// ======  Size   14   ========
   static final TextStyle regular14Yellow = inter(
