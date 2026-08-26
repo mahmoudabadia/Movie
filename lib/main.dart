@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:movie_app/ui/authentication/forget_password_screen/forget_password_screen.dart';
 import 'package:movie_app/ui/authentication/login_screen/login.dart';
 import 'package:movie_app/ui/authentication/riegister_screen/rigester_screen.dart';
@@ -24,6 +25,9 @@ void main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await FirebaseAuth.instance.setSettings(
     appVerificationDisabledForTesting: true,
+  );
+  await GoogleSignIn.instance.initialize(
+    serverClientId: '523636065584-a3j3hqb92da10jakql7n8avf0mmndjrg.apps.googleusercontent.com',
   );
 
   runApp(
