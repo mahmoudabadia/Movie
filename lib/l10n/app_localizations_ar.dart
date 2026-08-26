@@ -200,4 +200,16 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get updatedSucsess => 'Profile Updated Successfully';
+
+  @override
+  String get plsEnterName => 'Please enter your email';
+
+  @override
+  String get passSend => 'Password link sent to your email';
+
+  @override
+  String get errorOccur => 'An error occurred';
+
+  @override
+  String get unexpectedError => 'Unexpected error occurred';
 }

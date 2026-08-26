@@ -14,6 +14,7 @@ import '../../cubit/cubit_language.dart';
 import '../../widgets/custom_elevated_button.dart';
 import '../../widgets/custom_text_field.dart';
 import '../../widgets/divider_with_text.dart';
+import '../../widgets/snakbar_widget.dart';
 import '../forget_password_screen/forget_password_screen.dart';
 import 'app_logo.dart';
 import 'create_account_row.dart';
@@ -100,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const ForgetPasswordScreen(),
+                          builder: (context) =>  ForgetPasswordScreen(),
                         ),
                       );
                     },
@@ -210,13 +211,10 @@ class _LoginPageState extends State<LoginPage> {
       await Future.wait([loginFuture, delayFuture]);
 
       if (!mounted) return;
-      ToastUtils.showCustomToast(
-        context: context,
-        message: AppLocalizations.of(context)!.loginSuccess,
-        backgroundColor: AppColors.yelloColor,
-        textColor: AppColors.blackColor,
-        icon: Icons.check_circle,
-        iconColor: AppColors.blackColor,
+      showSnackBar(
+        AppLocalizations.of(context)!.loginSuccess,
+        context,
+        isError: false,
       );
 
       Navigator.pushReplacementNamed(context, AppRoutes.homeRouteName);
