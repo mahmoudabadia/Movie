@@ -3,6 +3,7 @@ import 'package:movie_app/api/constants/end_point.dart';
 import 'constants/api_constant.dart';
 import 'model/available_movies_response.dart';
 
+
 class ApiManager {
   static final Dio _dio = Dio(
     BaseOptions(
