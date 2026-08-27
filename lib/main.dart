@@ -9,8 +9,7 @@ import 'package:movie_app/ui/authentication/riegister_screen/rigester_screen.dar
 import 'package:movie_app/ui/cubit/cubit_language.dart';
 import 'package:movie_app/ui/home/home_screen.dart';
 import 'package:movie_app/ui/home/tabs/home_tab/home_tab.dart';
-import 'package:movie_app/ui/home/tabs/profile_tab/profile_tab.dart'
-     ;
+import 'package:movie_app/ui/home/tabs/profile_tab/profile_tab.dart';
 import 'package:movie_app/ui/home/tabs/profile_tab/update_profile/create_update_profile.dart';
 import 'package:movie_app/ui/home/tabs/prowse_tab/prowse_tab.dart';
 import 'package:movie_app/ui/home/tabs/search_tab/search_tab.dart';
@@ -45,7 +44,7 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
 
-          initialRoute: AppRoutes.loginRouteName,
+          initialRoute: AppRoutes.splashRouteName,
           routes: {
             AppRoutes.homeRouteName: (context) => HomeScreen(),
             AppRoutes.homeTabRouteName: (context) => HomeTab(),
