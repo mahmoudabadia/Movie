@@ -26,7 +26,8 @@ void main() async {
     appVerificationDisabledForTesting: true,
   );
   await GoogleSignIn.instance.initialize(
-    serverClientId: '523636065584-a3j3hqb92da10jakql7n8avf0mmndjrg.apps.googleusercontent.com',
+    serverClientId:
+        '523636065584-a3j3hqb92da10jakql7n8avf0mmndjrg.apps.googleusercontent.com',
   );
 
   runApp(
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
 
-          initialRoute: AppRoutes.splashRouteName,
+          initialRoute: AppRoutes.loginRouteName,
           routes: {
             AppRoutes.homeRouteName: (context) => HomeScreen(),
             AppRoutes.homeTabRouteName: (context) => HomeTab(),
