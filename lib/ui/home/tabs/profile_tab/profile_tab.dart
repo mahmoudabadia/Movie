@@ -13,16 +13,23 @@ import '../../../authentication/login_screen/login.dart';
 import '../../../widgets/custom_elevated_button.dart';
 import 'history.dart';
 
-class ProfileTab extends StatelessWidget {
+class ProfileTab extends StatefulWidget {
   const ProfileTab({super.key});
 
+  @override
+  State<ProfileTab> createState() => _ProfileTabState();
+}
+
+class _ProfileTabState extends State<ProfileTab> {
+  @override
   @override
   Widget build(BuildContext context) {
     var _ = context.height;
 
     final user = FirebaseAuth.instance.currentUser;
     final String userName = user?.displayName ?? "User";
-    final String userAvatar = (user?.photoURL != null && user!.photoURL!.isNotEmpty)
+    final String userAvatar =
+        (user?.photoURL != null && user!.photoURL!.isNotEmpty)
         ? user.photoURL!
         : AppAssets.imageAvatar0;
 
@@ -104,11 +111,14 @@ class ProfileTab extends StatelessWidget {
                         Expanded(
                           flex: 7,
                           child: CustomElevatedButton(
-                            onPressed: () {
-                              Navigator.pushNamed(
+                            onPressed: () async {
+                              final isUpdated = await Navigator.pushNamed(
                                 context,
                                 AppRoutes.createUpdateRouteName,
                               );
+                              if (isUpdated != null) {
+                                setState(() {});
+                              }
                             },
                             backgroundColor: AppColors.yelloColor,
                             sideColor: AppColors.yelloColor,
@@ -134,16 +144,22 @@ class ProfileTab extends StatelessWidget {
                                 message: AppLocalizations.of(context)!
                                     .make_sure,
                                 title: AppLocalizations.of(context)!.warning,
-                                posActionName: AppLocalizations.of(context)!.yes,
+                                posActionName: AppLocalizations.of(
+                                  context,
+                                )!.yes,
                                 posAction: () async {
                                   await FirebaseAuth.instance.signOut();
                                   if (!context.mounted) return;
                                   Navigator.of(context).pushAndRemoveUntil(
-                                    MaterialPageRoute(builder: (context) => LoginPage()),
-                                        (route) => false,
+                                    MaterialPageRoute(
+                                      builder: (context) => LoginPage(),
+                                    ),
+                                    (route) => false,
                                   );
                                 },
-                                negActionName: AppLocalizations.of(context)!.cancel,
+                                negActionName: AppLocalizations.of(
+                                  context,
+                                )!.cancel,
                                 negAction: () {},
                               );
                             },

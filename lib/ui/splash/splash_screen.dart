@@ -18,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
     _navigateToHome();
   }
 
-  void _navigateToHome() async {
+  Future<void> _navigateToHome() async {
     await Future.delayed(const Duration(seconds: 2));
 
     if (!mounted) return;
@@ -28,22 +28,24 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
       backgroundColor: AppColors.blackColor,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          const SizedBox(height: 240),
-          Center(
-            child: Image.asset( AppAssets.imageSplashScreen
-
+      body: SafeArea(
+        child: Column(
+          children: [
+            const Spacer(flex: 2),
+            Center(
+              child: Image.asset(
+                AppAssets.imageSplashScreen,
+              ),
             ),
-          ),
-          const SizedBox(height: 120),
-          Image.asset(AppAssets.imageRouteLogo),
-        ],
+            const Spacer(flex: 2),
+            Image.asset(
+              AppAssets.imageRouteLogo,
+            ),
+            const SizedBox(height: 24),
+          ],
+        ),
       ),
     );
   }

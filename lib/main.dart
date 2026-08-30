@@ -26,6 +26,7 @@ void main() async {
     appVerificationDisabledForTesting: true,
   );
 
+
   runApp(
     BlocProvider(create: (context) => LanguageCubit(), child: const MyApp()),
   );

@@ -535,6 +535,132 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'The password provided is too weak.'**
   String get weakPassword;
+
+  /// No description provided for @makeSure.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure to log out?'**
+  String get makeSure;
+
+  /// No description provided for @warning.
+  ///
+  /// In en, this message translates to:
+  /// **'Warning!!'**
+  String get warning;
+
+  /// No description provided for @yes.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes'**
+  String get yes;
+
+  /// No description provided for @updatedSucsess.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile Updated Successfully'**
+  String get updatedSucsess;
+
+  /// No description provided for @plsEnterName.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your email'**
+  String get plsEnterName;
+
+  /// No description provided for @passSend.
+  ///
+  /// In en, this message translates to:
+  /// **'Password link sent to your email'**
+  String get passSend;
+
+  /// No description provided for @errorOccur.
+  ///
+  /// In en, this message translates to:
+  /// **'An error occurred'**
+  String get errorOccur;
+
+  /// No description provided for @somethingWentWrong.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong'**
+  String get somethingWentWrong;
+
+  /// No description provided for @deleteAccountSurin.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete your account?'**
+  String get deleteAccountSurin;
+
+  /// No description provided for @deleteSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Account Delete Sccessfully'**
+  String get deleteSuccess;
+
+  /// No description provided for @resetPasswordEmailSent.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset password email sent successfully'**
+  String get resetPasswordEmailSent;
+
+  /// No description provided for @unexpectedError.
+  ///
+  /// In en, this message translates to:
+  /// **'Unexpected error occurred'**
+  String get unexpectedError;
+
+  /// No description provided for @pleaseEnterName.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your name'**
+  String get pleaseEnterName;
+
+  /// No description provided for @pleaseEnterEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your email'**
+  String get pleaseEnterEmail;
+
+  /// No description provided for @pleaseEnterValidEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid email'**
+  String get pleaseEnterValidEmail;
+
+  /// No description provided for @pleaseEnterYourPass.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your password'**
+  String get pleaseEnterYourPass;
+
+  /// No description provided for @passValidation.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 6 characters'**
+  String get passValidation;
+
+  /// No description provided for @pleaseConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Please confirm your password'**
+  String get pleaseConfirm;
+
+  /// No description provided for @passwordDontMatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Passwords do not match'**
+  String get passwordDontMatch;
+
+  /// No description provided for @noUser.
+  ///
+  /// In en, this message translates to:
+  /// **'No user is currently signed in.'**
+  String get noUser;
+
+  /// No description provided for @noEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'The current user does not have an email.'**
+  String get noEmail;
 }
 
 class _AppLocalizationsDelegate

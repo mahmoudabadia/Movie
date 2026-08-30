@@ -232,4 +232,68 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get weakPassword => 'The password provided is too weak.';
+
+  @override
+  String get makeSure => 'Are you sure to log out?';
+
+  @override
+  String get warning => 'Warning!!';
+
+  @override
+  String get yes => 'Yes';
+
+  @override
+  String get updatedSucsess => 'Profile Updated Successfully';
+
+  @override
+  String get plsEnterName => 'Please enter your email';
+
+  @override
+  String get passSend => 'Password link sent to your email';
+
+  @override
+  String get errorOccur => 'An error occurred';
+
+  @override
+  String get somethingWentWrong => 'Something went wrong';
+
+  @override
+  String get deleteAccountSurin =>
+      'Are you sure you want to delete your account?';
+
+  @override
+  String get deleteSuccess => 'Account Delete Sccessfully';
+
+  @override
+  String get resetPasswordEmailSent => 'Reset password email sent successfully';
+
+  @override
+  String get unexpectedError => 'Unexpected error occurred';
+
+  @override
+  String get pleaseEnterName => 'Please enter your name';
+
+  @override
+  String get pleaseEnterEmail => 'Please enter your email';
+
+  @override
+  String get pleaseEnterValidEmail => 'Please enter a valid email';
+
+  @override
+  String get pleaseEnterYourPass => 'Please enter your password';
+
+  @override
+  String get passValidation => 'Password must be at least 6 characters';
+
+  @override
+  String get pleaseConfirm => 'Please confirm your password';
+
+  @override
+  String get passwordDontMatch => 'Passwords do not match';
+
+  @override
+  String get noUser => 'No user is currently signed in.';
+
+  @override
+  String get noEmail => 'The current user does not have an email.';
 }

@@ -1,25 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
 class ResetPassword {
-  static Future<void> sendResetEmail() async {
-    final user = FirebaseAuth.instance.currentUser;
+  static Future<void> sendResetEmail({String? email}) async {
+    final String? targetEmail = email ?? FirebaseAuth.instance.currentUser?.email;
 
-    if (user == null) {
+    if (targetEmail == null || targetEmail.trim().isEmpty) {
       throw FirebaseAuthException(
-        code: "no-user",
-        message: "No user is currently signed in.",
+        code: 'no-email',
       );
     }
 
-    final email = user.email;
-
-    if (email == null || email.isEmpty) {
-      throw FirebaseAuthException(
-        code: "no-email",
-        message: "The current user does not have an email.",
-      );
-    }
-
-    await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+    await FirebaseAuth.instance.sendPasswordResetEmail(email: targetEmail.trim());
   }
 }
