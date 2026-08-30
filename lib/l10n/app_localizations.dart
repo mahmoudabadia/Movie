@@ -185,13 +185,13 @@ abstract class AppLocalizations {
   /// No description provided for @unexpectedError.
   ///
   /// In en, this message translates to:
-  /// **'unexpectedError'**
+  /// **'Unexpected error occurred'**
   String get unexpectedError;
 
   /// No description provided for @plsEnterName.
   ///
   /// In en, this message translates to:
-  /// **'pleaseEnterName'**
+  /// **'Please enter your email'**
   String get plsEnterName;
 
   /// No description provided for @summary.
@@ -209,7 +209,7 @@ abstract class AppLocalizations {
   /// No description provided for @warning.
   ///
   /// In en, this message translates to:
-  /// **'Warning'**
+  /// **'Warning!!'**
   String get warning;
 
   /// No description provided for @yes.
@@ -542,29 +542,11 @@ abstract class AppLocalizations {
   /// **'Are you sure to log out?'**
   String get makeSure;
 
-  /// No description provided for @warning.
-  ///
-  /// In en, this message translates to:
-  /// **'Warning!!'**
-  String get warning;
-
-  /// No description provided for @yes.
-  ///
-  /// In en, this message translates to:
-  /// **'Yes'**
-  String get yes;
-
   /// No description provided for @updatedSucsess.
   ///
   /// In en, this message translates to:
   /// **'Profile Updated Successfully'**
   String get updatedSucsess;
-
-  /// No description provided for @plsEnterName.
-  ///
-  /// In en, this message translates to:
-  /// **'Please enter your email'**
-  String get plsEnterName;
 
   /// No description provided for @passSend.
   ///
@@ -601,12 +583,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Reset password email sent successfully'**
   String get resetPasswordEmailSent;
-
-  /// No description provided for @unexpectedError.
-  ///
-  /// In en, this message translates to:
-  /// **'Unexpected error occurred'**
-  String get unexpectedError;
 
   /// No description provided for @pleaseEnterName.
   ///

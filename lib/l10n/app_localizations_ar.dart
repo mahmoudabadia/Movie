@@ -1,6 +1,5 @@
 // ignore: unused_import
 import 'package:intl/intl.dart' as intl;
-
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
@@ -25,7 +24,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get genres => 'Genres';
 
   @override
-  String get createOne => 'أنشئ حساباً';
+  String get createOne => 'إنشاء حساب جديد';
 
   @override
   String get updated_sucsess => 'updated Sucsess';
@@ -52,10 +51,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get error_occur => 'ErrorOccur';
 
   @override
-  String get unexpectedError => 'unexpectedError';
+  String get unexpectedError => 'حدث خطأ غير متوقع';
 
   @override
-  String get plsEnterName => 'pleaseEnterName';
+  String get plsEnterName => 'يرجى إدخال بريدك الإلكتروني';
 
   @override
   String get summary => 'Summary';
@@ -64,14 +63,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get make_sure => 'Make Sure';
 
   @override
-  String get warning => 'Warning';
+  String get warning => 'تحذير!!';
 
   @override
-  String get yes => 'Yes';
-
-  @override
-  String get dontHaveAccount => 'ليس لديك حساب؟ ';
-  String get createOne => 'إنشاء حساب جديد';
+  String get yes => 'نعم';
 
   @override
   String get dontHaveAccount => 'ليس لديك حساب ؟ ';
@@ -236,23 +231,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get invalidEmail => 'يرجى إدخال عنوان بريد إلكتروني صالح.';
 
   @override
-  String get weakPassword => 'كلمة المرور ضعيفة للغاية.';
   String get weakPassword => 'كلمة المرور أدخلتها ضعيفة للغاية.';
 
   @override
   String get makeSure => 'هل أنت تأكد من تسجيل الخروج؟';
 
   @override
-  String get warning => 'تحذير!!';
-
-  @override
-  String get yes => 'نعم';
-
-  @override
   String get updatedSucsess => 'تم تحديث الملف الشخصي بنجاح';
-
-  @override
-  String get plsEnterName => 'يرجى إدخال بريدك الإلكتروني';
 
   @override
   String get passSend =>
@@ -273,9 +258,6 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get resetPasswordEmailSent =>
       'تم إرسال بريد إعادة تعيين كلمة المرور بنجاح';
-
-  @override
-  String get unexpectedError => 'حدث خطأ غير متوقع';
 
   @override
   String get pleaseEnterName => 'يرجى إدخال اسمك';

@@ -23,20 +23,19 @@ class WidgetGridviewList extends StatelessWidget {
           Image.network(image),
           Container(
             margin: EdgeInsets.all(8),
-            padding: EdgeInsets.all(4),
+            padding: EdgeInsets.only(top: 10 , bottom: 10, left: 10, ),
             width: context.width * 0.15,
             height: context.height * 0.04,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(0),
+              borderRadius: BorderRadius.circular(12),
               color: AppColors.grayColor,
             ),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Expanded(
-                  child: Text(rating, style: AppTextStyles.regular16White),
+                  child: Text(rating, style: AppTextStyles.regular14Withe),
                 ),
-                Expanded(child: Image.asset(AppAssets.iconStar2)),
+                Expanded(child: Image.asset(AppAssets.iconStar)),
               ],
             ),
           ),

@@ -1,6 +1,5 @@
 // ignore: unused_import
 import 'package:intl/intl.dart' as intl;
-
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
@@ -52,10 +51,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get error_occur => 'ErrorOccur';
 
   @override
-  String get unexpectedError => 'unexpectedError';
+  String get unexpectedError => 'Unexpected error occurred';
 
   @override
-  String get plsEnterName => 'pleaseEnterName';
+  String get plsEnterName => 'Please enter your email';
 
   @override
   String get summary => 'Summary';
@@ -64,7 +63,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get make_sure => 'Make Sure';
 
   @override
-  String get warning => 'Warning';
+  String get warning => 'Warning!!';
 
   @override
   String get yes => 'Yes';
@@ -237,16 +236,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get makeSure => 'Are you sure to log out?';
 
   @override
-  String get warning => 'Warning!!';
-
-  @override
-  String get yes => 'Yes';
-
-  @override
   String get updatedSucsess => 'Profile Updated Successfully';
-
-  @override
-  String get plsEnterName => 'Please enter your email';
 
   @override
   String get passSend => 'Password link sent to your email';
@@ -266,9 +256,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get resetPasswordEmailSent => 'Reset password email sent successfully';
-
-  @override
-  String get unexpectedError => 'Unexpected error occurred';
 
   @override
   String get pleaseEnterName => 'Please enter your name';

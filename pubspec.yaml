@@ -27,6 +27,8 @@ dependencies:
   flutter_bloc: ^9.1.1
   carousel_slider: ^5.1.2
   shared_preferences: ^2.5.5
+  url_launcher: ^6.3.2
+  cached_network_image: ^4.0.0
 
 dev_dependencies:
   flutter_test:

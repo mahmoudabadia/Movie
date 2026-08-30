@@ -18,6 +18,7 @@ class HomeTab extends StatefulWidget {
 
 class _HomeTabState extends State<HomeTab> {
   String selectedBgImage = '';
+  late String selectedGenre;
 
   late Future<AvailableMoviesResponse?> availableMoviesFuture;
 
@@ -104,12 +105,7 @@ class _HomeTabState extends State<HomeTab> {
                         ),
                       );
                     },
-                  CategoryMoviesSection(
-                    genreName: selectedGenre,
-                    future: categoryMoviesFuture,
                   ),
-
-                  const SizedBox(height: 20),
                 ],
               ),
             ),

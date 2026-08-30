@@ -4,6 +4,7 @@ import 'package:movie_app/api/cubit_dio/details_state.dart';
 import 'package:movie_app/api/cubit_dio/view_model_details.dart';
 import 'package:movie_app/l10n/app_localizations.dart';
 import 'package:movie_app/ui/home/tabs/home_tab/movie_details/widget_details/stack_widget_picture_movie.dart';
+import 'package:movie_app/utils/app_assets.dart';
 import 'package:movie_app/utils/app_colors.dart';
 import 'package:movie_app/utils/app_text_styles.dart';
 import 'package:movie_app/utils/size_utils.dart';
@@ -61,12 +62,22 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
             appBar: AppBar(
               foregroundColor: AppColors.whiteColor,
               backgroundColor: AppColors.transparent,
+              leading: IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: Image.asset(
+                AppAssets.iconArrowBack,
+
+                  color: AppColors.whiteColor,
+                ),
+              ),
               actions: [
                 IconButton(
                   onPressed: () {},
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.bookmark,
-                    size: 28,
+                   size: 44,
                     color: AppColors.whiteColor,
                   ),
                 ),
