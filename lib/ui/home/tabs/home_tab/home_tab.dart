@@ -1,4 +1,5 @@
 import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import '../../../../api/api_manager.dart';
@@ -28,7 +29,6 @@ class _HomeTabState extends State<HomeTab> {
     super.initState();
 
     selectedGenre = AppGenres.list[Random().nextInt(AppGenres.list.length)];
-
     availableMoviesFuture = ApiManager.getMovies(limit: 10);
     categoryMoviesFuture = ApiManager.getMovies(
       genre: selectedGenre,
@@ -42,14 +42,11 @@ class _HomeTabState extends State<HomeTab> {
       backgroundColor: AppColors.blackColor,
       body: Stack(
         children: [
-
           SizedBox.expand(
             child: selectedBgImage.isNotEmpty
                 ? Image.network(selectedBgImage, fit: BoxFit.cover)
                 : Image.asset(AppAssets.imageOnBoarding5, fit: BoxFit.cover),
           ),
-
-
           SizedBox.expand(
             child: Container(
               decoration: BoxDecoration(
@@ -66,17 +63,18 @@ class _HomeTabState extends State<HomeTab> {
             ),
           ),
 
-
           SafeArea(
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Center(
-                    child: Image.asset(AppAssets.imageAvailableNow, fit: BoxFit.cover),
+                    child: Image.asset(
+                      AppAssets.imageAvailableNow,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                   const SizedBox(height: 15),
-
 
                   CarouselSection(
                     future: availableMoviesFuture,
@@ -89,10 +87,12 @@ class _HomeTabState extends State<HomeTab> {
 
                   const SizedBox(height: 15),
                   Center(
-                    child: Image.asset(AppAssets.imageWatchNow, fit: BoxFit.cover),
+                    child: Image.asset(
+                      AppAssets.imageWatchNow,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                   const SizedBox(height: 20),
-
 
                   CategoryMoviesSection(
                     genreName: selectedGenre,

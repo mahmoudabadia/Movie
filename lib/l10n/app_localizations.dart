@@ -122,11 +122,101 @@ abstract class AppLocalizations {
   /// **'Create Account'**
   String get createAccount;
 
+  /// No description provided for @genres.
+  ///
+  /// In en, this message translates to:
+  /// **'Genres'**
+  String get genres;
+
   /// No description provided for @createOne.
   ///
   /// In en, this message translates to:
   /// **'Create One'**
   String get createOne;
+
+  /// No description provided for @updated_sucsess.
+  ///
+  /// In en, this message translates to:
+  /// **'updated Sucsess'**
+  String get updated_sucsess;
+
+  /// No description provided for @screen_shot.
+  ///
+  /// In en, this message translates to:
+  /// **'Screen Shot'**
+  String get screen_shot;
+
+  /// No description provided for @cast.
+  ///
+  /// In en, this message translates to:
+  /// **'Cast'**
+  String get cast;
+
+  /// No description provided for @try_again.
+  ///
+  /// In en, this message translates to:
+  /// **'Try Again'**
+  String get try_again;
+
+  /// No description provided for @similar.
+  ///
+  /// In en, this message translates to:
+  /// **'Similar'**
+  String get similar;
+
+  /// No description provided for @watch.
+  ///
+  /// In en, this message translates to:
+  /// **'Watch'**
+  String get watch;
+
+  /// No description provided for @pass_send.
+  ///
+  /// In en, this message translates to:
+  /// **'Password Send'**
+  String get pass_send;
+
+  /// No description provided for @error_occur.
+  ///
+  /// In en, this message translates to:
+  /// **'ErrorOccur'**
+  String get error_occur;
+
+  /// No description provided for @unexpectedError.
+  ///
+  /// In en, this message translates to:
+  /// **'unexpectedError'**
+  String get unexpectedError;
+
+  /// No description provided for @plsEnterName.
+  ///
+  /// In en, this message translates to:
+  /// **'pleaseEnterName'**
+  String get plsEnterName;
+
+  /// No description provided for @summary.
+  ///
+  /// In en, this message translates to:
+  /// **'Summary'**
+  String get summary;
+
+  /// No description provided for @make_sure.
+  ///
+  /// In en, this message translates to:
+  /// **'Make Sure'**
+  String get make_sure;
+
+  /// No description provided for @warning.
+  ///
+  /// In en, this message translates to:
+  /// **'Warning'**
+  String get warning;
+
+  /// No description provided for @yes.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes'**
+  String get yes;
 
   /// No description provided for @dontHaveAccount.
   ///
@@ -445,54 +535,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'The password provided is too weak.'**
   String get weakPassword;
-
-  /// No description provided for @makeSure.
-  ///
-  /// In en, this message translates to:
-  /// **'Are you sure to log out?'**
-  String get makeSure;
-
-  /// No description provided for @warning.
-  ///
-  /// In en, this message translates to:
-  /// **'Warning!!'**
-  String get warning;
-
-  /// No description provided for @yes.
-  ///
-  /// In en, this message translates to:
-  /// **'Yes'**
-  String get yes;
-
-  /// No description provided for @updatedSucsess.
-  ///
-  /// In en, this message translates to:
-  /// **'Profile Updated Successfully'**
-  String get updatedSucsess;
-
-  /// No description provided for @plsEnterName.
-  ///
-  /// In en, this message translates to:
-  /// **'Please enter your email'**
-  String get plsEnterName;
-
-  /// No description provided for @passSend.
-  ///
-  /// In en, this message translates to:
-  /// **'Password link sent to your email'**
-  String get passSend;
-
-  /// No description provided for @errorOccur.
-  ///
-  /// In en, this message translates to:
-  /// **'An error occurred'**
-  String get errorOccur;
-
-  /// No description provided for @unexpectedError.
-  ///
-  /// In en, this message translates to:
-  /// **'Unexpected error occurred'**
-  String get unexpectedError;
 }
 
 class _AppLocalizationsDelegate

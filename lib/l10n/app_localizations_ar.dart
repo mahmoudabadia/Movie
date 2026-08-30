@@ -1,5 +1,6 @@
 // ignore: unused_import
 import 'package:intl/intl.dart' as intl;
+
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
@@ -21,7 +22,52 @@ class AppLocalizationsAr extends AppLocalizations {
   String get createAccount => 'إنشاء حساب';
 
   @override
+  String get genres => 'Genres';
+
+  @override
   String get createOne => 'أنشئ حساباً';
+
+  @override
+  String get updated_sucsess => 'updated Sucsess';
+
+  @override
+  String get screen_shot => 'Screen Shot';
+
+  @override
+  String get cast => 'Cast';
+
+  @override
+  String get try_again => 'Try Again';
+
+  @override
+  String get similar => 'Similar';
+
+  @override
+  String get watch => 'Watch';
+
+  @override
+  String get pass_send => 'Password Send';
+
+  @override
+  String get error_occur => 'ErrorOccur';
+
+  @override
+  String get unexpectedError => 'unexpectedError';
+
+  @override
+  String get plsEnterName => 'pleaseEnterName';
+
+  @override
+  String get summary => 'Summary';
+
+  @override
+  String get make_sure => 'Make Sure';
+
+  @override
+  String get warning => 'Warning';
+
+  @override
+  String get yes => 'Yes';
 
   @override
   String get dontHaveAccount => 'ليس لديك حساب؟ ';
@@ -188,28 +234,4 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get weakPassword => 'كلمة المرور ضعيفة للغاية.';
-
-  @override
-  String get makeSure => 'Are you sure to log out?';
-
-  @override
-  String get warning => 'Warning!!';
-
-  @override
-  String get yes => 'Yes';
-
-  @override
-  String get updatedSucsess => 'Profile Updated Successfully';
-
-  @override
-  String get plsEnterName => 'Please enter your email';
-
-  @override
-  String get passSend => 'Password link sent to your email';
-
-  @override
-  String get errorOccur => 'An error occurred';
-
-  @override
-  String get unexpectedError => 'Unexpected error occurred';
 }

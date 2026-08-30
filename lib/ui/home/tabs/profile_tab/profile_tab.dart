@@ -131,7 +131,8 @@ class ProfileTab extends StatelessWidget {
                               DialogUtils.showMessage(
                                 backgroundColor: AppColors.grayColor,
                                 context: context,
-                                message: AppLocalizations.of(context)!.makeSure,
+                                message: AppLocalizations.of(context)!
+                                    .make_sure,
                                 title: AppLocalizations.of(context)!.warning,
                                 posActionName: AppLocalizations.of(context)!.yes,
                                 posAction: () async {
