@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/ui/home/tabs/home_tab/movie_details/movie_details_widget.dart';
+
 import '../../../../../api/model/available_movies_response.dart';
 import '../../../../../l10n/app_localizations.dart';
 import '../../../../../utils/app_colors.dart';
@@ -25,16 +27,14 @@ class CategoryMoviesSection extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                genreName,
-                style: AppTextStyles.bold20White,
-              ),
+              Text(genreName, style: AppTextStyles.bold20White),
               InkWell(
                 onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => CategoryMoviesScreen(genreName: genreName),
+                      builder: (context) =>
+                          CategoryMoviesScreen(genreName: genreName),
                     ),
                   );
                 },
@@ -67,7 +67,8 @@ class CategoryMoviesSection extends StatelessWidget {
                   child: CircularProgressIndicator(color: AppColors.yelloColor),
                 ),
               );
-            } else if (snapshot.hasError || snapshot.data?.data?.movies == null) {
+            } else if (snapshot.hasError ||
+                snapshot.data?.data?.movies == null) {
               return const SizedBox(height: 180);
             }
 
@@ -77,30 +78,43 @@ class CategoryMoviesSection extends StatelessWidget {
               height: 180,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                padding: const EdgeInsets.symmetric(horizontal: 16),
+                padding: EdgeInsets.symmetric(horizontal: 16),
                 itemCount: categoryMovies.length,
                 itemBuilder: (context, index) {
                   var movie = categoryMovies[index];
-                  return Padding(
-                    padding: const EdgeInsets.only(right: 12.0),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(16),
-                      child: Container(
-                        width: 120,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: NetworkImage(movie.mediumCoverImage ?? ''),
-                            fit: BoxFit.cover,
-                          ),
+                  return InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              MovieDetailsWidget(id: movie.id!),
                         ),
-                        child: Stack(
-                          children: [
-                            Positioned(
-                              top: 6,
-                              left: 6,
-                              child: MovieRatingBadge(rating: movie.rating ?? 0.0),
+                      );
+                    },
+                    child: Padding(
+                      padding: EdgeInsets.only(right: 12.0),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(16),
+                        child: Container(
+                          width: 120,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: NetworkImage(movie.mediumCoverImage ?? ''),
+                              fit: BoxFit.cover,
                             ),
-                          ],
+                          ),
+                          child: Stack(
+                            children: [
+                              Positioned(
+                                top: 6,
+                                left: 6,
+                                child: MovieRatingBadge(
+                                  rating: movie.rating ?? 0.0,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),

@@ -141,7 +141,8 @@ class _ProfileTabState extends State<ProfileTab> {
                               DialogUtils.showMessage(
                                 backgroundColor: AppColors.grayColor,
                                 context: context,
-                                message: AppLocalizations.of(context)!.makeSure,
+                                message: AppLocalizations.of(context)!
+                                    .make_sure,
                                 title: AppLocalizations.of(context)!.warning,
                                 posActionName: AppLocalizations.of(
                                   context,

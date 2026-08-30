@@ -10,4 +10,5 @@ class AppRoutes {
   static const String forgetPassRouteName = 'forget_pass_screen';
   static const String onboardingRouteName = 'onboarding_screen';
   static const String createUpdateRouteName = 'createUpdate_screen';
+  static const String movieDetailsRouteName = 'movie_details_screen';
 }

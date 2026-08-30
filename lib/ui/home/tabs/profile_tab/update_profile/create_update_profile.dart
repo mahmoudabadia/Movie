@@ -184,17 +184,17 @@ class _CreateUpdateState extends State<CreateUpdate> {
               sideColor: AppColors.yelloColor,
               child: isLoading
                   ? const SizedBox(
-                height: 24,
-                width: 24,
-                child: CircularProgressIndicator(
-                  color: AppColors.blackColor,
-                  strokeWidth: 3,
-                ),
-              )
+                      height: 24,
+                      width: 24,
+                      child: CircularProgressIndicator(
+                        color: AppColors.blackColor,
+                        strokeWidth: 3,
+                      ),
+                    )
                   : Text(
-                AppLocalizations.of(context)!.update,
-                style: AppTextStyles.regular20Black,
-              ),
+                      AppLocalizations.of(context)!.update,
+                      style: AppTextStyles.regular20Black,
+                    ),
             ),
           ),
           SizedBox(height: height * 0.04),

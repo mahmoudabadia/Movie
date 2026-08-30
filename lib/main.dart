@@ -15,6 +15,7 @@ import 'package:movie_app/ui/home/tabs/search_tab/search_tab.dart';
 import 'package:movie_app/ui/onboarding/onboarding_screen.dart';
 import 'package:movie_app/ui/splash/splash_screen.dart';
 import 'package:movie_app/utils/app_routes.dart';
+
 import 'firebase_options.dart';
 import 'l10n/app_localizations.dart';
 
@@ -41,7 +42,7 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
 
-          initialRoute: AppRoutes.splashRouteName,
+          initialRoute: AppRoutes.homeRouteName,
           routes: {
             AppRoutes.homeRouteName: (context) => HomeScreen(),
             AppRoutes.homeTabRouteName: (context) => HomeTab(),

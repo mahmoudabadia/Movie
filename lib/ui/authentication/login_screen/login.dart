@@ -216,7 +216,8 @@ class _LoginPageState extends State<LoginPage> {
           .authenticate();
       if (googleUser == null) return null;
 
-      final GoogleSignInAuthentication googleAuth = googleUser.authentication;
+      final GoogleSignInAuthentication googleAuth = await googleUser
+          .authentication;
 
       final OAuthCredential credential = GoogleAuthProvider.credential(
         idToken: googleAuth.idToken,
