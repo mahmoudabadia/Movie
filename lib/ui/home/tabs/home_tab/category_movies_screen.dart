@@ -4,6 +4,7 @@ import '../../../../api/model/available_movies_response.dart';
 import '../../../../utils/app_colors.dart';
 import '../../../../utils/app_text_styles.dart';
 import 'home_tab_widget/movie_rating_badge.dart';
+import 'movie_details/movie_details_widget.dart';
 
 class CategoryMoviesScreen extends StatefulWidget {
   final String genreName;
@@ -72,23 +73,33 @@ class _CategoryMoviesScreenState extends State<CategoryMoviesScreen> {
             itemCount: movies.length,
             itemBuilder: (context, index) {
               var movie = movies[index];
-              return ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                child: Container(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: NetworkImage(movie.mediumCoverImage ?? ''),
-                      fit: BoxFit.cover,
+              return InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MovieDetailsWidget(id: movie.id),
                     ),
-                  ),
-                  child: Stack(
-                    children: [
-                      Positioned(
-                        top: 8,
-                        left: 8,
-                        child: MovieRatingBadge(rating: movie.rating ?? 0.0),
+                  );
+                },
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(16),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: NetworkImage(movie.mediumCoverImage ?? ''),
+                        fit: BoxFit.cover,
                       ),
-                    ],
+                    ),
+                    child: Stack(
+                      children: [
+                        Positioned(
+                          top: 8,
+                          left: 8,
+                          child: MovieRatingBadge(rating: movie.rating ?? 0.0),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               );
