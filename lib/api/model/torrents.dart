@@ -12,6 +12,7 @@
 /// size_bytes : 801573437
 /// date_uploaded : "2026-08-24 07:10:28"
 /// date_uploaded_unix : 1787548228
+library;
 
 class Torrents {
   Torrents({

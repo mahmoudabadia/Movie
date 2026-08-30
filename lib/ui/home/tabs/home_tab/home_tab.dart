@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-
 import '../../../../api/api_manager.dart';
 import '../../../../api/model/available_movies_response.dart';
 import '../../../../api/model/genre.dart';
@@ -21,8 +20,6 @@ class _HomeTabState extends State<HomeTab> {
   String selectedBgImage = '';
 
   late Future<AvailableMoviesResponse?> availableMoviesFuture;
-  late Future<AvailableMoviesResponse?> categoryMoviesFuture;
-  late String selectedGenre;
 
   @override
   void initState() {
@@ -30,10 +27,6 @@ class _HomeTabState extends State<HomeTab> {
 
     selectedGenre = AppGenres.list[Random().nextInt(AppGenres.list.length)];
     availableMoviesFuture = ApiManager.getMovies(limit: 10);
-    categoryMoviesFuture = ApiManager.getMovies(
-      genre: selectedGenre,
-      limit: 10,
-    );
   }
 
   @override
@@ -94,6 +87,23 @@ class _HomeTabState extends State<HomeTab> {
                   ),
                   const SizedBox(height: 20),
 
+                  ListView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: AppGenres.list.length,
+                    itemBuilder: (context, index) {
+                      var genre = AppGenres.list[index];
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: 20.0),
+                        child: CategoryMoviesSection(
+                          genreName: genre,
+                          future: ApiManager.getMovies(
+                            genre: genre.toLowerCase(),
+                            limit: 10,
+                          ),
+                        ),
+                      );
+                    },
                   CategoryMoviesSection(
                     genreName: selectedGenre,
                     future: categoryMoviesFuture,
