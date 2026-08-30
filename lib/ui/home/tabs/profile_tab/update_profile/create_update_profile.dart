@@ -13,6 +13,7 @@ import 'package:movie_app/ui/widgets/custom_text_field.dart';
 import 'package:movie_app/utils/app_assets.dart';
 import 'package:movie_app/utils/app_colors.dart';
 import 'package:movie_app/utils/app_text_styles.dart';
+
 import '../../../../../utils/dialog_utilis.dart';
 import '../../../../../utils/toast_utilis.dart';
 
@@ -304,7 +305,7 @@ class _CreateUpdateState extends State<CreateUpdate> {
                       Navigator.pop(context);
                       ToastUtils.showCustomToast(
                         context: context,
-                        message: AppLocalizations.of(context)!.updatedSucsess,
+                        message: AppLocalizations.of(context)!.updated_sucsess,
                         backgroundColor: AppColors.yelloColor,
                         textColor: AppColors.blackColor,
                         icon: Icons.check_circle,

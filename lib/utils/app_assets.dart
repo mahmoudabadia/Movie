@@ -20,6 +20,9 @@ class AppAssets {
   static const String iconProfile = "${_basePathIcons}icon_profile.png";
   static const String iconArrowBack = "${_basePathIcons}icon_arrow_back.png";
   static const String iconWatchList = "${_basePathIcons}icon_watch_list.png";
+  static const String iconLove = "assets/icons/icon_love.png";
+  static const String iconTime = "assets/icons/icon_time.png";
+  static const String iconStar2 = "assets/icons/icon_star2.png";
 
   /// ====== Images =======
   static const String imagePlaying = "${_basePathImages}playing_img.png";

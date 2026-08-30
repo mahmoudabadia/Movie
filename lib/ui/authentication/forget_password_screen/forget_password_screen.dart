@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+
 import '../../../l10n/app_localizations.dart';
 import '../../../utils/app_assets.dart';
 import '../../../utils/app_colors.dart';
@@ -44,9 +45,11 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
 
     try {
       await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
-      showSnackBar(AppLocalizations.of(context)!.passSend, context);
+      showSnackBar(AppLocalizations.of(context)!.pass_send, context);
     } on FirebaseAuthException catch (e) {
-      showSnackBar(e.message ?? AppLocalizations.of(context)!.errorOccur, isError: true, context);
+      showSnackBar(
+          e.message ?? AppLocalizations.of(context)!.error_occur, isError: true,
+          context);
     } catch (e) {
       showSnackBar(AppLocalizations.of(context)!.unexpectedError, isError: true, context);
     } finally {
