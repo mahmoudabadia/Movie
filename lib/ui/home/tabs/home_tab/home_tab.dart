@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import '../../../../api/api_manager.dart';
 import '../../../../api/model/available_movies_response.dart';
@@ -23,6 +25,7 @@ class _HomeTabState extends State<HomeTab> {
   void initState() {
     super.initState();
 
+    selectedGenre = AppGenres.list[Random().nextInt(AppGenres.list.length)];
     availableMoviesFuture = ApiManager.getMovies(limit: 10);
   }
 
@@ -37,7 +40,6 @@ class _HomeTabState extends State<HomeTab> {
                 ? Image.network(selectedBgImage, fit: BoxFit.cover)
                 : Image.asset(AppAssets.imageOnBoarding5, fit: BoxFit.cover),
           ),
-
           SizedBox.expand(
             child: Container(
               decoration: BoxDecoration(
@@ -60,7 +62,10 @@ class _HomeTabState extends State<HomeTab> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Center(
-                    child: Image.asset(AppAssets.imageAvailableNow, fit: BoxFit.cover),
+                    child: Image.asset(
+                      AppAssets.imageAvailableNow,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                   const SizedBox(height: 15),
 
@@ -75,7 +80,10 @@ class _HomeTabState extends State<HomeTab> {
 
                   const SizedBox(height: 15),
                   Center(
-                    child: Image.asset(AppAssets.imageWatchNow, fit: BoxFit.cover),
+                    child: Image.asset(
+                      AppAssets.imageWatchNow,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                   const SizedBox(height: 20),
 
@@ -96,6 +104,9 @@ class _HomeTabState extends State<HomeTab> {
                         ),
                       );
                     },
+                  CategoryMoviesSection(
+                    genreName: selectedGenre,
+                    future: categoryMoviesFuture,
                   ),
 
                   const SizedBox(height: 20),

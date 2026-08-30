@@ -1,5 +1,7 @@
-import 'package:carousel_slider_plus/carousel_slider_plus.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:movie_app/ui/home/tabs/home_tab/movie_details/movie_details_widget.dart';
+
 import '../../../../../api/model/available_movies_response.dart';
 import '../../../../../utils/app_colors.dart';
 import 'movie_rating_badge.dart';
@@ -53,24 +55,37 @@ class CarouselSection extends StatelessWidget {
           ),
           itemBuilder: (context, index, realIndex) {
             var movie = moviesList[index];
-            return ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: Stack(
-                children: [
-                  Image.network(
-                    movie.mediumCoverImage ?? '',
-                    width: double.infinity,
-                    height: double.infinity,
-                    fit: BoxFit.cover,
-                    errorBuilder: (context, error, stackTrace) =>
-                    const Icon(Icons.movie, color: AppColors.whiteColor, size: 50),
+            return InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MovieDetailsWidget(id: movie.id),
                   ),
-                  Positioned(
-                    top: 10,
-                    left: 10,
-                    child: MovieRatingBadge(rating: movie.rating ?? 0.0),
-                  ),
-                ],
+                );
+              },
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Stack(
+                  children: [
+                    Image.network(
+                      movie.mediumCoverImage ?? '',
+                      width: double.infinity,
+                      height: double.infinity,
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) => const Icon(
+                        Icons.movie,
+                        color: AppColors.whiteColor,
+                        size: 50,
+                      ),
+                    ),
+                    Positioned(
+                      top: 10,
+                      left: 10,
+                      child: MovieRatingBadge(rating: movie.rating ?? 0.0),
+                    ),
+                  ],
+                ),
               ),
             );
           },
