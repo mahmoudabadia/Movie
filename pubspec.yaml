@@ -26,6 +26,7 @@ dependencies:
   fluttertoast: ^10.0.0
   flutter_bloc: ^9.1.1
   carousel_slider: ^5.1.2
+  shared_preferences: ^2.5.5
 
 dev_dependencies:
   flutter_test:
