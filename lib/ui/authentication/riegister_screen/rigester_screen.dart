@@ -10,7 +10,6 @@ import '../../../utils/app_colors.dart';
 import '../../../utils/app_routes.dart';
 import '../../../utils/app_text_styles.dart';
 import '../../../utils/size_utils.dart';
-import '../../../utils/toast_utilis.dart';
 import '../../widgets/custom_elevated_button.dart';
 import '../../widgets/custom_text_field.dart';
 import '../../widgets/snakbar_widget.dart';
@@ -101,13 +100,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 CustomTextField(
                   validator: (text) {
                     if (text == null || text.trim().isEmpty) {
-                      return "Please enter your email";
+                      return AppLocalizations.of(context)!.pleaseEnterEmail;
                     }
                     final bool emailValid = RegExp(
                       r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
                     ).hasMatch(emailController.text.trim());
                     if (!emailValid) {
-                      return localizations?.invalidEmail ?? "Please enter a valid email";
+                      return localizations?.invalidEmail ??
+                          AppLocalizations.of(context)!.pleaseEnterValidEmail;
                     }
                     return null;
                   },
@@ -130,10 +130,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   textStyle: AppTextStyles.regular16White,
                   validator: (text) {
                     if (text == null || text.trim().isEmpty) {
-                      return "Please enter your password";
+                      return AppLocalizations.of(context)!.pleaseEnterYourPass;
                     }
                     if (text.length < 6) {
-                      return localizations?.weakPassword ?? "Password must be at least 6 characters";
+                      return localizations?.weakPassword ??
+                          AppLocalizations.of(context)!.passValidation;
                     }
                     return null;
                   },
@@ -158,10 +159,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   textStyle: AppTextStyles.regular16White,
                   validator: (text) {
                     if (text == null || text.trim().isEmpty) {
-                      return "Please confirm your password";
+                      return AppLocalizations.of(context)!.pleaseConfirm;
                     }
                     if (text != passController.text) {
-                      return "Passwords do not match";
+                      return localizations?.passwordDontMatch ??
+                          AppLocalizations.of(context)!.passValidation;
                     }
                     return null;
                   },
@@ -206,23 +208,23 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     onPressed: isLoading
                         ? () {}
                         : () {
-                      if (formKey.currentState?.validate() ?? true) {
-                        register();
-                      }
-                    },
+                            if (formKey.currentState?.validate() ?? true) {
+                              register();
+                            }
+                          },
                     child: isLoading
                         ? const SizedBox(
-                      height: 24,
-                      width: 24,
-                      child: CircularProgressIndicator(
-                        color: AppColors.blackColor,
-                        strokeWidth: 3.5,
-                      ),
-                    )
+                            height: 24,
+                            width: 24,
+                            child: CircularProgressIndicator(
+                              color: AppColors.blackColor,
+                              strokeWidth: 3.5,
+                            ),
+                          )
                         : Text(
-                      localizations?.createAccount ?? '',
-                      style: AppTextStyles.bold20Black,
-                    ),
+                            localizations?.createAccount ?? '',
+                            style: AppTextStyles.bold20Black,
+                          ),
                   ),
                 ),
                 SizedBox(height: screenHeight * 0.02),
@@ -271,11 +273,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
     });
 
     try {
-      UserCredential userCredential =
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: emailController.text.trim(),
-        password: passController.text,
-      );
+      UserCredential userCredential = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(
+            email: emailController.text.trim(),
+            password: passController.text,
+          );
 
       await userCredential.user?.updateDisplayName(nameController.text.trim());
       await userCredential.user?.updatePhotoURL(selectedAvatar);

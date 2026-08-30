@@ -9,7 +9,7 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
-  String get alreadyHaveAccount => 'لديك حساب بالفعل؟ ';
+  String get alreadyHaveAccount => 'لديك حساب بالفعل ؟ ';
 
   @override
   String get avatar => 'الصورة الشخصية';
@@ -21,10 +21,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get createAccount => 'إنشاء حساب';
 
   @override
-  String get createOne => 'أنشئ حساباً';
+  String get createOne => 'إنشاء حساب جديد';
 
   @override
-  String get dontHaveAccount => 'ليس لديك حساب؟ ';
+  String get dontHaveAccount => 'ليس لديك حساب ؟ ';
 
   @override
   String get editProfile => 'تعديل الملف الشخصي';
@@ -36,10 +36,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get exit => 'خروج';
 
   @override
-  String get forgetPassword => 'نسيت كلمة المرور؟';
+  String get forgetPassword => 'نسيت كلمة المرور ؟';
 
   @override
-  String get forgetPasswordTitle => 'نسيان كلمة المرور';
+  String get forgetPasswordTitle => 'نسيت كلمة المرور';
 
   @override
   String get history => 'السجل';
@@ -66,7 +66,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get phoneNumber => 'رقم الهاتف';
 
   @override
-  String get register => 'إنشاء حساب جديد';
+  String get register => 'إنشاء حساب';
 
   @override
   String get search => 'بحث';
@@ -81,42 +81,42 @@ class AppLocalizationsAr extends AppLocalizations {
   String get watchList => 'قائمة المشاهدة';
 
   @override
-  String get welcome => 'مرحباً بك في الشاشة الرئيسية';
+  String get welcome => 'مرحبًا بك في الشاشة الرئيسية';
 
   @override
-  String get titleMain => 'إعثر على فيلمك\nالمفضل القادم هنا';
+  String get titleMain => 'اعثر على فيلمك\nالمفضل القادم هنا';
 
   @override
   String get descMain =>
-      'احصل على إمكانية الوصول إلى مكتبة ضخمة من الأفلام لتناسب جميع الأذواق. بالتأكيد ستنال إعجابك.';
+      'احصل على إمكانية الوصول إلى مكتبة ضخمة من الأفلام التي تناسب جميع الأذواق. بالتأكيد ستعجبك.';
 
   @override
   String get titleOne => 'اكتشف الأفلام';
 
   @override
   String get descOne =>
-      'استكشف مجموعة واسعة من الأفلام بجميع الجودات والأنواع. إعثر على فيلمك المفضل القادم ببالغ السهولة.';
+      'استكشف مجموعة واسعة من الأفلام بكل الجودات والأنواع. اعثر على فيلمك المفضل القادم بسهولة.';
 
   @override
-  String get titleTwo => 'استكشف جميع التصنيفات';
+  String get titleTwo => 'استكشف جميع الأنواع';
 
   @override
   String get descTwo =>
-      'اكتشف أفلاماً من كل تصنيف، بجميع الجودات المتاحة. إعثر على شيء جديد ومثير لمشاهدته كل يوم.';
+      'اكتشف أفلامًا من كل نوع وبجميع الجودات المتاحة. اعثر على شيء جديد ومثير للمشاهدة كل يوم.';
 
   @override
-  String get titleThree => 'إنشاء قوائم المشاهدة';
+  String get titleThree => 'أنشئ قوائم المشاهدة';
 
   @override
   String get descThree =>
-      'احفظ الأفلام في قائمة المشاهدة الخاصة بك لمتابعة ما تريد مشاهدته لاحقاً. استمتع بالأفلام بجودات وتصنيفات متعددة.';
+      'احفظ الأفلام في قائمة المشاهدة الخاصة بك لتتبع ما تريد مشاهدته لاحقًا. استمتع بالأفلام بجودات وأنواع مختلفة.';
 
   @override
-  String get titleFour => 'قيّم، راجع، وتعلّم';
+  String get titleFour => 'قيّم، راجع، وتعلم';
 
   @override
   String get descFour =>
-      'شارك آراءك حول الأفلام التي شاهدتها. تعمق في تفاصيل الأفلام وساعد الآخرين على اكتشاف أفلام رائعة بمراجعاتك.';
+      'شارك أفكارك حول الأفلام التي شاهدتها. تعمق في تفاصيل الأفلام وساعد الآخرين على اكتشاف أفلام رائعة من خلال مراجعاتك.';
 
   @override
   String get titleFive => 'ابدأ المشاهدة الآن';
@@ -137,7 +137,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get pick => 'اختر صورة شخصية';
 
   @override
-  String get reset => 'إعادة ضبط كلمة المرور';
+  String get reset => 'إعادة تعيين كلمة المرور';
 
   @override
   String get delete => 'حذف الحساب';
@@ -152,7 +152,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get cancel => 'إلغاء';
 
   @override
-  String get ok => 'موافق';
+  String get ok => 'حسناً';
 
   @override
   String get success => 'نجاح';
@@ -164,52 +164,92 @@ class AppLocalizationsAr extends AppLocalizations {
   String get loading => 'جاري التحميل...';
 
   @override
-  String get regSuccess => 'تم إنشاء الحساب بنجاح';
+  String get regSuccess => 'تم التسجيل بنجاح';
 
   @override
   String get invalidCredentials =>
       'البريد الإلكتروني أو كلمة المرور غير صحيحة.';
 
   @override
-  String get networkError => 'خطأ في الشبكة، يرجى التأكد من الاتصال بالإنترنت.';
+  String get networkError => 'خطأ في الشبكة، يرجى التحقق من اتصالك بالإنترنت.';
 
   @override
-  String get tooManyRequests =>
-      'تم تجاوز عدد المحاولات المسموح بها، حاول لاحقاً.';
+  String get tooManyRequests => 'محاولات كثيرة جدًا. يرجى المحاولة لاحقًا.';
 
   @override
-  String get defaultAuthError => 'حدث خطأ ما، يرجى المحاولة لاحقاً.';
+  String get defaultAuthError => 'حدث خطأ ما، يرجى المحاولة مرة أخرى.';
 
   @override
-  String get emailAlreadyInUse => 'هذا البريد الإلكتروني مستخدم بالفعل.';
+  String get emailAlreadyInUse => 'هذا البريد الإلكتروني مسجل بالفعل.';
 
   @override
-  String get invalidEmail => 'يرجى إدخال بريد إلكتروني صالح.';
+  String get invalidEmail => 'يرجى إدخال عنوان بريد إلكتروني صالح.';
 
   @override
-  String get weakPassword => 'كلمة المرور ضعيفة للغاية.';
+  String get weakPassword => 'كلمة المرور أدخلتها ضعيفة للغاية.';
 
   @override
-  String get makeSure => 'Are you sure to log out?';
+  String get makeSure => 'هل أنت تأكد من تسجيل الخروج؟';
 
   @override
-  String get warning => 'Warning!!';
+  String get warning => 'تحذير!!';
 
   @override
-  String get yes => 'Yes';
+  String get yes => 'نعم';
 
   @override
-  String get updatedSucsess => 'Profile Updated Successfully';
+  String get updatedSucsess => 'تم تحديث الملف الشخصي بنجاح';
 
   @override
-  String get plsEnterName => 'Please enter your email';
+  String get plsEnterName => 'يرجى إدخال بريدك الإلكتروني';
 
   @override
-  String get passSend => 'Password link sent to your email';
+  String get passSend =>
+      'تم إرسال رابط إعادة تعيين كلمة المرور إلى بريدك الإلكتروني';
 
   @override
-  String get errorOccur => 'An error occurred';
+  String get errorOccur => 'حدث خطأ';
 
   @override
-  String get unexpectedError => 'Unexpected error occurred';
+  String get somethingWentWrong => 'حدث خطأ ما';
+
+  @override
+  String get deleteAccountSurin => 'هل أنت تأكد من أنك تريد حذف حسابك؟';
+
+  @override
+  String get deleteSuccess => 'تم حذف الحساب بنجاح';
+
+  @override
+  String get resetPasswordEmailSent =>
+      'تم إرسال بريد إعادة تعيين كلمة المرور بنجاح';
+
+  @override
+  String get unexpectedError => 'حدث خطأ غير متوقع';
+
+  @override
+  String get pleaseEnterName => 'يرجى إدخال اسمك';
+
+  @override
+  String get pleaseEnterEmail => 'يرجى إدخال بريدك الإلكتروني';
+
+  @override
+  String get pleaseEnterValidEmail => 'يرجى إدخال بريد إلكتروني صالح';
+
+  @override
+  String get pleaseEnterYourPass => 'يرجى إدخال كلمة المرور';
+
+  @override
+  String get passValidation => 'يجب أن تتكون كلمة المرور من 6 أحرف على الأقل';
+
+  @override
+  String get pleaseConfirm => 'يرجى تأكيد كلمة المرور';
+
+  @override
+  String get passwordDontMatch => 'كلمتا المرور غير متطابقتين';
+
+  @override
+  String get noUser => 'لا يوجد مستخدم مسجل الدخول حالياً.';
+
+  @override
+  String get noEmail => 'المستخدم الحالي لا يملك بريداً إلكترونياً.';
 }

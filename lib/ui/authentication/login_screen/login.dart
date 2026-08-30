@@ -101,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) =>  ForgetPasswordScreen(),
+                          builder: (context) => ForgetPasswordScreen(),
                         ),
                       );
                     },
@@ -125,23 +125,23 @@ class _LoginPageState extends State<LoginPage> {
                     onPressed: isLoading
                         ? () {}
                         : () {
-                      if (formKey.currentState?.validate() ?? true) {
-                        login();
-                      }
-                    },
+                            if (formKey.currentState?.validate() ?? true) {
+                              login();
+                            }
+                          },
                     child: isLoading
                         ? const SizedBox(
-                      height: 24,
-                      width: 24,
-                      child: CircularProgressIndicator(
-                        color: AppColors.blackColor,
-                        strokeWidth: 2.5,
-                      ),
-                    )
+                            height: 24,
+                            width: 24,
+                            child: CircularProgressIndicator(
+                              color: AppColors.blackColor,
+                              strokeWidth: 2.5,
+                            ),
+                          )
                         : Text(
-                      localizations?.login ?? '',
-                      style: AppTextStyles.bold20Black,
-                    ),
+                            localizations?.login ?? '',
+                            style: AppTextStyles.bold20Black,
+                          ),
                   ),
                 ),
                 SizedBox(height: screenHeight * 0.025),
@@ -157,16 +157,23 @@ class _LoginPageState extends State<LoginPage> {
                   sideColor: AppColors.transparent,
                   redius: 15,
                   verticalPadding: 14,
-                  onPressed: () async{
-                    UserCredential? userCredential = await signInWithGoogle();
-                    if (userCredential != null) {
+                  onPressed: () async {
 
-                      Navigator.pushReplacementNamed(context, AppRoutes.homeRouteName);
+                    UserCredential? userCredential = await signInWithGoogle();
+                    if (userCredential != null ) {
+
+                      Navigator.pushReplacementNamed(
+
+                        context,
+                        AppRoutes.homeRouteName,
+                      );
+
                       showSnackBar(
                         AppLocalizations.of(context)!.loginSuccess,
                         context,
                         isError: false,
                       );
+
                     }
                   },
                   child: Row(
@@ -200,9 +207,13 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
+
   Future<UserCredential?> signInWithGoogle() async {
+
     try {
-      final GoogleSignInAccount? googleUser = await GoogleSignIn.instance.authenticate();
+
+      final GoogleSignInAccount? googleUser = await GoogleSignIn.instance
+          .authenticate();
       if (googleUser == null) return null;
 
       final GoogleSignInAuthentication googleAuth = googleUser.authentication;
@@ -217,6 +228,7 @@ class _LoginPageState extends State<LoginPage> {
       return null;
     }
   }
+
   void login() async {
     setState(() {
       isLoading = true;
@@ -254,7 +266,6 @@ class _LoginPageState extends State<LoginPage> {
         title: AppLocalizations.of(context)!.error,
         posActionName: AppLocalizations.of(context)!.ok,
         posAction: () {},
-
       );
     } catch (e) {
       if (!mounted) return;
@@ -270,7 +281,6 @@ class _LoginPageState extends State<LoginPage> {
         title: AppLocalizations.of(context)!.error,
         posActionName: AppLocalizations.of(context)!.ok,
         posAction: () {},
-
       );
     }
   }
@@ -290,4 +300,5 @@ class _LoginPageState extends State<LoginPage> {
       default:
         return localizations.defaultAuthError;
     }
-  }}
+  }
+}

@@ -36,7 +36,12 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
     final email = _emailController.text.trim();
 
     if (email.isEmpty) {
-      showSnackBar(AppLocalizations.of(context)!.plsEnterName, isError: true, context);
+      if (!mounted) return;
+      showSnackBar(
+        AppLocalizations.of(context)!.plsEnterName,
+        isError: true,
+        context,
+      );
       return;
     }
 
@@ -44,11 +49,25 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
 
     try {
       await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+      if (!mounted) return;
+
       showSnackBar(AppLocalizations.of(context)!.passSend, context);
     } on FirebaseAuthException catch (e) {
-      showSnackBar(e.message ?? AppLocalizations.of(context)!.errorOccur, isError: true, context);
+      if (!mounted) return;
+
+      showSnackBar(
+        e.message ?? AppLocalizations.of(context)!.errorOccur,
+        isError: true,
+        context,
+      );
     } catch (e) {
-      showSnackBar(AppLocalizations.of(context)!.unexpectedError, isError: true, context);
+      if (!mounted) return;
+
+      showSnackBar(
+        AppLocalizations.of(context)!.unexpectedError,
+        isError: true,
+        context,
+      );
     } finally {
       if (mounted) {
         setState(() => isLoading = false);
