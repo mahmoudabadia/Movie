@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
 
-          initialRoute: AppRoutes.homeRouteName,
+          initialRoute: AppRoutes.splashRouteName,
           routes: {
             AppRoutes.homeRouteName: (context) => HomeScreen(),
             AppRoutes.homeTabRouteName: (context) => HomeTab(),
