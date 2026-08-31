@@ -8,6 +8,9 @@ abstract final class AppColors {
   static const Color redColor = Color(0xFFE82626);
   static const Color transparent = Color(0x00000000);
   static const Color blue = Color(0xFF2196F3);
+  static const Color greeen = Color(0xFF00FF00);
+
+
 
 
   /// color for selected avatar =>

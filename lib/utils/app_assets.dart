@@ -20,6 +20,9 @@ class AppAssets {
   static const String iconProfile = "${_basePathIcons}icon_profile.png";
   static const String iconArrowBack = "${_basePathIcons}icon_arrow_back.png";
   static const String iconWatchList = "${_basePathIcons}icon_watch_list.png";
+  static const String iconLove = "assets/icons/iconLove.png";
+  static const String iconTime = "assets/icons/iconTime.png";
+  static const String iconStar2 = "assets/icons/icon_star2.png";
 
   /// ====== Images =======
   static const String imagePlaying = "${_basePathImages}playing_img.png";
@@ -45,4 +48,7 @@ class AppAssets {
   static const String imageMovieDetails = "${_basePathImages}movie_details_img.png";
   static const String imageSplashScreen = "${_basePathImages}splash_screen_img.png";
   static const String imageOnBoardingMain = "${_basePathImages}onBoarding_main_img.png";
+  static const String imagAppLogo = "assets/images/img.png";
+
+
 }

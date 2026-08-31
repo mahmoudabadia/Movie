@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import 'app_colors.dart';
 
 class AppTextStyles {
@@ -89,12 +90,22 @@ class AppTextStyles {
     fontWeight: FontWeight.w400,
     color: AppColors.whiteColor,
   );
+  static final TextStyle regular16Yellow = inter(
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+    color: AppColors.yelloColor,
+  );
 
   /// ======  Size   14   ========
   static final TextStyle regular14Yellow = inter(
     fontSize: 14,
     fontWeight: FontWeight.w400,
     color: AppColors.yelloColor,
+  );
+  static final TextStyle regular14Withe = inter(
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    color: AppColors.whiteColor,
   );
   static final TextStyle bold14Yellow = inter(
     fontSize: 14,

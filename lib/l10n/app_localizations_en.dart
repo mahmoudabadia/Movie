@@ -21,7 +21,52 @@ class AppLocalizationsEn extends AppLocalizations {
   String get createAccount => 'Create Account';
 
   @override
+  String get genres => 'Genres';
+
+  @override
   String get createOne => 'Create One';
+
+  @override
+  String get updated_sucsess => 'updated Sucsess';
+
+  @override
+  String get screen_shot => 'Screen Shot';
+
+  @override
+  String get cast => 'Cast';
+
+  @override
+  String get try_again => 'Try Again';
+
+  @override
+  String get similar => 'Similar';
+
+  @override
+  String get watch => 'Watch';
+
+  @override
+  String get pass_send => 'Password Send';
+
+  @override
+  String get error_occur => 'ErrorOccur';
+
+  @override
+  String get unexpectedError => 'Unexpected error occurred';
+
+  @override
+  String get plsEnterName => 'Please enter your email';
+
+  @override
+  String get summary => 'Summary';
+
+  @override
+  String get make_sure => 'Make Sure';
+
+  @override
+  String get warning => 'Warning!!';
+
+  @override
+  String get yes => 'Yes';
 
   @override
   String get dontHaveAccount => 'Don\'t Have Account ? ';
@@ -109,14 +154,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get descThree =>
-      'Save movies to your watchlist to keep track of what you want to watch next. Enjoy films in various qualities and genres.\'';
+      'Save movies to your watchlist to keep track of what you want to watch next. Enjoy films in various qualities and genres.';
 
   @override
   String get titleFour => 'Rate, Review, and Learn';
 
   @override
   String get descFour =>
-      'Share your thoughts on the movies you\\\'ve watched. Dive deep into film details and help others discover great movies with your reviews.';
+      'Share your thoughts on the movies you\'ve watched. Dive deep into film details and help others discover great movies with your reviews.';
 
   @override
   String get titleFive => 'Start Watching Now';
@@ -132,4 +177,110 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get back => 'Back';
+
+  @override
+  String get pick => 'pick Avatar';
+
+  @override
+  String get reset => 'Reset Password';
+
+  @override
+  String get delete => 'Delete Account';
+
+  @override
+  String get update => 'Update Data';
+
+  @override
+  String get error => 'Error';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get ok => 'Ok';
+
+  @override
+  String get success => 'Success';
+
+  @override
+  String get loginSuccess => 'Login successful';
+
+  @override
+  String get loading => 'Loading...';
+
+  @override
+  String get regSuccess => 'Registration successful';
+
+  @override
+  String get invalidCredentials => 'Invalid email or password.';
+
+  @override
+  String get networkError => 'Network error, please check your connection.';
+
+  @override
+  String get tooManyRequests => 'Too many attempts. Please try again later.';
+
+  @override
+  String get defaultAuthError => 'An error occurred, please try again.';
+
+  @override
+  String get emailAlreadyInUse => 'This email is already registered.';
+
+  @override
+  String get invalidEmail => 'Please enter a valid email address.';
+
+  @override
+  String get weakPassword => 'The password provided is too weak.';
+
+  @override
+  String get makeSure => 'Are you sure to log out?';
+
+  @override
+  String get updatedSucsess => 'Profile Updated Successfully';
+
+  @override
+  String get passSend => 'Password link sent to your email';
+
+  @override
+  String get errorOccur => 'An error occurred';
+
+  @override
+  String get somethingWentWrong => 'Something went wrong';
+
+  @override
+  String get deleteAccountSurin =>
+      'Are you sure you want to delete your account?';
+
+  @override
+  String get deleteSuccess => 'Account Delete Sccessfully';
+
+  @override
+  String get resetPasswordEmailSent => 'Reset password email sent successfully';
+
+  @override
+  String get pleaseEnterName => 'Please enter your name';
+
+  @override
+  String get pleaseEnterEmail => 'Please enter your email';
+
+  @override
+  String get pleaseEnterValidEmail => 'Please enter a valid email';
+
+  @override
+  String get pleaseEnterYourPass => 'Please enter your password';
+
+  @override
+  String get passValidation => 'Password must be at least 6 characters';
+
+  @override
+  String get pleaseConfirm => 'Please confirm your password';
+
+  @override
+  String get passwordDontMatch => 'Passwords do not match';
+
+  @override
+  String get noUser => 'No user is currently signed in.';
+
+  @override
+  String get noEmail => 'The current user does not have an email.';
 }

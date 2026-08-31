@@ -6,7 +6,9 @@ import '../../../utils/app_colors.dart';
 import '../../../utils/app_text_styles.dart';
 
 class AvatarSelector extends StatefulWidget {
-  const AvatarSelector({super.key});
+  final Function(String selectedAvatar)? onAvatarSelected;
+
+  const AvatarSelector({super.key, this.onAvatarSelected});
 
   @override
   State<AvatarSelector> createState() => _AvatarSelectorState();
@@ -35,6 +37,10 @@ class _AvatarSelectorState extends State<AvatarSelector> {
       initialPage: selectedIndex,
       viewportFraction: 0.35,
     );
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      widget.onAvatarSelected?.call(avatars[selectedIndex]);
+    });
   }
 
   @override
@@ -50,7 +56,6 @@ class _AvatarSelectorState extends State<AvatarSelector> {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        // --- Avatar PageView Slider ---
         SizedBox(
           height: 120,
           child: PageView.builder(
@@ -60,7 +65,7 @@ class _AvatarSelectorState extends State<AvatarSelector> {
               setState(() {
                 selectedIndex = index;
               });
-              // TODO: Handle selected avatar change callback logic
+              widget.onAvatarSelected?.call(avatars[index]);
             },
             itemBuilder: (context, index) {
               final bool isSelected = selectedIndex == index;
@@ -70,13 +75,13 @@ class _AvatarSelectorState extends State<AvatarSelector> {
                   onTap: () {
                     _pageController.animateToPage(
                       index,
-                      duration: Duration(milliseconds: 300),
+                      duration: const Duration(milliseconds: 300),
                       curve: Curves.easeInOut,
                     );
                   },
                   child: AnimatedScale(
                     scale: isSelected ? 1.0 : 0.7,
-                    duration: Duration(milliseconds: 250),
+                    duration: const Duration(milliseconds: 250),
                     child: CircleAvatar(
                       radius: 48,
                       backgroundColor: AppColors.transparent,
@@ -89,9 +94,8 @@ class _AvatarSelectorState extends State<AvatarSelector> {
             },
           ),
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
 
-        // --- Avatar Label ---
         Text(
           localizations?.avatar ?? '',
           style: AppTextStyles.regular16White.copyWith(fontSize: 16),
