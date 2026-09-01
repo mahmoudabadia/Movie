@@ -210,16 +210,12 @@ class _LoginPageState extends State<LoginPage> {
 
   Future<UserCredential?> signInWithGoogle() async {
     try {
-      await GoogleSignIn.instance.initialize(
-        serverClientId: 'YOUR_WEB_CLIENT_ID.apps.googleusercontent.com',
-      );
-
-      final GoogleSignInAccount? googleUser =
-      await GoogleSignIn.instance.authenticate();
+      final GoogleSignInAccount? googleUser = await GoogleSignIn.instance
+          .authenticate();
       if (googleUser == null) return null;
 
-      final GoogleSignInAuthentication googleAuth =
-      await googleUser.authentication;
+      final GoogleSignInAuthentication googleAuth = await googleUser
+          .authentication;
 
       final OAuthCredential credential = GoogleAuthProvider.credential(
         idToken: googleAuth.idToken,
@@ -228,16 +224,11 @@ class _LoginPageState extends State<LoginPage> {
       return await FirebaseAuth.instance.signInWithCredential(credential);
     } catch (e) {
       debugPrint("Google Sign-In Error: $e");
-      if (mounted) {
-        showSnackBar(
-          AppLocalizations.of(context)!.error,
-          context,
-          isError: true,
-        );
-      }
       return null;
     }
-  }  void login() async {
+  }
+
+  void login() async {
     setState(() {
       isLoading = true;
     });

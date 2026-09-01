@@ -106,7 +106,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
                     ).hasMatch(emailController.text.trim());
                     if (!emailValid) {
-                      return localizations?.invalidEmail ??
+                      return localizations?.invalidCredentials ??
                           AppLocalizations.of(context)!.pleaseEnterValidEmail;
                     }
                     return null;
@@ -335,7 +335,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       case 'email-already-in-use':
         return localizations.emailAlreadyInUse;
       case 'invalid-email':
-        return localizations.invalidEmail;
+        return localizations.invalidCredentials;
       case 'weak-password':
         return localizations.weakPassword;
       case 'network-request-failed':

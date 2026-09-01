@@ -8,8 +8,7 @@ class ApiManager {
   static final Dio _dio = Dio(
     BaseOptions(
       baseUrl: 'https://${ApiConstants.baseUrl}/',
-      connectTimeout: const Duration(seconds: 20),
-      receiveTimeout: const Duration(seconds: 20),
+
     ),
   );
 

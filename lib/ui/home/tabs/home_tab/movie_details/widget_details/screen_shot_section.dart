@@ -15,7 +15,7 @@ class ScreenShotSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          AppLocalizations.of(context)!.screen_shot,
+          AppLocalizations.of(context)!.screenShot,
           style: AppTextStyles.bold24White,
         ),
         ScreenShotWidget(image: movie?.largeScreenshotImage1 ?? ''),

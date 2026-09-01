@@ -142,7 +142,7 @@ class _ProfileTabState extends State<ProfileTab> {
                                 backgroundColor: AppColors.grayColor,
                                 context: context,
                                 message: AppLocalizations.of(context)!
-                                    .make_sure,
+                                    .makeSureLogout,
                                 title: AppLocalizations.of(context)!.warning,
                                 posActionName: AppLocalizations.of(
                                   context,
@@ -205,7 +205,7 @@ class _ProfileTabState extends State<ProfileTab> {
                       splashFactory: NoSplash.splashFactory,
                       tabs: [
                         Tab(
-                          iconMargin: const EdgeInsets.symmetric(vertical: 16),
+                          iconMargin:  EdgeInsets.symmetric(vertical: 16),
                           text: AppLocalizations.of(context)!.watchList,
                           icon: Image.asset(
                             AppAssets.iconWatchList,
@@ -214,7 +214,7 @@ class _ProfileTabState extends State<ProfileTab> {
                           ),
                         ),
                         Tab(
-                          iconMargin: const EdgeInsets.symmetric(vertical: 6),
+                          iconMargin:  EdgeInsets.symmetric(vertical: 6),
                           text: AppLocalizations.of(context)!.history,
                           icon: Image.asset(
                             AppAssets.iconHistory,
