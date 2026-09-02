@@ -3,7 +3,6 @@ import 'package:movie_app/api/constants/end_point.dart';
 import 'constants/api_constant.dart';
 import 'model/available_movies_response.dart';
 
-
 class ApiManager {
   static final Dio _dio = Dio(
     BaseOptions(
@@ -12,12 +11,12 @@ class ApiManager {
     ),
   );
 
-
   static Future<AvailableMoviesResponse?> getMovies({
     String? genre,
     int limit = 20,
     String sortBy = 'date_added',
     String orderBy = 'desc',
+    String? queryTerm,
   }) async {
     try {
       var response = await _dio.get(
@@ -27,6 +26,7 @@ class ApiManager {
           'sort_by': sortBy,
           'order_by': orderBy,
           if (genre != null && genre.isNotEmpty) 'genre': genre.toLowerCase(),
+          if (queryTerm != null && queryTerm.isNotEmpty) 'query_term': queryTerm,
         },
       );
 
