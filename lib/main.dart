@@ -26,7 +26,6 @@ void main() async {
     appVerificationDisabledForTesting: true,
   );
 
-
   runApp(
     BlocProvider(create: (context) => LanguageCubit(), child: const MyApp()),
   );
@@ -42,7 +41,7 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
 
-          initialRoute: AppRoutes.splashRouteName,
+          initialRoute: AppRoutes.homeRouteName,
           routes: {
             AppRoutes.homeRouteName: (context) => HomeScreen(),
             AppRoutes.homeTabRouteName: (context) => HomeTab(),

@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:movie_app/ui/home/tabs/profile_tab/history_firestore/history_firestore.dart';
 import 'package:movie_app/ui/home/tabs/profile_tab/watch_list.dart';
 import 'package:movie_app/utils/app_routes.dart';
 
@@ -66,7 +67,15 @@ class _ProfileTabState extends State<ProfileTab> {
                           flex: 4,
                           child: Column(
                             children: [
-                              Text("0", style: AppTextStyles.bold36White),
+                              StreamBuilder<int>(
+                                stream: HistoryFirestore.historyCountStream(),
+                                builder: (context, snapshot) {
+                                  return Text(
+                                    "0",
+                                    style: AppTextStyles.bold36White,
+                                  );
+                                },
+                              ),
                               SizedBox(height: context.height * 0.01),
                               Text(
                                 AppLocalizations.of(context)!.watchList,
@@ -80,7 +89,16 @@ class _ProfileTabState extends State<ProfileTab> {
                           flex: 3,
                           child: Column(
                             children: [
-                              Text("0", style: AppTextStyles.bold36White),
+                              StreamBuilder<int>(
+                                stream: HistoryFirestore.historyCountStream(),
+                                builder: (context, snapshot) {
+                                  return Text(
+                                    "${snapshot.data ?? 0}",
+                                    style: AppTextStyles.bold36White,
+                                  );
+                                },
+                              ),
+
                               SizedBox(height: context.height * 0.01),
                               Text(
                                 AppLocalizations.of(context)!.history,
@@ -141,8 +159,9 @@ class _ProfileTabState extends State<ProfileTab> {
                               DialogUtils.showMessage(
                                 backgroundColor: AppColors.grayColor,
                                 context: context,
-                                message: AppLocalizations.of(context)!
-                                    .make_sure,
+                                message: AppLocalizations.of(
+                                  context,
+                                )!.make_sure,
                                 title: AppLocalizations.of(context)!.warning,
                                 posActionName: AppLocalizations.of(
                                   context,
