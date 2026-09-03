@@ -67,7 +67,7 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
                   Navigator.pop(context);
                 },
                 icon: Image.asset(
-                AppAssets.iconArrowBack,
+                  AppAssets.iconArrowBack,
 
                   color: AppColors.whiteColor,
                 ),
@@ -77,7 +77,7 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
                   onPressed: () {},
                   icon: const Icon(
                     Icons.bookmark,
-                   size: 44,
+                    size: 44,
                     color: AppColors.whiteColor,
                   ),
                 ),
@@ -90,6 +90,7 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   StackWidgetPictureMovie(
+                    movie: movie,
                     coverImage: movie?.largeCoverImage ?? '',
                     title: movie?.title ?? '',
                     year: movie?.year ?? 0,

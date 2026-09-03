@@ -2,6 +2,7 @@
 /// character_name : "Jasper"
 /// url_small_image : "https://yts.gg/assets/images/actors/thumb/nm0005458.jpg"
 /// imdb_code : "0005458"
+library;
 
 class Cast {
   Cast({this.name, this.characterName, this.urlSmallImage, this.imdbCode});

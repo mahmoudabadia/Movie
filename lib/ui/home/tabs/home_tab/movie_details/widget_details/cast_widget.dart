@@ -49,13 +49,13 @@ class CastWidget extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    'Name : ${name} ',
+                    'Name : $name ',
                     style: AppTextStyles.regular14Withe,
                   ),
                 ),
                 Expanded(
                   child: Text(
-                    'Character : ${characterName}',
+                    'Character : $characterName',
                     style: AppTextStyles.regular14Withe,
                   ),
                 ),

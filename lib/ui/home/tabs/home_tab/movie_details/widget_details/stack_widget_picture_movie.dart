@@ -1,18 +1,30 @@
 import 'package:flutter/material.dart';
+
 import 'package:movie_app/api/dio_manager.dart';
+
 import 'package:movie_app/api/movie.dart';
+
 import 'package:movie_app/l10n/app_localizations.dart';
+
 import 'package:movie_app/ui/home/tabs/home_tab/movie_details/widget_details/rating_widget_details.dart';
+
+import 'package:movie_app/ui/home/tabs/profile_tab/history_firestore/history_firestore.dart';
+
 import 'package:movie_app/ui/widgets/custom_elevated_button.dart';
+
 import 'package:movie_app/utils/app_assets.dart';
+
 import 'package:movie_app/utils/app_colors.dart';
+
 import 'package:movie_app/utils/app_text_styles.dart';
+
 import 'package:movie_app/utils/size_utils.dart';
+import 'package:movie_app/utils/toast_utilis.dart';
 
 class StackWidgetPictureMovie extends StatefulWidget {
-  Movie? movie;
+  final Movie? movie;
 
-  StackWidgetPictureMovie({
+  const StackWidgetPictureMovie({
     super.key,
     required this.coverImage,
     required this.title,
@@ -36,6 +48,45 @@ class StackWidgetPictureMovie extends StatefulWidget {
 }
 
 class _StackWidgetPictureMovieState extends State<StackWidgetPictureMovie> {
+  Future<void> watchMovie() async {
+    if (widget.movie == null) return;
+    try {
+      final isAlreadyInHistory = await HistoryFirestore.isMoveiInHistory(
+        widget.movie!.id!,
+      );
+
+      if (isAlreadyInHistory) {
+        ToastUtils.showCustomToast(
+          context: context,
+          message: "Movie is Already in History 😉",
+          backgroundColor: AppColors.lightYelloColor,
+          textColor: AppColors.blackColor,
+        );
+      } else {
+        await HistoryFirestore.addToHistory(widget.movie!);
+        ToastUtils.showCustomToast(
+          context: context,
+          message: "Movie added to History",
+          backgroundColor: AppColors.yelloColor,
+          textColor: AppColors.blackColor,
+          icon: Icons.check_circle_rounded,
+        );
+      }
+
+      DioManager.openMovieUrl(widget.movie?.url);
+    } catch (e) {
+      if (!context.mounted) return;
+
+      ToastUtils.showCustomToast(
+        context: context,
+        message: "Something went wrong",
+        backgroundColor: AppColors.redColor,
+        textColor: AppColors.whiteColor,
+        icon: Icons.error_rounded,
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -49,7 +100,7 @@ class _StackWidgetPictureMovieState extends State<StackWidgetPictureMovie> {
               end: Alignment.bottomCenter,
               colors: [
                 Colors.transparent,
-                Colors.black.withOpacity(0.2),
+                Colors.black.withValues(alpha: 0.2),
                 Colors.black,
               ],
             ),
@@ -81,9 +132,7 @@ class _StackWidgetPictureMovieState extends State<StackWidgetPictureMovie> {
                 sideColor: AppColors.redColor,
                 backgroundColor: AppColors.redColor,
                 onPressed: () {
-                  print('Movie URL: ${widget.movie?.url}');
-                  print('YT Trailer: ${widget.movie?.ytTrailerCode}');
-                  DioManager.openMovieUrl(widget.movie?.url);
+                  watchMovie();
                 },
                 child: Text(
                   AppLocalizations.of(context)!.watch,
