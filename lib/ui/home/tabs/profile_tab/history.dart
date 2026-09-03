@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/ui/home/tabs/profile_tab/history_firestore/history_firestore.dart';
 
 import '../../../../utils/app_assets.dart';
 import '../../../../utils/app_colors.dart';
