@@ -222,13 +222,6 @@ class _LoginPageState extends State<LoginPage> {
       return await FirebaseAuth.instance.signInWithCredential(credential);
     } catch (e) {
       debugPrint("Google Sign-In Error: $e");
-      if (mounted) {
-        showSnackBar(
-          AppLocalizations.of(context)!.error,
-          context,
-          isError: true,
-        );
-      }
       return null;
     }
   }
