@@ -1,8 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/ui/home/tabs/profile_tab/watch_list.dart';
 import 'package:movie_app/utils/app_routes.dart';
-
 import '../../../../l10n/app_localizations.dart';
 import '../../../../utils/app_assets.dart';
 import '../../../../utils/app_colors.dart';
@@ -22,14 +22,13 @@ class ProfileTab extends StatefulWidget {
 
 class _ProfileTabState extends State<ProfileTab> {
   @override
-  @override
   Widget build(BuildContext context) {
     var _ = context.height;
 
     final user = FirebaseAuth.instance.currentUser;
     final String userName = user?.displayName ?? "User";
     final String userAvatar =
-        (user?.photoURL != null && user!.photoURL!.isNotEmpty)
+    (user?.photoURL != null && user!.photoURL!.isNotEmpty)
         ? user.photoURL!
         : AppAssets.imageAvatar0;
 
@@ -66,7 +65,24 @@ class _ProfileTabState extends State<ProfileTab> {
                           flex: 4,
                           child: Column(
                             children: [
-                              Text("0", style: AppTextStyles.bold36White),
+                              StreamBuilder<QuerySnapshot>(
+                                stream: user != null
+                                    ? FirebaseFirestore.instance
+                                    .collection('users')
+                                    .doc(user.uid)
+                                    .collection('watchlist')
+                                    .snapshots()
+                                    : const Stream.empty(),
+                                builder: (context, snapshot) {
+                                  final count = snapshot.hasData
+                                      ? snapshot.data!.docs.length
+                                      : 0;
+                                  return Text(
+                                    "$count",
+                                    style: AppTextStyles.bold36White,
+                                  );
+                                },
+                              ),
                               SizedBox(height: context.height * 0.01),
                               Text(
                                 AppLocalizations.of(context)!.watchList,
@@ -105,7 +121,6 @@ class _ProfileTabState extends State<ProfileTab> {
                         ),
                       ],
                     ),
-
                     Row(
                       children: [
                         Expanded(
@@ -154,7 +169,7 @@ class _ProfileTabState extends State<ProfileTab> {
                                     MaterialPageRoute(
                                       builder: (context) => LoginPage(),
                                     ),
-                                    (route) => false,
+                                        (route) => false,
                                   );
                                 },
                                 negActionName: AppLocalizations.of(
@@ -187,7 +202,6 @@ class _ProfileTabState extends State<ProfileTab> {
                         ),
                       ],
                     ),
-
                     TabBar(
                       labelColor: AppColors.yelloColor,
                       unselectedLabelColor: AppColors.whiteColor,
@@ -228,7 +242,6 @@ class _ProfileTabState extends State<ProfileTab> {
                 ),
               ),
             ),
-
             Expanded(
               flex: 6,
               child: TabBarView(children: [WatchList(), History()]),

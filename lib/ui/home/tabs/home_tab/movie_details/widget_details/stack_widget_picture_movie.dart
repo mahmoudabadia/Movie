@@ -10,9 +10,15 @@ import 'package:movie_app/utils/app_text_styles.dart';
 import 'package:movie_app/utils/size_utils.dart';
 
 class StackWidgetPictureMovie extends StatefulWidget {
-  Movie? movie;
+  final Movie? movie;
+  final String coverImage;
+  final String title;
+  final int year;
+  final int likeCount;
+  final int runtime;
+  final double rating;
 
-  StackWidgetPictureMovie({
+  const StackWidgetPictureMovie({
     super.key,
     required this.coverImage,
     required this.title,
@@ -22,13 +28,6 @@ class StackWidgetPictureMovie extends StatefulWidget {
     required this.rating,
     this.movie,
   });
-
-  final String coverImage;
-  final String title;
-  final int year;
-  final int likeCount;
-  final int runtime;
-  final double rating;
 
   @override
   State<StackWidgetPictureMovie> createState() =>
@@ -40,7 +39,14 @@ class _StackWidgetPictureMovieState extends State<StackWidgetPictureMovie> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Image.network(widget.coverImage, fit: BoxFit.cover),
+
+        SizedBox(
+          width: double.infinity,
+          height: context.height * 0.8,
+          child: Image.network(widget.coverImage, fit: BoxFit.cover),
+        ),
+
+
         Container(
           height: context.height * 0.8,
           decoration: BoxDecoration(
@@ -55,34 +61,33 @@ class _StackWidgetPictureMovieState extends State<StackWidgetPictureMovie> {
             ),
           ),
         ),
+
+
         Positioned.fill(
           child: Column(
-            spacing: context.height * 0.020,
             children: [
               SizedBox(height: context.height * 0.22),
               InkWell(
                 onTap: () {
-                  print('Movie URL: ${widget.movie?.url}');
-                  print('YT Trailer: ${widget.movie?.ytTrailerCode}');
                   DioManager.openMovieUrl(widget.movie?.url);
                 },
                 child: Image.asset(AppAssets.imagePlaying),
               ),
-              Spacer(),
+              const Spacer(),
               Text(
                 widget.title,
                 style: AppTextStyles.bold24White,
                 textAlign: TextAlign.center,
               ),
+              SizedBox(height: context.height * 0.01),
               Text('${widget.year}', style: AppTextStyles.bold20Gray),
+              SizedBox(height: context.height * 0.015),
               CustomElevatedButton(
                 horizontalPadding: context.width * 0.38,
                 verticalPadding: context.height * 0.015,
                 sideColor: AppColors.redColor,
                 backgroundColor: AppColors.redColor,
                 onPressed: () {
-                  print('Movie URL: ${widget.movie?.url}');
-                  print('YT Trailer: ${widget.movie?.ytTrailerCode}');
                   DioManager.openMovieUrl(widget.movie?.url);
                 },
                 child: Text(
@@ -90,6 +95,7 @@ class _StackWidgetPictureMovieState extends State<StackWidgetPictureMovie> {
                   style: AppTextStyles.bold20White,
                 ),
               ),
+              SizedBox(height: context.height * 0.015),
               Row(
                 children: [
                   Expanded(

@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/api/cubit_dio/details_state.dart';
@@ -7,7 +9,6 @@ import 'package:movie_app/ui/home/tabs/home_tab/movie_details/widget_details/sta
 import 'package:movie_app/utils/app_colors.dart';
 import 'package:movie_app/utils/app_text_styles.dart';
 import 'package:movie_app/utils/size_utils.dart';
-
 import 'widget_details/cast_section.dart';
 import 'widget_details/main_widget_error.dart';
 import 'widget_details/screen_shot_section.dart';
@@ -36,6 +37,8 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser;
+
     return BlocBuilder<ViewModelDetails, DetailsState>(
       bloc: viewModelDetails,
       builder: (context, state) {
@@ -56,19 +59,60 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
           final movie = state.details!.data!.movie;
           final similarMovies = viewModelDetails.similarMovies;
           final genresList = movie?.genres ?? [];
+          final movieId = movie?.id?.toString() ?? '${widget.id}';
+
           return Scaffold(
             extendBodyBehindAppBar: true,
             appBar: AppBar(
               foregroundColor: AppColors.whiteColor,
               backgroundColor: AppColors.transparent,
               actions: [
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.bookmark,
-                    size: 28,
-                    color: AppColors.whiteColor,
-                  ),
+
+                StreamBuilder<DocumentSnapshot>(
+                  stream: user != null
+                      ? FirebaseFirestore.instance
+                      .collection('users')
+                      .doc(user.uid)
+                      .collection('watchlist')
+                      .doc(movieId)
+                      .snapshots()
+                      : const Stream.empty(),
+                  builder: (context, snapshot) {
+                    bool isBookmarked =
+                        snapshot.hasData && snapshot.data!.exists;
+
+                    return IconButton(
+                      onPressed: () async {
+                        if (user == null) return;
+
+                        final docRef = FirebaseFirestore.instance
+                            .collection('users')
+                            .doc(user.uid)
+                            .collection('watchlist')
+                            .doc(movieId);
+
+                        if (isBookmarked) {
+                          await docRef.delete();
+                        } else {
+                          await docRef.set({
+                            'id': movie?.id ?? widget.id,
+                            'title': movie?.title ?? '',
+                            'posterPath': movie?.largeCoverImage ?? '',
+                            'releaseDate': movie?.year?.toString() ?? '',
+                            'rating': movie?.rating ?? 0,
+                            'addedAt': FieldValue.serverTimestamp(),
+                          });
+                        }
+                      },
+                      icon: Icon(
+                        isBookmarked ? Icons.bookmark : Icons.bookmark_border,
+                        size: 28,
+                        color: isBookmarked
+                            ? AppColors.yelloColor
+                            : AppColors.whiteColor,
+                      ),
+                    );
+                  },
                 ),
               ],
             ),
