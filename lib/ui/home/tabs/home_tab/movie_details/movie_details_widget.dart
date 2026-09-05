@@ -119,7 +119,7 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
                         isBookmarked ? Icons.bookmark : Icons.bookmark_border,
                         size: 28,
                         color: isBookmarked
-                            ? AppColors.yelloColor
+                            ? AppColors.whiteColor
                             : AppColors.whiteColor,
                       ),
                     );

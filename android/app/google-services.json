@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "523636065584",
+    "firebase_url": "https://movie-g5-default-rtdb.firebaseio.com",
     "project_id": "movie-g5",
     "storage_bucket": "movie-g5.firebasestorage.app"
   },

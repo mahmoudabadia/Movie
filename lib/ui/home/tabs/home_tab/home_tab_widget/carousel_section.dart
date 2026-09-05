@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/ui/home/tabs/home_tab/movie_details/movie_details_widget.dart';
 
 import '../../../../../api/model/available_movies_response.dart';
+import '../../../../../l10n/app_localizations.dart';
 import '../../../../../utils/app_colors.dart';
 import 'movie_rating_badge.dart';
 
@@ -29,12 +30,12 @@ class CarouselSection extends StatelessWidget {
             ),
           );
         } else if (snapshot.hasError || snapshot.data?.data?.movies == null) {
-          return const SizedBox(
+          return SizedBox(
             height: 350,
             child: Center(
               child: Text(
-                "Error loading movies",
-                style: TextStyle(color: AppColors.whiteColor),
+                AppLocalizations.of(context)!.somethingWentWrong,
+                style: const TextStyle(color: AppColors.whiteColor),
               ),
             ),
           );

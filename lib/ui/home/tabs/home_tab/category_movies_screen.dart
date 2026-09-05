@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../api/api_manager.dart';
 import '../../../../api/model/available_movies_response.dart';
+import '../../../../l10n/app_localizations.dart';
 import '../../../../utils/app_colors.dart';
 import '../../../../utils/app_text_styles.dart';
 import 'home_tab_widget/movie_rating_badge.dart';
@@ -9,10 +10,7 @@ import 'movie_details/movie_details_widget.dart';
 class CategoryMoviesScreen extends StatefulWidget {
   final String genreName;
 
-  const CategoryMoviesScreen({
-    super.key,
-    required this.genreName,
-  });
+  const CategoryMoviesScreen({super.key, required this.genreName});
 
   @override
   State<CategoryMoviesScreen> createState() => _CategoryMoviesScreenState();
@@ -41,10 +39,7 @@ class _CategoryMoviesScreenState extends State<CategoryMoviesScreen> {
           icon: const Icon(Icons.arrow_back_ios, color: AppColors.yelloColor),
           onPressed: () => Navigator.pop(context),
         ),
-        title: Text(
-          widget.genreName,
-          style: AppTextStyles.bold20White,
-        ),
+        title: Text(widget.genreName, style: AppTextStyles.bold20White),
         centerTitle: true,
       ),
       body: FutureBuilder<AvailableMoviesResponse?>(
@@ -55,8 +50,11 @@ class _CategoryMoviesScreenState extends State<CategoryMoviesScreen> {
               child: CircularProgressIndicator(color: AppColors.yelloColor),
             );
           } else if (snapshot.hasError || snapshot.data?.data?.movies == null) {
-            return const Center(
-              child: Text("No movies found", style: TextStyle(color: Colors.white)),
+            return Center(
+              child: Text(
+                AppLocalizations.of(context)!.noMovie,
+                style: TextStyle(color: AppColors.whiteColor),
+              ),
             );
           }
 

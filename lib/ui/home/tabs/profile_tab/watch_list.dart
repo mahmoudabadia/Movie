@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../utils/app_assets.dart';
 import '../../../../utils/app_colors.dart';
+import '../home_tab/movie_details/movie_details_widget.dart';
 
 class WatchList extends StatelessWidget {
   const WatchList({super.key});
@@ -11,7 +12,6 @@ class WatchList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final user = FirebaseAuth.instance.currentUser;
-
 
     if (user == null) {
       return Scaffold(
@@ -41,42 +41,97 @@ class WatchList extends StatelessWidget {
 
           final movies = snapshot.data!.docs;
 
-          return ListView.builder(
-            padding: const EdgeInsets.symmetric(vertical: 12),
+          return GridView.builder(
+            padding: const EdgeInsets.all(12),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              childAspectRatio: 0.68,
+              crossAxisSpacing: 12,
+              mainAxisSpacing: 12,
+            ),
             itemCount: movies.length,
             itemBuilder: (context, index) {
               final movieData = movies[index].data() as Map<String, dynamic>;
               final String? posterPath = movieData['posterPath'];
+              final dynamic ratingValue =
+                  movieData['rating'] ?? movieData['voteAverage'] ?? 0.0;
+              final String rating = ratingValue.toString();
 
-              return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                child: ListTile(
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 8),
-                  leading: ClipRRect(
-                    borderRadius: BorderRadius.circular(8),
-                    child: posterPath != null && posterPath.isNotEmpty
-                        ? Image.network(
-                      posterPath,
-                      width: 60,
-                      height: 90,
-                      fit: BoxFit.cover,
-                      errorBuilder: (context, error, stackTrace) =>
-                      const Icon(Icons.movie, size: 40, color: AppColors.whiteColor),
-                    )
-                        : const Icon(Icons.movie, size: 40, color: AppColors.whiteColor),
-                  ),
-                  title: Text(
-                    movieData['title'] ?? 'No Title',
-                    style: const TextStyle(
-                      color: AppColors.whiteColor,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
+              return ClipRRect(
+                borderRadius: BorderRadius.circular(16),
+                child: Stack(
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MovieDetailsWidget(
+                              id: movieData['id'] ?? int.parse(movies[index].id),
+                            ),
+                          ),
+                        );
+                      },
+
+                      child: Positioned.fill(
+                        child: posterPath != null && posterPath.isNotEmpty
+                            ? Image.network(
+                                posterPath,
+                                fit: BoxFit.cover,
+                                errorBuilder: (context, error, stackTrace) =>
+                                    Container(
+                                      color: Colors.grey[900],
+                                      child: const Icon(
+                                        Icons.movie,
+                                        size: 50,
+                                        color: AppColors.whiteColor,
+                                      ),
+                                    ),
+                              )
+                            : Container(
+                                color: Colors.grey[900],
+                                child: const Icon(
+                                  Icons.movie,
+                                  size: 50,
+                                  color: AppColors.whiteColor,
+                                ),
+                              ),
+                      ),
                     ),
-                  ),
-                  subtitle: Text(
-                    movieData['releaseDate'] ?? '',
-                    style: const TextStyle(color: Colors.grey, fontSize: 14),
-                  ),
+                    Positioned(
+                      top: 8,
+                      left: 8,
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 8,
+                          vertical: 4,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.black.withValues(alpha: 0.7),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              rating,
+                              style: const TextStyle(
+                                color: AppColors.whiteColor,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 13,
+                              ),
+                            ),
+                            const SizedBox(width: 4),
+                            const Icon(
+                              Icons.star,
+                              color: AppColors.yelloColor,
+                              size: 14,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               );
             },

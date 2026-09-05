@@ -15,32 +15,18 @@ class AppLocalizationsAr extends AppLocalizations {
   String get register => 'إنشاء حساب';
 
   @override
-  String get createAccount => 'إنشاء حساب';
+  String get alreadyHaveAccount => 'لديك حساب بالفعل ؟ ';
 
   @override
-  String get genres => 'Genres';
+  String get dontHaveAccount => 'ليس لديك حساب ؟ ';
 
   @override
   String get createOne => 'إنشاء حساب جديد';
 
   @override
-  String get updated_sucsess => 'updated Sucsess';
-  String get alreadyHaveAccount => 'لديك حساب بالفعل؟ ';
-
-  @override
-  String get dontHaveAccount => 'ليس لديك حساب؟ ';
-
-  @override
-  String get createOne => 'أنشئ حساباً';
-
-  @override
   String get loginWithGoogle => 'تسجيل الدخول باستخدام جوجل';
 
   @override
-  String get unexpectedError => 'حدث خطأ غير متوقع';
-
-  @override
-  String get plsEnterName => 'يرجى إدخال بريدك الإلكتروني';
   String get email => 'البريد الإلكتروني';
 
   @override
@@ -50,14 +36,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get confirmPassword => 'تأكيد كلمة المرور';
 
   @override
-  String get forgetPassword => 'نسيت كلمة المرور؟';
-
-  @override
-  String get warning => 'تحذير!!';
-
-  @override
-  String get yes => 'نعم';
-  String get forgetPasswordTitle => 'نسيت كلمة المرور';
+  String get forgetPassword => 'نسيت كلمة المرور ؟';
 
   @override
   String get resetPassword => 'إعادة ضبط كلمة المرور';
@@ -96,16 +75,16 @@ class AppLocalizationsAr extends AppLocalizations {
   String get watchList => 'قائمة المشاهدة';
 
   @override
-  String get genres => 'الأنواع والتصنيفات';
+  String get genres => 'الأنواع';
 
   @override
   String get cast => 'طاقم العمل';
 
   @override
-  String get summary => 'القصة / الملخص';
+  String get summary => 'القصة';
 
   @override
-  String get similar => 'أفلام مشابهة';
+  String get similar => 'مشابه';
 
   @override
   String get watch => 'مشاهدة';
@@ -114,13 +93,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get search => 'بحث';
 
   @override
-  String get seeMore => 'عرض المزيد';
+  String get seeMore => 'رؤية المزيد';
 
   @override
   String get screenShot => 'لقطة شاشة';
-
-  @override
-  String get noMovies => 'خطأ في تحميل الأفلام';
 
   @override
   String get welcome => 'مرحباً بك في الشاشة الرئيسية';
@@ -130,35 +106,35 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get descMain =>
-      'احصل على وصول لمكتبة ضخمة من الأفلام التي تناسب جميع الأذواق. ستعجبك حتماً.';
+      'احصل على إمكانية الوصول إلى مكتبة ضخمة من الأفلام لتناسب جميع الأذواق. ستعجبك بالتأكيد.';
 
   @override
   String get titleOne => 'اكتشف الأفلام';
 
   @override
   String get descOne =>
-      'استكشف مجموعة واسعة من الأفلام بكافة الجودات والتصنيفات. اعثر على فيلمك المفضل بسهولة.';
+      'استكشف مجموعة واسعة من الأفلام بجميع الجودات والأنواع. اعثر على فيلمك المفضل القادم بسهولة.';
 
   @override
-  String get titleTwo => 'استكشف جميع التصنيفات';
+  String get titleTwo => 'استكشف جميع الأنواع';
 
   @override
   String get descTwo =>
-      'اكتشف أفلاماً من كل تصنيف وبكافة الجودات المتاحة. اعثر على شيء جديد وممتع لمشاهدته يومياً.';
+      'اكتشف أفلاماً من كل تصنيف، وبجميع الجودات المتاحة. اعثر على شيء جديد ومثير للمشاهدة كل يوم.';
 
   @override
-  String get titleThree => 'إنشاء قوائم المشاهدة';
+  String get titleThree => 'أنشئ قوائم المشاهدة';
 
   @override
   String get descThree =>
-      'احفظ الأفلام في قائمة المشاهدة الخاصة بك لمتابعة ما تريد مشاهدته لاحقاً. استمتع بالأفلام بجودات وتصنيفات متنوعة.';
+      'احفظ الأفلام في قائمة المشاهدة الخاصة بك لمتابعة ما تريد مشاهدته لاحقاً. استمتع بالأفلام بجودات وأنواع مختلفة.';
 
   @override
-  String get titleFour => 'قيّم، راجع، وتعلّم';
+  String get titleFour => 'قيّم، وراجع، وتعرّف';
 
   @override
   String get descFour =>
-      'شارك آراءك حول الأفلام التي شاهدتها. تعمق في تفاصيل الأفلام وساعد الآخرين في اكتشاف أفلام رائعة مراجعاتك.';
+      'شارك آراءك حول الأفلام التي شاهدتها. تعمق في تفاصيل الأفلام وساعد الآخرين في اكتشاف أفلام رائعة بمراجعاتك.';
 
   @override
   String get titleFive => 'ابدأ المشاهدة الآن';
@@ -176,7 +152,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get back => 'رجوع';
 
   @override
-  String get warning => 'تنبيه!!';
+  String get warning => 'تحذير!!';
 
   @override
   String get yes => 'نعم';
@@ -191,43 +167,37 @@ class AppLocalizationsAr extends AppLocalizations {
   String get exit => 'خروج';
 
   @override
-  String get makeSureLogout => 'هل أنت ألكيد من رغبتك في تسجيل الخروج؟';
+  String get makeSureLogout => 'هل أنت تأكد من أنك تريد تسجيل الخروج؟';
 
   @override
-  String get deleteAccountConfirm => 'هل أنت ألكيد من رغبتك في حذف حسابك؟';
+  String get deleteAccountConfirm => 'هل أنت تأكد من أنك تريد حذف حسابك؟';
 
   @override
-  String get pleaseEnterName => 'يرجى إدخال الاسم';
+  String get pleaseEnterName => 'يرجى إدخال اسمك';
 
   @override
   String get pleaseEnterEmail => 'يرجى إدخال البريد الإلكتروني';
 
   @override
-  String get pleaseEnterValidEmail => 'يرجى إدخال بريد إلكتروني صحيح';
+  String get pleaseEnterValidEmail => 'يرجى إدخال بريد إلكتروني صالحة';
 
   @override
   String get pleaseEnterYourPass => 'يرجى إدخال كلمة المرور';
 
   @override
-  String get passValidation => 'يجب ألا تقل كلمة المرور عن 6 أحرف';
+  String get passValidation => 'يجب أن تكون كلمة المرور 6 أحرف على الأقل';
 
   @override
-  String get weakPassword => 'كلمة المرور أدخلتها ضعيفة للغاية.';
   String get pleaseConfirm => 'يرجى تأكيد كلمة المرور';
 
   @override
   String get passwordDontMatch => 'كلمتا المرور غير متطابقتين';
 
   @override
-  String get updatedSucsess => 'تم تحديث الملف الشخصي بنجاح';
-
-  @override
-  String get passSend =>
-      'تم إرسال رابط إعادة تعيين كلمة المرور إلى بريدك الإلكتروني';
   String get loading => 'جاري التحميل...';
 
   @override
-  String get success => 'تم بنجاح';
+  String get success => 'نجاح';
 
   @override
   String get error => 'خطأ';
@@ -248,14 +218,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get deleteSuccess => 'تم حذف الحساب بنجاح';
 
   @override
-  String get passSend => 'تم إرسال رابط كلمة المرور إلى بريدك الإلكتروني';
-
-  @override
   String get resetPasswordEmailSent =>
       'تم إرسال بريد إعادة ضبط كلمة المرور بنجاح';
 
   @override
-  String get pleaseEnterName => 'يرجى إدخال اسمك';
   String get invalidCredentials =>
       'البريد الإلكتروني أو كلمة المرور غير صحيحة.';
 
@@ -281,8 +247,20 @@ class AppLocalizationsAr extends AppLocalizations {
   String get noEmail => 'المستخدم الحالي لا يملك بريداً إلكترونياً.';
 
   @override
-  String get somethingWentWrong => 'حدث خطأ غير متوقع';
+  String get somethingWentWrong => 'حدث خطأ ما';
 
   @override
   String get unexpectedError => 'حدث خطأ غير متوقع';
+
+  @override
+  String get noMovie => 'لا توجد أفلام بعد';
+
+  @override
+  String get movieDelete => 'تم حذف الفيلم بنجاح';
+
+  @override
+  String get deleteFailed => 'فشل الحذف. يرجى المحاولة مرة أخرى.';
+
+  @override
+  String get delete => 'حذف';
 }

@@ -7,7 +7,9 @@ import 'package:movie_app/utils/app_assets.dart';
 import 'package:movie_app/utils/app_text_styles.dart';
 import 'package:movie_app/utils/size_utils.dart';
 import 'package:movie_app/utils/toast_utilis.dart';
+import '../../../../l10n/app_localizations.dart';
 import '../../../../utils/app_colors.dart';
+import '../home_tab/movie_details/movie_details_widget.dart';
 
 class History extends StatelessWidget {
   const History({super.key});
@@ -16,7 +18,6 @@ class History extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.blackColor,
-
       body: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
         stream: HistoryFirestore.historyStream(),
         builder: (context, snapshot) {
@@ -28,7 +29,7 @@ class History extends StatelessWidget {
           if (snapshot.hasError) {
             return Center(
               child: Text(
-                "something went wrong",
+                AppLocalizations.of(context)!.somethingWentWrong,
                 style: AppTextStyles.regular16White,
               ),
             );
@@ -44,7 +45,7 @@ class History extends StatelessWidget {
               right: context.width * 0.04,
             ),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3,
+              crossAxisCount: 2,
               childAspectRatio: 0.58,
               crossAxisSpacing: context.width * 0.03,
               mainAxisSpacing: context.height * 0.015,
@@ -56,24 +57,36 @@ class History extends StatelessWidget {
                 children: [
                   AspectRatio(
                     aspectRatio: 122 / 175,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Stack(
-                        children: [
-                          Image.network(
-                            movie["poster"] ?? "",
-                            width: double.infinity,
-                            height: double.infinity,
-                            fit: BoxFit.cover,
-                          ),
-                          Positioned(
-                            top: context.height * 0.02,
-                            left: context.width * 0.02,
-                            child: MovieRatingBadge(
-                              rating: (movie["rating"] ?? 0).toDouble(),
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MovieDetailsWidget(
+                              id: movie['id'] ?? int.parse(movies[index].id),
                             ),
                           ),
-                        ],
+                        );
+                      },
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: Stack(
+                          children: [
+                            Image.network(
+                              movie["poster"] ?? "",
+                              width: double.infinity,
+                              height: double.infinity,
+                              fit: BoxFit.cover,
+                            ),
+                            Positioned(
+                              top: context.height * 0.02,
+                              left: context.width * 0.02,
+                              child: MovieRatingBadge(
+                                rating: (movie["rating"] ?? 0).toDouble(),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -89,7 +102,7 @@ class History extends StatelessWidget {
                         if (!context.mounted) return;
                         ToastUtils.showCustomToast(
                           context: context,
-                          message: "Movie Delete Successfully",
+                          message: AppLocalizations.of(context)!.movieDelete,
                           backgroundColor: AppColors.greeen,
                           textColor: AppColors.whiteColor,
                           icon: Icons.check_circle_rounded,
@@ -98,7 +111,7 @@ class History extends StatelessWidget {
                         if (!context.mounted) return;
                         ToastUtils.showCustomToast(
                           context: context,
-                          message: "Delete failed. Please try again.",
+                          message: AppLocalizations.of(context)!.deleteFailed,
                           backgroundColor: AppColors.redColor,
                           textColor: AppColors.whiteColor,
                           icon: Icons.error_rounded,

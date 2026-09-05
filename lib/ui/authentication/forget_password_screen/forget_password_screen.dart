@@ -46,23 +46,26 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
       return;
     }
 
+    final localizations = AppLocalizations.of(context)!;
+
     setState(() => isLoading = true);
 
     try {
       await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
-      showSnackBar(AppLocalizations.of(context)!.passSend, context);
-    } on FirebaseAuthException catch (e) {
-      showSnackBar(
-          e.message ?? AppLocalizations.of(context)!.error, isError: true,
-          context);
-      if (!mounted) return;
 
-      showSnackBar(AppLocalizations.of(context)!.passSend, context);
+      if (!mounted) return;
+      showSnackBar(localizations.resetPasswordEmailSent, context);
+    } on FirebaseAuthException catch (e) {
+      if (!mounted) return;
+      showSnackBar(
+        e.message ?? localizations.error,
+        isError: true,
+        context,
+      );
     } catch (e) {
       if (!mounted) return;
-
       showSnackBar(
-        AppLocalizations.of(context)!.unexpectedError,
+        localizations.unexpectedError,
         isError: true,
         context,
       );
@@ -89,7 +92,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
           onPressed: () => Navigator.pop(context),
         ),
         title: Text(
-          localizations?.forgetPasswordTitle ?? '',
+          localizations?.forgetPassword ?? '',
           style: AppTextStyles.bold20Yellow.copyWith(
             fontSize: screenWidth * 0.045,
           ),
@@ -151,17 +154,17 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                   onPressed: isLoading ? null : _handleResetPassword,
                   child: isLoading
                       ? const SizedBox(
-                          height: 20,
-                          width: 20,
-                          child: CircularProgressIndicator(
-                            color: AppColors.blackColor,
-                            strokeWidth: 2,
-                          ),
-                        )
+                    height: 20,
+                    width: 20,
+                    child: CircularProgressIndicator(
+                      color: AppColors.blackColor,
+                      strokeWidth: 2,
+                    ),
+                  )
                       : Text(
-                          localizations?.verifyEmail ?? '',
-                          style: AppTextStyles.bold20Black,
-                        ),
+                    localizations?.verifyEmail ?? '',
+                    style: AppTextStyles.bold20Black,
+                  ),
                 ),
               ),
             ],
