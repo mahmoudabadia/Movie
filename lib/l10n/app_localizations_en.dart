@@ -33,6 +33,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get email => 'Email';
 
   @override
+  String get unexpectedError => 'Unexpected error occurred';
+
+  @override
+  String get plsEnterName => 'Please enter your email';
   String get password => 'Password';
 
   @override
@@ -45,6 +49,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get forgetPasswordTitle => 'Forget Password';
 
   @override
+  String get warning => 'Warning!!';
   String get resetPassword => 'Reset Password';
 
   @override
@@ -204,6 +209,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get passwordDontMatch => 'Passwords do not match';
 
   @override
+  String get updatedSucsess => 'Profile Updated Successfully';
+
+  @override
+  String get passSend => 'Password link sent to your email';
   String get loading => 'Loading...';
 
   @override
@@ -234,6 +243,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get resetPasswordEmailSent => 'Reset password email sent successfully';
 
   @override
+  String get pleaseEnterName => 'Please enter your name';
   String get invalidCredentials => 'Invalid email or password.';
 
   @override

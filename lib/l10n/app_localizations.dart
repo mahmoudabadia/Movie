@@ -149,12 +149,16 @@ abstract class AppLocalizations {
   /// No description provided for @password.
   ///
   /// In en, this message translates to:
+  /// **'Unexpected error occurred'**
+  String get unexpectedError;
   /// **'Password'**
   String get password;
 
   /// No description provided for @confirmPassword.
   ///
   /// In en, this message translates to:
+  /// **'Please enter your email'**
+  String get plsEnterName;
   /// **'Confirm Password'**
   String get confirmPassword;
 
@@ -173,6 +177,8 @@ abstract class AppLocalizations {
   /// No description provided for @resetPassword.
   ///
   /// In en, this message translates to:
+  /// **'Warning!!'**
+  String get warning;
   /// **'Reset Password'**
   String get resetPassword;
 
@@ -476,6 +482,7 @@ abstract class AppLocalizations {
   /// **'Passwords do not match'**
   String get passwordDontMatch;
 
+  /// No description provided for @updatedSucsess.
   /// No description provided for @loading.
   ///
   /// In en, this message translates to:
@@ -494,6 +501,7 @@ abstract class AppLocalizations {
   /// **'Error'**
   String get error;
 
+  /// No description provided for @passSend.
   /// No description provided for @tryAgain.
   ///
   /// In en, this message translates to:
@@ -536,6 +544,13 @@ abstract class AppLocalizations {
   /// **'Reset password email sent successfully'**
   String get resetPasswordEmailSent;
 
+  /// No description provided for @pleaseEnterName.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your name'**
+  String get pleaseEnterName;
+
+  /// No description provided for @pleaseEnterEmail.
   /// No description provided for @invalidCredentials.
   ///
   /// In en, this message translates to:

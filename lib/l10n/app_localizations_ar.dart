@@ -18,6 +18,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get createAccount => 'إنشاء حساب';
 
   @override
+  String get genres => 'Genres';
+
+  @override
+  String get createOne => 'إنشاء حساب جديد';
+
+  @override
+  String get updated_sucsess => 'updated Sucsess';
   String get alreadyHaveAccount => 'لديك حساب بالفعل؟ ';
 
   @override
@@ -30,6 +37,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get loginWithGoogle => 'تسجيل الدخول باستخدام جوجل';
 
   @override
+  String get unexpectedError => 'حدث خطأ غير متوقع';
+
+  @override
+  String get plsEnterName => 'يرجى إدخال بريدك الإلكتروني';
   String get email => 'البريد الإلكتروني';
 
   @override
@@ -42,6 +53,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get forgetPassword => 'نسيت كلمة المرور؟';
 
   @override
+  String get warning => 'تحذير!!';
+
+  @override
+  String get yes => 'نعم';
   String get forgetPasswordTitle => 'نسيت كلمة المرور';
 
   @override
@@ -197,12 +212,18 @@ class AppLocalizationsAr extends AppLocalizations {
   String get passValidation => 'يجب ألا تقل كلمة المرور عن 6 أحرف';
 
   @override
+  String get weakPassword => 'كلمة المرور أدخلتها ضعيفة للغاية.';
   String get pleaseConfirm => 'يرجى تأكيد كلمة المرور';
 
   @override
   String get passwordDontMatch => 'كلمتا المرور غير متطابقتين';
 
   @override
+  String get updatedSucsess => 'تم تحديث الملف الشخصي بنجاح';
+
+  @override
+  String get passSend =>
+      'تم إرسال رابط إعادة تعيين كلمة المرور إلى بريدك الإلكتروني';
   String get loading => 'جاري التحميل...';
 
   @override
@@ -234,6 +255,7 @@ class AppLocalizationsAr extends AppLocalizations {
       'تم إرسال بريد إعادة ضبط كلمة المرور بنجاح';
 
   @override
+  String get pleaseEnterName => 'يرجى إدخال اسمك';
   String get invalidCredentials =>
       'البريد الإلكتروني أو كلمة المرور غير صحيحة.';
 
