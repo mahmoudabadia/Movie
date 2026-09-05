@@ -1,7 +1,6 @@
 {
   "login": "Login",
   "register": "Register",
-  "createAccount": "Create Account",
   "alreadyHaveAccount": "Already Have Account ? ",
   "dontHaveAccount": "Don't Have Account ? ",
   "createOne": "Create One",
@@ -10,7 +9,6 @@
   "password": "Password",
   "confirmPassword": "Confirm Password",
   "forgetPassword": "Forget Password ?",
-  "forgetPasswordTitle": "Forget Password",
   "resetPassword": "Reset Password",
   "verifyEmail": "Verify Email",
   "or": "OR",
@@ -31,7 +29,6 @@
   "search": "Search",
   "seeMore": "See More",
   "screenShot": "Screen Shot",
-  "noMovies": "Error loading movies",
   "welcome": "Welcome to the Home Screen",
   "titleMain": "Find Your Next\nFavorite Movie Here",
   "descMain": "Get access to a huge library of movies to suit all tastes. You will surely like it.",
@@ -70,7 +67,6 @@
   "regSuccess": "Registration successful",
   "updatedSuccess": "Profile Updated Successfully",
   "deleteSuccess": "Account Deleted Successfully",
-  "passSend": "Password link sent to your email",
   "resetPasswordEmailSent": "Reset password email sent successfully",
   "invalidCredentials": "Invalid email or password.",
   "networkError": "Network error, please check your connection.",
@@ -81,5 +77,10 @@
   "noUser": "No user is currently signed in.",
   "noEmail": "The current user does not have an email.",
   "somethingWentWrong": "Something went wrong",
-  "unexpectedError": "Unexpected error occurred"
+  "unexpectedError": "Unexpected error occurred",
+  "noMovie": "No movie yet",
+  "movieDelete": "Movie Delete Successfully",
+  "deleteFailed": "Delete failed. Please try again.",
+  "delete": "Delete"
+
 }

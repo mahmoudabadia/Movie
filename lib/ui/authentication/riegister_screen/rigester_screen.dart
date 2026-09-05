@@ -86,7 +86,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   borderColor: AppColors.transparent,
                   validator: (text) {
                     if (text == null || text.trim().isEmpty) {
-                      return "Please enter your name";
+                      return AppLocalizations.of(context)!.pleaseEnterName;
                     }
                     return null;
                   },
@@ -222,7 +222,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             ),
                           )
                         : Text(
-                            localizations?.createAccount ?? '',
+                            localizations?.createOne ?? '',
                             style: AppTextStyles.bold20Black,
                           ),
                   ),

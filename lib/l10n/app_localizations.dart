@@ -110,12 +110,6 @@ abstract class AppLocalizations {
   /// **'Register'**
   String get register;
 
-  /// No description provided for @createAccount.
-  ///
-  /// In en, this message translates to:
-  /// **'Create Account'**
-  String get createAccount;
-
   /// No description provided for @alreadyHaveAccount.
   ///
   /// In en, this message translates to:
@@ -149,16 +143,12 @@ abstract class AppLocalizations {
   /// No description provided for @password.
   ///
   /// In en, this message translates to:
-  /// **'Unexpected error occurred'**
-  String get unexpectedError;
   /// **'Password'**
   String get password;
 
   /// No description provided for @confirmPassword.
   ///
   /// In en, this message translates to:
-  /// **'Please enter your email'**
-  String get plsEnterName;
   /// **'Confirm Password'**
   String get confirmPassword;
 
@@ -168,17 +158,9 @@ abstract class AppLocalizations {
   /// **'Forget Password ?'**
   String get forgetPassword;
 
-  /// No description provided for @forgetPasswordTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Forget Password'**
-  String get forgetPasswordTitle;
-
   /// No description provided for @resetPassword.
   ///
   /// In en, this message translates to:
-  /// **'Warning!!'**
-  String get warning;
   /// **'Reset Password'**
   String get resetPassword;
 
@@ -295,12 +277,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Screen Shot'**
   String get screenShot;
-
-  /// No description provided for @noMovies.
-  ///
-  /// In en, this message translates to:
-  /// **'Error loading movies'**
-  String get noMovies;
 
   /// No description provided for @welcome.
   ///
@@ -482,7 +458,6 @@ abstract class AppLocalizations {
   /// **'Passwords do not match'**
   String get passwordDontMatch;
 
-  /// No description provided for @updatedSucsess.
   /// No description provided for @loading.
   ///
   /// In en, this message translates to:
@@ -501,7 +476,6 @@ abstract class AppLocalizations {
   /// **'Error'**
   String get error;
 
-  /// No description provided for @passSend.
   /// No description provided for @tryAgain.
   ///
   /// In en, this message translates to:
@@ -532,25 +506,12 @@ abstract class AppLocalizations {
   /// **'Account Deleted Successfully'**
   String get deleteSuccess;
 
-  /// No description provided for @passSend.
-  ///
-  /// In en, this message translates to:
-  /// **'Password link sent to your email'**
-  String get passSend;
-
   /// No description provided for @resetPasswordEmailSent.
   ///
   /// In en, this message translates to:
   /// **'Reset password email sent successfully'**
   String get resetPasswordEmailSent;
 
-  /// No description provided for @pleaseEnterName.
-  ///
-  /// In en, this message translates to:
-  /// **'Please enter your name'**
-  String get pleaseEnterName;
-
-  /// No description provided for @pleaseEnterEmail.
   /// No description provided for @invalidCredentials.
   ///
   /// In en, this message translates to:
@@ -610,6 +571,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Unexpected error occurred'**
   String get unexpectedError;
+
+  /// No description provided for @noMovie.
+  ///
+  /// In en, this message translates to:
+  /// **'No movie yet'**
+  String get noMovie;
+
+  /// No description provided for @movieDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Movie Delete Successfully'**
+  String get movieDelete;
+
+  /// No description provided for @deleteFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete failed. Please try again.'**
+  String get deleteFailed;
+
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get delete;
 }
 
 class _AppLocalizationsDelegate

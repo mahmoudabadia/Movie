@@ -242,7 +242,7 @@ class _CreateUpdateState extends State<CreateUpdate> {
 
       ToastUtils.showCustomToast(
         context: context,
-        message: AppLocalizations.of(context)!.passSend,
+        message: AppLocalizations.of(context)!.resetPasswordEmailSent,
         backgroundColor: AppColors.yelloColor,
         textColor: AppColors.blackColor,
         icon: Icons.check_circle_rounded,

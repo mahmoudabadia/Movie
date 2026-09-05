@@ -46,6 +46,8 @@ class StackWidgetPictureMovie extends StatefulWidget {
       _StackWidgetPictureMovieState();
 }
 
+
+
 class _StackWidgetPictureMovieState extends State<StackWidgetPictureMovie> {
   Future<void> watchMovie() async {
     if (widget.movie == null) return;
@@ -55,14 +57,16 @@ class _StackWidgetPictureMovieState extends State<StackWidgetPictureMovie> {
       );
 
       if (isAlreadyInHistory) {
+        if (!context.mounted) return;
         ToastUtils.showCustomToast(
           context: context,
-          message: "Movie is Already in History 😉",
+          message: "Movie is Already in History",
           backgroundColor: AppColors.lightYelloColor,
           textColor: AppColors.blackColor,
         );
       } else {
         await HistoryFirestore.addToHistory(widget.movie!);
+        if (!context.mounted) return;
         ToastUtils.showCustomToast(
           context: context,
           message: "Movie added to History",
@@ -90,14 +94,11 @@ class _StackWidgetPictureMovieState extends State<StackWidgetPictureMovie> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-
         SizedBox(
           width: double.infinity,
           height: context.height * 0.8,
           child: Image.network(widget.coverImage, fit: BoxFit.cover),
         ),
-
-
         Container(
           height: context.height * 0.8,
           decoration: BoxDecoration(
@@ -106,24 +107,22 @@ class _StackWidgetPictureMovieState extends State<StackWidgetPictureMovie> {
               end: Alignment.bottomCenter,
               colors: [
                 Colors.transparent,
-                Colors.black.withValues(alpha: 0.2),
-                Colors.black,
+                AppColors.blackColor.withValues(alpha: 0.2),
+                AppColors.blackColor,
               ],
             ),
           ),
         ),
-
-
         Positioned.fill(
           child: Column(
             children: [
               SizedBox(height: context.height * 0.22),
+
               InkWell(
-                onTap: () {
-                  DioManager.openMovieUrl(widget.movie?.url);
-                },
+                onTap: watchMovie,
                 child: Image.asset(AppAssets.imagePlaying),
               ),
+
               const Spacer(),
               Text(
                 widget.title,
@@ -133,19 +132,19 @@ class _StackWidgetPictureMovieState extends State<StackWidgetPictureMovie> {
               SizedBox(height: context.height * 0.01),
               Text('${widget.year}', style: AppTextStyles.bold20Gray),
               SizedBox(height: context.height * 0.015),
+
               CustomElevatedButton(
                 horizontalPadding: context.width * 0.38,
                 verticalPadding: context.height * 0.015,
                 sideColor: AppColors.redColor,
                 backgroundColor: AppColors.redColor,
-                onPressed: () {
-                  DioManager.openMovieUrl(widget.movie?.url);
-                },
+                onPressed: watchMovie,
                 child: Text(
                   AppLocalizations.of(context)!.watch,
                   style: AppTextStyles.bold20White,
                 ),
               ),
+
               SizedBox(height: context.height * 0.015),
               Row(
                 children: [

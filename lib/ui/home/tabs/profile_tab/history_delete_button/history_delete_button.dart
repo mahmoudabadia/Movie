@@ -3,6 +3,8 @@ import 'package:movie_app/utils/app_colors.dart';
 import 'package:movie_app/utils/app_text_styles.dart';
 import 'package:movie_app/utils/size_utils.dart';
 
+import '../../../../../l10n/app_localizations.dart';
+
 class HistoryDeleteButton extends StatelessWidget {
   final VoidCallback onPressed;
   const HistoryDeleteButton({super.key, required this.onPressed});
@@ -23,11 +25,8 @@ class HistoryDeleteButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Delete", style: AppTextStyles.regular14Withe),
+            Text(AppLocalizations.of(context)!.delete, style: AppTextStyles.regular14Withe),
 
-            const SizedBox(width: 10),
-
-            Text("🗑️", style: TextStyle(fontSize: 15)),
           ],
         ),
       ),

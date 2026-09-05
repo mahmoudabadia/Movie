@@ -15,9 +15,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get register => 'Register';
 
   @override
-  String get createAccount => 'Create Account';
-
-  @override
   String get alreadyHaveAccount => 'Already Have Account ? ';
 
   @override
@@ -33,10 +30,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get email => 'Email';
 
   @override
-  String get unexpectedError => 'Unexpected error occurred';
-
-  @override
-  String get plsEnterName => 'Please enter your email';
   String get password => 'Password';
 
   @override
@@ -46,10 +39,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get forgetPassword => 'Forget Password ?';
 
   @override
-  String get forgetPasswordTitle => 'Forget Password';
-
-  @override
-  String get warning => 'Warning!!';
   String get resetPassword => 'Reset Password';
 
   @override
@@ -108,9 +97,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get screenShot => 'Screen Shot';
-
-  @override
-  String get noMovies => 'Error loading movies';
 
   @override
   String get welcome => 'Welcome to the Home Screen';
@@ -209,10 +195,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get passwordDontMatch => 'Passwords do not match';
 
   @override
-  String get updatedSucsess => 'Profile Updated Successfully';
-
-  @override
-  String get passSend => 'Password link sent to your email';
   String get loading => 'Loading...';
 
   @override
@@ -237,13 +219,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get deleteSuccess => 'Account Deleted Successfully';
 
   @override
-  String get passSend => 'Password link sent to your email';
-
-  @override
   String get resetPasswordEmailSent => 'Reset password email sent successfully';
 
   @override
-  String get pleaseEnterName => 'Please enter your name';
   String get invalidCredentials => 'Invalid email or password.';
 
   @override
@@ -272,4 +250,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get unexpectedError => 'Unexpected error occurred';
+
+  @override
+  String get noMovie => 'No movie yet';
+
+  @override
+  String get movieDelete => 'Movie Delete Successfully';
+
+  @override
+  String get deleteFailed => 'Delete failed. Please try again.';
+
+  @override
+  String get delete => 'Delete';
 }

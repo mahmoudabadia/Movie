@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+import '../../../api/constants/api_constant.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../utils/app_assets.dart';
 import '../../../utils/app_colors.dart';
@@ -57,7 +58,7 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 SizedBox(height: screenHeight * 0.03),
 
-                AppLogo(),
+                const AppLogo(),
                 SizedBox(height: screenHeight * 0.025),
 
                 CustomTextField(
@@ -67,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
                   fillColor: AppColors.grayColor,
                   borderColor: AppColors.transparent,
                   keyboardType: TextInputType.emailAddress,
-                  prefixIcon: ImageIcon(
+                  prefixIcon: const ImageIcon(
                     AssetImage(AppAssets.iconMail),
                     color: AppColors.whiteColor,
                   ),
@@ -83,11 +84,11 @@ class _LoginPageState extends State<LoginPage> {
                   fillColor: AppColors.grayColor,
                   borderColor: AppColors.transparent,
                   obscureText: true,
-                  prefixIcon: ImageIcon(
+                  prefixIcon: const ImageIcon(
                     AssetImage(AppAssets.iconPass),
                     color: AppColors.whiteColor,
                   ),
-                  suffixIcon: ImageIcon(
+                  suffixIcon: const ImageIcon(
                     AssetImage(AppAssets.iconEyeOff),
                     color: AppColors.whiteColor,
                   ),
@@ -101,7 +102,7 @@ class _LoginPageState extends State<LoginPage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => ForgetPasswordScreen(),
+                          builder: (context) => const ForgetPasswordScreen(),
                         ),
                       );
                     },
@@ -125,28 +126,28 @@ class _LoginPageState extends State<LoginPage> {
                     onPressed: isLoading
                         ? () {}
                         : () {
-                            if (formKey.currentState?.validate() ?? true) {
-                              login();
-                            }
-                          },
+                      if (formKey.currentState?.validate() ?? true) {
+                        login();
+                      }
+                    },
                     child: isLoading
                         ? const SizedBox(
-                            height: 24,
-                            width: 24,
-                            child: CircularProgressIndicator(
-                              color: AppColors.blackColor,
-                              strokeWidth: 2.5,
-                            ),
-                          )
+                      height: 24,
+                      width: 24,
+                      child: CircularProgressIndicator(
+                        color: AppColors.blackColor,
+                        strokeWidth: 2.5,
+                      ),
+                    )
                         : Text(
-                            localizations?.login ?? '',
-                            style: AppTextStyles.bold20Black,
-                          ),
+                      localizations?.login ?? '',
+                      style: AppTextStyles.bold20Black,
+                    ),
                   ),
                 ),
                 SizedBox(height: screenHeight * 0.025),
 
-                CreateAccountRow(),
+                const CreateAccountRow(),
                 SizedBox(height: screenHeight * 0.03),
 
                 DividerWithText(text: localizations?.or ?? ''),
@@ -158,18 +159,26 @@ class _LoginPageState extends State<LoginPage> {
                   redius: 15,
                   verticalPadding: 14,
                   onPressed: () async {
+                    // حفظ كائن النصوص قبل الـ async
+                    final localizationsObj = AppLocalizations.of(context);
+
                     UserCredential? userCredential = await signInWithGoogle();
+
+                    if (!mounted) return;
+
                     if (userCredential != null) {
                       Navigator.pushReplacementNamed(
                         context,
                         AppRoutes.homeRouteName,
                       );
 
-                      showSnackBar(
-                        AppLocalizations.of(context)!.loginSuccess,
-                        context,
-                        isError: false,
-                      );
+                      if (localizationsObj != null) {
+                        showSnackBar(
+                          localizationsObj.loginSuccess,
+                          context,
+                          isError: false,
+                        );
+                      }
                     }
                   },
                   child: Row(
@@ -207,7 +216,7 @@ class _LoginPageState extends State<LoginPage> {
   Future<UserCredential?> signInWithGoogle() async {
     try {
       await GoogleSignIn.instance.initialize(
-        serverClientId: 'YOUR_WEB_CLIENT_ID.apps.googleusercontent.com',
+        serverClientId: ApiConstants.clientId,
       );
 
       final GoogleSignInAccount googleUser = await GoogleSignIn.instance
@@ -221,12 +230,13 @@ class _LoginPageState extends State<LoginPage> {
 
       return await FirebaseAuth.instance.signInWithCredential(credential);
     } catch (e) {
-      debugPrint("Google Sign-In Error: $e");
       return null;
     }
   }
 
   void login() async {
+    final localizations = AppLocalizations.of(context)!;
+
     setState(() {
       isLoading = true;
     });
@@ -242,8 +252,9 @@ class _LoginPageState extends State<LoginPage> {
       await Future.wait([loginFuture, delayFuture]);
 
       if (!mounted) return;
+
       showSnackBar(
-        AppLocalizations.of(context)!.loginSuccess,
+        localizations.loginSuccess,
         context,
         isError: false,
       );
@@ -259,9 +270,9 @@ class _LoginPageState extends State<LoginPage> {
       DialogUtils.showMessage(
         backgroundColor: AppColors.grayColor,
         context: context,
-        message: _getAuthErrorMessage(e.code, context),
-        title: AppLocalizations.of(context)!.error,
-        posActionName: AppLocalizations.of(context)!.ok,
+        message: _getAuthErrorMessage(e.code, localizations),
+        title: localizations.error,
+        posActionName: localizations.ok,
         posAction: () {},
       );
     } catch (e) {
@@ -274,17 +285,15 @@ class _LoginPageState extends State<LoginPage> {
       DialogUtils.showMessage(
         backgroundColor: AppColors.grayColor,
         context: context,
-        message: AppLocalizations.of(context)!.error,
-        title: AppLocalizations.of(context)!.error,
-        posActionName: AppLocalizations.of(context)!.ok,
+        message: localizations.error,
+        title: localizations.error,
+        posActionName: localizations.ok,
         posAction: () {},
       );
     }
   }
 
-  String _getAuthErrorMessage(String errorCode, BuildContext context) {
-    final localizations = AppLocalizations.of(context)!;
-
+  String _getAuthErrorMessage(String errorCode, AppLocalizations localizations) {
     switch (errorCode) {
       case 'user-not-found':
       case 'wrong-password':

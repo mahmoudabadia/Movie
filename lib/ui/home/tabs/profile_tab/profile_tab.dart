@@ -168,7 +168,7 @@ class _ProfileTabState extends State<ProfileTab> {
                                 context: context,
                                 message: AppLocalizations.of(
                                   context,
-                                )!.make_sure,
+                                )!.makeSureLogout,
                                 title: AppLocalizations.of(context)!.warning,
                                 posActionName: AppLocalizations.of(
                                   context,

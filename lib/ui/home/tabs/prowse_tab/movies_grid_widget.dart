@@ -28,7 +28,7 @@ class MoviesGridWidget extends StatelessWidget {
         } else if (snapshot.hasError || snapshot.data?.data?.movies == null) {
           return Center(
             child: Text(
-             AppLocalizations.of(context)!.noMovies,
+             AppLocalizations.of(context)!.noMovie,
               style: const TextStyle(color: AppColors.whiteColor),
             ),
           );
@@ -39,7 +39,7 @@ class MoviesGridWidget extends StatelessWidget {
         if (movies.isEmpty) {
           return  Center(
             child: Text(
-              AppLocalizations.of(context)!.noMovies,
+              AppLocalizations.of(context)!.noMovie,
               style: TextStyle(color: AppColors.whiteColor),
             ),
           );
