@@ -27,7 +27,7 @@ class MainWidgetError extends StatelessWidget {
           ElevatedButton(
             onPressed: onPressed,
             child: Text(
-              AppLocalizations.of(context)!.try_again,
+              AppLocalizations.of(context)!.tryAgain,
               style: AppTextStyles.bold20Black,
             ),
           ),

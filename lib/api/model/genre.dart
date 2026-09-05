@@ -1,4 +1,4 @@
-abstract class AppGenres {
+ class AppGenres {
   static const List<String> list = [
     'Action',
     'Adventure',

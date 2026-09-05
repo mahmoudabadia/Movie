@@ -158,12 +158,9 @@ class _LoginPageState extends State<LoginPage> {
                   redius: 15,
                   verticalPadding: 14,
                   onPressed: () async {
-
                     UserCredential? userCredential = await signInWithGoogle();
-                    if (userCredential != null ) {
-
+                    if (userCredential != null) {
                       Navigator.pushReplacementNamed(
-
                         context,
                         AppRoutes.homeRouteName,
                       );
@@ -173,7 +170,6 @@ class _LoginPageState extends State<LoginPage> {
                         context,
                         isError: false,
                       );
-
                     }
                   },
                   child: Row(
@@ -209,15 +205,15 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Future<UserCredential?> signInWithGoogle() async {
-
     try {
+      await GoogleSignIn.instance.initialize(
+        serverClientId: 'YOUR_WEB_CLIENT_ID.apps.googleusercontent.com',
+      );
 
-      final GoogleSignInAccount? googleUser = await GoogleSignIn.instance
+      final GoogleSignInAccount googleUser = await GoogleSignIn.instance
           .authenticate();
-      if (googleUser == null) return null;
 
-      final GoogleSignInAuthentication googleAuth = await googleUser
-          .authentication;
+      final GoogleSignInAuthentication googleAuth = googleUser.authentication;
 
       final OAuthCredential credential = GoogleAuthProvider.credential(
         idToken: googleAuth.idToken,

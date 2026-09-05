@@ -82,7 +82,7 @@ class _CreateUpdateState extends State<CreateUpdate> {
           ),
         ),
         title: Text(
-          AppLocalizations.of(context)!.pick,
+          AppLocalizations.of(context)!.pickAvatar,
           style: AppTextStyles.regular16Yellow,
         ),
         centerTitle: true,
@@ -149,7 +149,7 @@ class _CreateUpdateState extends State<CreateUpdate> {
                     vertical: 4,
                   ),
                   child: Text(
-                    AppLocalizations.of(context)!.reset,
+                    AppLocalizations.of(context)!.resetPassword,
                     style: AppTextStyles.regular20White.copyWith(
                       decoration: TextDecoration.underline,
                       decorationColor: AppColors.yelloColor,
@@ -169,7 +169,7 @@ class _CreateUpdateState extends State<CreateUpdate> {
               backgroundColor: AppColors.redColor,
               sideColor: AppColors.redColor,
               child: Text(
-                AppLocalizations.of(context)!.delete,
+                AppLocalizations.of(context)!.deleteAccount,
                 style: AppTextStyles.regular20White,
               ),
             ),
@@ -192,7 +192,7 @@ class _CreateUpdateState extends State<CreateUpdate> {
                       ),
                     )
                   : Text(
-                      AppLocalizations.of(context)!.update,
+                      AppLocalizations.of(context)!.updateData,
                       style: AppTextStyles.regular20Black,
                     ),
             ),
@@ -266,7 +266,7 @@ class _CreateUpdateState extends State<CreateUpdate> {
     DialogUtils.showMessage(
       backgroundColor: AppColors.grayColor,
       context: context,
-      message: AppLocalizations.of(context)!.deleteAccountSurin,
+      message: AppLocalizations.of(context)!.deleteAccountConfirm,
       title: AppLocalizations.of(context)!.warning,
       posActionName: AppLocalizations.of(context)!.yes,
       posAction: () async {
@@ -323,7 +323,7 @@ class _CreateUpdateState extends State<CreateUpdate> {
       Navigator.pop(context,true);
       ToastUtils.showCustomToast(
         context: context,
-        message: AppLocalizations.of(context)!.updatedSucsess,
+        message: AppLocalizations.of(context)!.updatedSuccess,
         backgroundColor: AppColors.yelloColor,
         textColor: AppColors.blackColor,
         icon: Icons.check_circle,

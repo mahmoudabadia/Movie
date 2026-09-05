@@ -9,13 +9,10 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
-  String get alreadyHaveAccount => 'لديك حساب بالفعل ؟ ';
+  String get login => 'تسجيل الدخول';
 
   @override
-  String get avatar => 'الصورة الشخصية';
-
-  @override
-  String get confirmPassword => 'تأكيد كلمة المرور';
+  String get register => 'إنشاء حساب';
 
   @override
   String get createAccount => 'إنشاء حساب';
@@ -28,90 +25,90 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get updated_sucsess => 'updated Sucsess';
+  String get alreadyHaveAccount => 'لديك حساب بالفعل؟ ';
 
   @override
-  String get screen_shot => 'Screen Shot';
+  String get dontHaveAccount => 'ليس لديك حساب؟ ';
 
   @override
-  String get cast => 'Cast';
+  String get createOne => 'أنشئ حساباً';
 
   @override
-  String get try_again => 'Try Again';
-
-  @override
-  String get similar => 'Similar';
-
-  @override
-  String get watch => 'Watch';
-
-  @override
-  String get pass_send => 'Password Send';
-
-  @override
-  String get error_occur => 'ErrorOccur';
+  String get loginWithGoogle => 'تسجيل الدخول باستخدام جوجل';
 
   @override
   String get unexpectedError => 'حدث خطأ غير متوقع';
 
   @override
   String get plsEnterName => 'يرجى إدخال بريدك الإلكتروني';
+  String get email => 'البريد الإلكتروني';
 
   @override
-  String get summary => 'Summary';
+  String get password => 'كلمة المرور';
 
   @override
-  String get make_sure => 'Make Sure';
+  String get confirmPassword => 'تأكيد كلمة المرور';
+
+  @override
+  String get forgetPassword => 'نسيت كلمة المرور؟';
 
   @override
   String get warning => 'تحذير!!';
 
   @override
   String get yes => 'نعم';
-
-  @override
-  String get dontHaveAccount => 'ليس لديك حساب ؟ ';
-
-  @override
-  String get editProfile => 'تعديل الملف الشخصي';
-
-  @override
-  String get email => 'البريد الإلكتروني';
-
-  @override
-  String get exit => 'خروج';
-
-  @override
-  String get forgetPassword => 'نسيت كلمة المرور ؟';
-
-  @override
   String get forgetPasswordTitle => 'نسيت كلمة المرور';
 
   @override
-  String get history => 'السجل';
+  String get resetPassword => 'إعادة ضبط كلمة المرور';
 
   @override
-  String get homeScreen => 'الشاشة الرئيسية';
-
-  @override
-  String get login => 'تسجيل الدخول';
-
-  @override
-  String get loginWithGoogle => 'تسجيل الدخول باستخدام جوجل';
-
-  @override
-  String get name => 'الاسم';
+  String get verifyEmail => 'تأكيد البريد الإلكتروني';
 
   @override
   String get or => 'أو';
 
   @override
-  String get password => 'كلمة المرور';
+  String get editProfile => 'تعديل الملف الشخصي';
+
+  @override
+  String get updateData => 'تحديث البيانات';
+
+  @override
+  String get deleteAccount => 'حذف الحساب';
+
+  @override
+  String get avatar => 'الصورة الشخصية';
+
+  @override
+  String get pickAvatar => 'اختر صورة شخصية';
+
+  @override
+  String get name => 'الاسم';
 
   @override
   String get phoneNumber => 'رقم الهاتف';
 
   @override
-  String get register => 'إنشاء حساب';
+  String get history => 'السجل';
+
+  @override
+  String get watchList => 'قائمة المشاهدة';
+
+  @override
+  String get genres => 'الأنواع والتصنيفات';
+
+  @override
+  String get cast => 'طاقم العمل';
+
+  @override
+  String get summary => 'القصة / الملخص';
+
+  @override
+  String get similar => 'أفلام مشابهة';
+
+  @override
+  String get watch => 'مشاهدة';
 
   @override
   String get search => 'بحث';
@@ -120,48 +117,48 @@ class AppLocalizationsAr extends AppLocalizations {
   String get seeMore => 'عرض المزيد';
 
   @override
-  String get verifyEmail => 'تأكيد البريد الإلكتروني';
+  String get screenShot => 'لقطة شاشة';
 
   @override
-  String get watchList => 'قائمة المشاهدة';
+  String get noMovies => 'خطأ في تحميل الأفلام';
 
   @override
-  String get welcome => 'مرحبًا بك في الشاشة الرئيسية';
+  String get welcome => 'مرحباً بك في الشاشة الرئيسية';
 
   @override
   String get titleMain => 'اعثر على فيلمك\nالمفضل القادم هنا';
 
   @override
   String get descMain =>
-      'احصل على إمكانية الوصول إلى مكتبة ضخمة من الأفلام التي تناسب جميع الأذواق. بالتأكيد ستعجبك.';
+      'احصل على وصول لمكتبة ضخمة من الأفلام التي تناسب جميع الأذواق. ستعجبك حتماً.';
 
   @override
   String get titleOne => 'اكتشف الأفلام';
 
   @override
   String get descOne =>
-      'استكشف مجموعة واسعة من الأفلام بكل الجودات والأنواع. اعثر على فيلمك المفضل القادم بسهولة.';
+      'استكشف مجموعة واسعة من الأفلام بكافة الجودات والتصنيفات. اعثر على فيلمك المفضل بسهولة.';
 
   @override
-  String get titleTwo => 'استكشف جميع الأنواع';
+  String get titleTwo => 'استكشف جميع التصنيفات';
 
   @override
   String get descTwo =>
-      'اكتشف أفلامًا من كل نوع وبجميع الجودات المتاحة. اعثر على شيء جديد ومثير للمشاهدة كل يوم.';
+      'اكتشف أفلاماً من كل تصنيف وبكافة الجودات المتاحة. اعثر على شيء جديد وممتع لمشاهدته يومياً.';
 
   @override
-  String get titleThree => 'أنشئ قوائم المشاهدة';
+  String get titleThree => 'إنشاء قوائم المشاهدة';
 
   @override
   String get descThree =>
-      'احفظ الأفلام في قائمة المشاهدة الخاصة بك لتتبع ما تريد مشاهدته لاحقًا. استمتع بالأفلام بجودات وأنواع مختلفة.';
+      'احفظ الأفلام في قائمة المشاهدة الخاصة بك لمتابعة ما تريد مشاهدته لاحقاً. استمتع بالأفلام بجودات وتصنيفات متنوعة.';
 
   @override
-  String get titleFour => 'قيّم، راجع، وتعلم';
+  String get titleFour => 'قيّم، راجع، وتعلّم';
 
   @override
   String get descFour =>
-      'شارك أفكارك حول الأفلام التي شاهدتها. تعمق في تفاصيل الأفلام وساعد الآخرين على اكتشاف أفلام رائعة من خلال مراجعاتك.';
+      'شارك آراءك حول الأفلام التي شاهدتها. تعمق في تفاصيل الأفلام وساعد الآخرين في اكتشاف أفلام رائعة مراجعاتك.';
 
   @override
   String get titleFive => 'ابدأ المشاهدة الآن';
@@ -179,19 +176,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get back => 'رجوع';
 
   @override
-  String get pick => 'اختر صورة شخصية';
+  String get warning => 'تنبيه!!';
 
   @override
-  String get reset => 'إعادة تعيين كلمة المرور';
-
-  @override
-  String get delete => 'حذف الحساب';
-
-  @override
-  String get update => 'تحديث البيانات';
-
-  @override
-  String get error => 'خطأ';
+  String get yes => 'نعم';
 
   @override
   String get cancel => 'إلغاء';
@@ -200,18 +188,74 @@ class AppLocalizationsAr extends AppLocalizations {
   String get ok => 'حسناً';
 
   @override
-  String get success => 'نجاح';
+  String get exit => 'خروج';
+
+  @override
+  String get makeSureLogout => 'هل أنت ألكيد من رغبتك في تسجيل الخروج؟';
+
+  @override
+  String get deleteAccountConfirm => 'هل أنت ألكيد من رغبتك في حذف حسابك؟';
+
+  @override
+  String get pleaseEnterName => 'يرجى إدخال الاسم';
+
+  @override
+  String get pleaseEnterEmail => 'يرجى إدخال البريد الإلكتروني';
+
+  @override
+  String get pleaseEnterValidEmail => 'يرجى إدخال بريد إلكتروني صحيح';
+
+  @override
+  String get pleaseEnterYourPass => 'يرجى إدخال كلمة المرور';
+
+  @override
+  String get passValidation => 'يجب ألا تقل كلمة المرور عن 6 أحرف';
+
+  @override
+  String get weakPassword => 'كلمة المرور أدخلتها ضعيفة للغاية.';
+  String get pleaseConfirm => 'يرجى تأكيد كلمة المرور';
+
+  @override
+  String get passwordDontMatch => 'كلمتا المرور غير متطابقتين';
+
+  @override
+  String get updatedSucsess => 'تم تحديث الملف الشخصي بنجاح';
+
+  @override
+  String get passSend =>
+      'تم إرسال رابط إعادة تعيين كلمة المرور إلى بريدك الإلكتروني';
+  String get loading => 'جاري التحميل...';
+
+  @override
+  String get success => 'تم بنجاح';
+
+  @override
+  String get error => 'خطأ';
+
+  @override
+  String get tryAgain => 'حاول مرة أخرى';
 
   @override
   String get loginSuccess => 'تم تسجيل الدخول بنجاح';
 
   @override
-  String get loading => 'جاري التحميل...';
+  String get regSuccess => 'تم إنشاء الحساب بنجاح';
 
   @override
-  String get regSuccess => 'تم التسجيل بنجاح';
+  String get updatedSuccess => 'تم تحديث الملف الشخصي بنجاح';
 
   @override
+  String get deleteSuccess => 'تم حذف الحساب بنجاح';
+
+  @override
+  String get passSend => 'تم إرسال رابط كلمة المرور إلى بريدك الإلكتروني';
+
+  @override
+  String get resetPasswordEmailSent =>
+      'تم إرسال بريد إعادة ضبط كلمة المرور بنجاح';
+
+  @override
+  String get pleaseEnterName => 'يرجى إدخال اسمك';
   String get invalidCredentials =>
       'البريد الإلكتروني أو كلمة المرور غير صحيحة.';
 
@@ -219,7 +263,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get networkError => 'خطأ في الشبكة، يرجى التحقق من اتصالك بالإنترنت.';
 
   @override
-  String get tooManyRequests => 'محاولات كثيرة جدًا. يرجى المحاولة لاحقًا.';
+  String get tooManyRequests => 'محاولات كثيرة جداً. يرجى المحاولة لاحقاً.';
 
   @override
   String get defaultAuthError => 'حدث خطأ ما، يرجى المحاولة مرة أخرى.';
@@ -228,61 +272,17 @@ class AppLocalizationsAr extends AppLocalizations {
   String get emailAlreadyInUse => 'هذا البريد الإلكتروني مسجل بالفعل.';
 
   @override
-  String get invalidEmail => 'يرجى إدخال عنوان بريد إلكتروني صالح.';
-
-  @override
-  String get weakPassword => 'كلمة المرور أدخلتها ضعيفة للغاية.';
-
-  @override
-  String get makeSure => 'هل أنت تأكد من تسجيل الخروج؟';
-
-  @override
-  String get updatedSucsess => 'تم تحديث الملف الشخصي بنجاح';
-
-  @override
-  String get passSend =>
-      'تم إرسال رابط إعادة تعيين كلمة المرور إلى بريدك الإلكتروني';
-
-  @override
-  String get errorOccur => 'حدث خطأ';
-
-  @override
-  String get somethingWentWrong => 'حدث خطأ ما';
-
-  @override
-  String get deleteAccountSurin => 'هل أنت تأكد من أنك تريد حذف حسابك؟';
-
-  @override
-  String get deleteSuccess => 'تم حذف الحساب بنجاح';
-
-  @override
-  String get resetPasswordEmailSent =>
-      'تم إرسال بريد إعادة تعيين كلمة المرور بنجاح';
-
-  @override
-  String get pleaseEnterName => 'يرجى إدخال اسمك';
-
-  @override
-  String get pleaseEnterEmail => 'يرجى إدخال بريدك الإلكتروني';
-
-  @override
-  String get pleaseEnterValidEmail => 'يرجى إدخال بريد إلكتروني صالح';
-
-  @override
-  String get pleaseEnterYourPass => 'يرجى إدخال كلمة المرور';
-
-  @override
-  String get passValidation => 'يجب أن تتكون كلمة المرور من 6 أحرف على الأقل';
-
-  @override
-  String get pleaseConfirm => 'يرجى تأكيد كلمة المرور';
-
-  @override
-  String get passwordDontMatch => 'كلمتا المرور غير متطابقتين';
+  String get weakPassword => 'كلمة المرور المدخلة ضعيفة جداً.';
 
   @override
   String get noUser => 'لا يوجد مستخدم مسجل الدخول حالياً.';
 
   @override
   String get noEmail => 'المستخدم الحالي لا يملك بريداً إلكترونياً.';
+
+  @override
+  String get somethingWentWrong => 'حدث خطأ غير متوقع';
+
+  @override
+  String get unexpectedError => 'حدث خطأ غير متوقع';
 }

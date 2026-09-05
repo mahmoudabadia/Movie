@@ -98,23 +98,17 @@ abstract class AppLocalizations {
     Locale('en'),
   ];
 
-  /// No description provided for @alreadyHaveAccount.
+  /// No description provided for @login.
   ///
   /// In en, this message translates to:
-  /// **'Already Have Account ? '**
-  String get alreadyHaveAccount;
+  /// **'Login'**
+  String get login;
 
-  /// No description provided for @avatar.
+  /// No description provided for @register.
   ///
   /// In en, this message translates to:
-  /// **'Avatar'**
-  String get avatar;
-
-  /// No description provided for @confirmPassword.
-  ///
-  /// In en, this message translates to:
-  /// **'Confirm Password'**
-  String get confirmPassword;
+  /// **'Register'**
+  String get register;
 
   /// No description provided for @createAccount.
   ///
@@ -122,101 +116,11 @@ abstract class AppLocalizations {
   /// **'Create Account'**
   String get createAccount;
 
-  /// No description provided for @genres.
+  /// No description provided for @alreadyHaveAccount.
   ///
   /// In en, this message translates to:
-  /// **'Genres'**
-  String get genres;
-
-  /// No description provided for @createOne.
-  ///
-  /// In en, this message translates to:
-  /// **'Create One'**
-  String get createOne;
-
-  /// No description provided for @updated_sucsess.
-  ///
-  /// In en, this message translates to:
-  /// **'updated Sucsess'**
-  String get updated_sucsess;
-
-  /// No description provided for @screen_shot.
-  ///
-  /// In en, this message translates to:
-  /// **'Screen Shot'**
-  String get screen_shot;
-
-  /// No description provided for @cast.
-  ///
-  /// In en, this message translates to:
-  /// **'Cast'**
-  String get cast;
-
-  /// No description provided for @try_again.
-  ///
-  /// In en, this message translates to:
-  /// **'Try Again'**
-  String get try_again;
-
-  /// No description provided for @similar.
-  ///
-  /// In en, this message translates to:
-  /// **'Similar'**
-  String get similar;
-
-  /// No description provided for @watch.
-  ///
-  /// In en, this message translates to:
-  /// **'Watch'**
-  String get watch;
-
-  /// No description provided for @pass_send.
-  ///
-  /// In en, this message translates to:
-  /// **'Password Send'**
-  String get pass_send;
-
-  /// No description provided for @error_occur.
-  ///
-  /// In en, this message translates to:
-  /// **'ErrorOccur'**
-  String get error_occur;
-
-  /// No description provided for @unexpectedError.
-  ///
-  /// In en, this message translates to:
-  /// **'Unexpected error occurred'**
-  String get unexpectedError;
-
-  /// No description provided for @plsEnterName.
-  ///
-  /// In en, this message translates to:
-  /// **'Please enter your email'**
-  String get plsEnterName;
-
-  /// No description provided for @summary.
-  ///
-  /// In en, this message translates to:
-  /// **'Summary'**
-  String get summary;
-
-  /// No description provided for @make_sure.
-  ///
-  /// In en, this message translates to:
-  /// **'Make Sure'**
-  String get make_sure;
-
-  /// No description provided for @warning.
-  ///
-  /// In en, this message translates to:
-  /// **'Warning!!'**
-  String get warning;
-
-  /// No description provided for @yes.
-  ///
-  /// In en, this message translates to:
-  /// **'Yes'**
-  String get yes;
+  /// **'Already Have Account ? '**
+  String get alreadyHaveAccount;
 
   /// No description provided for @dontHaveAccount.
   ///
@@ -224,11 +128,17 @@ abstract class AppLocalizations {
   /// **'Don\'t Have Account ? '**
   String get dontHaveAccount;
 
-  /// No description provided for @editProfile.
+  /// No description provided for @createOne.
   ///
   /// In en, this message translates to:
-  /// **'Edit Profile'**
-  String get editProfile;
+  /// **'Create One'**
+  String get createOne;
+
+  /// No description provided for @loginWithGoogle.
+  ///
+  /// In en, this message translates to:
+  /// **'Login With Google'**
+  String get loginWithGoogle;
 
   /// No description provided for @email.
   ///
@@ -236,11 +146,21 @@ abstract class AppLocalizations {
   /// **'Email'**
   String get email;
 
-  /// No description provided for @exit.
+  /// No description provided for @password.
   ///
   /// In en, this message translates to:
-  /// **'Exit'**
-  String get exit;
+  /// **'Unexpected error occurred'**
+  String get unexpectedError;
+  /// **'Password'**
+  String get password;
+
+  /// No description provided for @confirmPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your email'**
+  String get plsEnterName;
+  /// **'Confirm Password'**
+  String get confirmPassword;
 
   /// No description provided for @forgetPassword.
   ///
@@ -254,35 +174,19 @@ abstract class AppLocalizations {
   /// **'Forget Password'**
   String get forgetPasswordTitle;
 
-  /// No description provided for @history.
+  /// No description provided for @resetPassword.
   ///
   /// In en, this message translates to:
-  /// **'History'**
-  String get history;
+  /// **'Warning!!'**
+  String get warning;
+  /// **'Reset Password'**
+  String get resetPassword;
 
-  /// No description provided for @homeScreen.
+  /// No description provided for @verifyEmail.
   ///
   /// In en, this message translates to:
-  /// **'Home Screen'**
-  String get homeScreen;
-
-  /// No description provided for @login.
-  ///
-  /// In en, this message translates to:
-  /// **'Login'**
-  String get login;
-
-  /// No description provided for @loginWithGoogle.
-  ///
-  /// In en, this message translates to:
-  /// **'Login With Google'**
-  String get loginWithGoogle;
-
-  /// No description provided for @name.
-  ///
-  /// In en, this message translates to:
-  /// **'Name'**
-  String get name;
+  /// **'Verify Email'**
+  String get verifyEmail;
 
   /// No description provided for @or.
   ///
@@ -290,11 +194,41 @@ abstract class AppLocalizations {
   /// **'OR'**
   String get or;
 
-  /// No description provided for @password.
+  /// No description provided for @editProfile.
   ///
   /// In en, this message translates to:
-  /// **'Password'**
-  String get password;
+  /// **'Edit Profile'**
+  String get editProfile;
+
+  /// No description provided for @updateData.
+  ///
+  /// In en, this message translates to:
+  /// **'Update Data'**
+  String get updateData;
+
+  /// No description provided for @deleteAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Account'**
+  String get deleteAccount;
+
+  /// No description provided for @avatar.
+  ///
+  /// In en, this message translates to:
+  /// **'Avatar'**
+  String get avatar;
+
+  /// No description provided for @pickAvatar.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick Avatar'**
+  String get pickAvatar;
+
+  /// No description provided for @name.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get name;
 
   /// No description provided for @phoneNumber.
   ///
@@ -302,11 +236,47 @@ abstract class AppLocalizations {
   /// **'Phone Number'**
   String get phoneNumber;
 
-  /// No description provided for @register.
+  /// No description provided for @history.
   ///
   /// In en, this message translates to:
-  /// **'Register'**
-  String get register;
+  /// **'History'**
+  String get history;
+
+  /// No description provided for @watchList.
+  ///
+  /// In en, this message translates to:
+  /// **'Watch List'**
+  String get watchList;
+
+  /// No description provided for @genres.
+  ///
+  /// In en, this message translates to:
+  /// **'Genres'**
+  String get genres;
+
+  /// No description provided for @cast.
+  ///
+  /// In en, this message translates to:
+  /// **'Cast'**
+  String get cast;
+
+  /// No description provided for @summary.
+  ///
+  /// In en, this message translates to:
+  /// **'Summary'**
+  String get summary;
+
+  /// No description provided for @similar.
+  ///
+  /// In en, this message translates to:
+  /// **'Similar'**
+  String get similar;
+
+  /// No description provided for @watch.
+  ///
+  /// In en, this message translates to:
+  /// **'Watch'**
+  String get watch;
 
   /// No description provided for @search.
   ///
@@ -320,17 +290,17 @@ abstract class AppLocalizations {
   /// **'See More'**
   String get seeMore;
 
-  /// No description provided for @verifyEmail.
+  /// No description provided for @screenShot.
   ///
   /// In en, this message translates to:
-  /// **'Verify Email'**
-  String get verifyEmail;
+  /// **'Screen Shot'**
+  String get screenShot;
 
-  /// No description provided for @watchList.
+  /// No description provided for @noMovies.
   ///
   /// In en, this message translates to:
-  /// **'Watch List'**
-  String get watchList;
+  /// **'Error loading movies'**
+  String get noMovies;
 
   /// No description provided for @welcome.
   ///
@@ -428,35 +398,17 @@ abstract class AppLocalizations {
   /// **'Back'**
   String get back;
 
-  /// No description provided for @pick.
+  /// No description provided for @warning.
   ///
   /// In en, this message translates to:
-  /// **'pick Avatar'**
-  String get pick;
+  /// **'Warning!!'**
+  String get warning;
 
-  /// No description provided for @reset.
+  /// No description provided for @yes.
   ///
   /// In en, this message translates to:
-  /// **'Reset Password'**
-  String get reset;
-
-  /// No description provided for @delete.
-  ///
-  /// In en, this message translates to:
-  /// **'Delete Account'**
-  String get delete;
-
-  /// No description provided for @update.
-  ///
-  /// In en, this message translates to:
-  /// **'Update Data'**
-  String get update;
-
-  /// No description provided for @error.
-  ///
-  /// In en, this message translates to:
-  /// **'Error'**
-  String get error;
+  /// **'Yes'**
+  String get yes;
 
   /// No description provided for @cancel.
   ///
@@ -470,11 +422,91 @@ abstract class AppLocalizations {
   /// **'Ok'**
   String get ok;
 
+  /// No description provided for @exit.
+  ///
+  /// In en, this message translates to:
+  /// **'Exit'**
+  String get exit;
+
+  /// No description provided for @makeSureLogout.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to log out?'**
+  String get makeSureLogout;
+
+  /// No description provided for @deleteAccountConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete your account?'**
+  String get deleteAccountConfirm;
+
+  /// No description provided for @pleaseEnterName.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your name'**
+  String get pleaseEnterName;
+
+  /// No description provided for @pleaseEnterEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your email'**
+  String get pleaseEnterEmail;
+
+  /// No description provided for @pleaseEnterValidEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid email address'**
+  String get pleaseEnterValidEmail;
+
+  /// No description provided for @pleaseEnterYourPass.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your password'**
+  String get pleaseEnterYourPass;
+
+  /// No description provided for @passValidation.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 6 characters'**
+  String get passValidation;
+
+  /// No description provided for @pleaseConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Please confirm your password'**
+  String get pleaseConfirm;
+
+  /// No description provided for @passwordDontMatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Passwords do not match'**
+  String get passwordDontMatch;
+
+  /// No description provided for @updatedSucsess.
+  /// No description provided for @loading.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading...'**
+  String get loading;
+
   /// No description provided for @success.
   ///
   /// In en, this message translates to:
   /// **'Success'**
   String get success;
+
+  /// No description provided for @error.
+  ///
+  /// In en, this message translates to:
+  /// **'Error'**
+  String get error;
+
+  /// No description provided for @passSend.
+  /// No description provided for @tryAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Try Again'**
+  String get tryAgain;
 
   /// No description provided for @loginSuccess.
   ///
@@ -482,18 +514,43 @@ abstract class AppLocalizations {
   /// **'Login successful'**
   String get loginSuccess;
 
-  /// No description provided for @loading.
-  ///
-  /// In en, this message translates to:
-  /// **'Loading...'**
-  String get loading;
-
   /// No description provided for @regSuccess.
   ///
   /// In en, this message translates to:
   /// **'Registration successful'**
   String get regSuccess;
 
+  /// No description provided for @updatedSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile Updated Successfully'**
+  String get updatedSuccess;
+
+  /// No description provided for @deleteSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Account Deleted Successfully'**
+  String get deleteSuccess;
+
+  /// No description provided for @passSend.
+  ///
+  /// In en, this message translates to:
+  /// **'Password link sent to your email'**
+  String get passSend;
+
+  /// No description provided for @resetPasswordEmailSent.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset password email sent successfully'**
+  String get resetPasswordEmailSent;
+
+  /// No description provided for @pleaseEnterName.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your name'**
+  String get pleaseEnterName;
+
+  /// No description provided for @pleaseEnterEmail.
   /// No description provided for @invalidCredentials.
   ///
   /// In en, this message translates to:
@@ -524,107 +581,11 @@ abstract class AppLocalizations {
   /// **'This email is already registered.'**
   String get emailAlreadyInUse;
 
-  /// No description provided for @invalidEmail.
-  ///
-  /// In en, this message translates to:
-  /// **'Please enter a valid email address.'**
-  String get invalidEmail;
-
   /// No description provided for @weakPassword.
   ///
   /// In en, this message translates to:
   /// **'The password provided is too weak.'**
   String get weakPassword;
-
-  /// No description provided for @makeSure.
-  ///
-  /// In en, this message translates to:
-  /// **'Are you sure to log out?'**
-  String get makeSure;
-
-  /// No description provided for @updatedSucsess.
-  ///
-  /// In en, this message translates to:
-  /// **'Profile Updated Successfully'**
-  String get updatedSucsess;
-
-  /// No description provided for @passSend.
-  ///
-  /// In en, this message translates to:
-  /// **'Password link sent to your email'**
-  String get passSend;
-
-  /// No description provided for @errorOccur.
-  ///
-  /// In en, this message translates to:
-  /// **'An error occurred'**
-  String get errorOccur;
-
-  /// No description provided for @somethingWentWrong.
-  ///
-  /// In en, this message translates to:
-  /// **'Something went wrong'**
-  String get somethingWentWrong;
-
-  /// No description provided for @deleteAccountSurin.
-  ///
-  /// In en, this message translates to:
-  /// **'Are you sure you want to delete your account?'**
-  String get deleteAccountSurin;
-
-  /// No description provided for @deleteSuccess.
-  ///
-  /// In en, this message translates to:
-  /// **'Account Delete Sccessfully'**
-  String get deleteSuccess;
-
-  /// No description provided for @resetPasswordEmailSent.
-  ///
-  /// In en, this message translates to:
-  /// **'Reset password email sent successfully'**
-  String get resetPasswordEmailSent;
-
-  /// No description provided for @pleaseEnterName.
-  ///
-  /// In en, this message translates to:
-  /// **'Please enter your name'**
-  String get pleaseEnterName;
-
-  /// No description provided for @pleaseEnterEmail.
-  ///
-  /// In en, this message translates to:
-  /// **'Please enter your email'**
-  String get pleaseEnterEmail;
-
-  /// No description provided for @pleaseEnterValidEmail.
-  ///
-  /// In en, this message translates to:
-  /// **'Please enter a valid email'**
-  String get pleaseEnterValidEmail;
-
-  /// No description provided for @pleaseEnterYourPass.
-  ///
-  /// In en, this message translates to:
-  /// **'Please enter your password'**
-  String get pleaseEnterYourPass;
-
-  /// No description provided for @passValidation.
-  ///
-  /// In en, this message translates to:
-  /// **'Password must be at least 6 characters'**
-  String get passValidation;
-
-  /// No description provided for @pleaseConfirm.
-  ///
-  /// In en, this message translates to:
-  /// **'Please confirm your password'**
-  String get pleaseConfirm;
-
-  /// No description provided for @passwordDontMatch.
-  ///
-  /// In en, this message translates to:
-  /// **'Passwords do not match'**
-  String get passwordDontMatch;
 
   /// No description provided for @noUser.
   ///
@@ -637,6 +598,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'The current user does not have an email.'**
   String get noEmail;
+
+  /// No description provided for @somethingWentWrong.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong'**
+  String get somethingWentWrong;
+
+  /// No description provided for @unexpectedError.
+  ///
+  /// In en, this message translates to:
+  /// **'Unexpected error occurred'**
+  String get unexpectedError;
 }
 
 class _AppLocalizationsDelegate

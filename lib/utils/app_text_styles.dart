@@ -90,6 +90,11 @@ class AppTextStyles {
     fontWeight: FontWeight.w400,
     color: AppColors.whiteColor,
   );
+  static final TextStyle regular16Black = inter(
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+    color: AppColors.blackColor,
+  );
   static final TextStyle regular16Yellow = inter(
     fontSize: 16,
     fontWeight: FontWeight.w400,
@@ -111,5 +116,10 @@ class AppTextStyles {
     fontSize: 14,
     fontWeight: FontWeight.bold,
     color: AppColors.yelloColor,
+  );
+  static final TextStyle bold14Black = inter(
+    fontSize: 14,
+    fontWeight: FontWeight.bold,
+    color: AppColors.blackColor,
   );
 }

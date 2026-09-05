@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:movie_app/ui/home/tabs/profile_tab/history_firestore/history_firestore.dart';
 import 'package:movie_app/ui/home/tabs/profile_tab/watch_list.dart';
 import 'package:movie_app/utils/app_routes.dart';
 import '../../../../l10n/app_localizations.dart';
@@ -96,7 +97,16 @@ class _ProfileTabState extends State<ProfileTab> {
                           flex: 3,
                           child: Column(
                             children: [
-                              Text("0", style: AppTextStyles.bold36White),
+                              StreamBuilder<int>(
+                                stream: HistoryFirestore.historyCountStream(),
+                                builder: (context, snapshot) {
+                                  return Text(
+                                    "${snapshot.data ?? 0}",
+                                    style: AppTextStyles.bold36White,
+                                  );
+                                },
+                              ),
+
                               SizedBox(height: context.height * 0.01),
                               Text(
                                 AppLocalizations.of(context)!.history,
@@ -156,8 +166,9 @@ class _ProfileTabState extends State<ProfileTab> {
                               DialogUtils.showMessage(
                                 backgroundColor: AppColors.grayColor,
                                 context: context,
-                                message: AppLocalizations.of(context)!
-                                    .make_sure,
+                                message: AppLocalizations.of(
+                                  context,
+                                )!.make_sure,
                                 title: AppLocalizations.of(context)!.warning,
                                 posActionName: AppLocalizations.of(
                                   context,
@@ -219,7 +230,7 @@ class _ProfileTabState extends State<ProfileTab> {
                       splashFactory: NoSplash.splashFactory,
                       tabs: [
                         Tab(
-                          iconMargin: const EdgeInsets.symmetric(vertical: 16),
+                          iconMargin:  EdgeInsets.symmetric(vertical: 16),
                           text: AppLocalizations.of(context)!.watchList,
                           icon: Image.asset(
                             AppAssets.iconWatchList,
@@ -228,7 +239,7 @@ class _ProfileTabState extends State<ProfileTab> {
                           ),
                         ),
                         Tab(
-                          iconMargin: const EdgeInsets.symmetric(vertical: 6),
+                          iconMargin:  EdgeInsets.symmetric(vertical: 6),
                           text: AppLocalizations.of(context)!.history,
                           icon: Image.asset(
                             AppAssets.iconHistory,
